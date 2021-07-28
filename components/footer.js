@@ -1,29 +1,67 @@
-import Container from '@/components/container'
+import styled from 'styled-components';
+import Container from '@/components/container';
+import { FooterBox } from '@/styles/headings';
+
+const FooterLeft = styled.div`
+  display: flex;
+`;
+
+const FooterRight = styled.div`
+  display: flex;
+  width: 100%;
+  @media (min-width: 520px) {
+    width: auto;
+    margin-left: auto;
+  }
+`;
 
 export default function Footer() {
   return (
-    <footer className="mb-4">
+    <FooterBox>
       <Container>
-        <div className="border-t border-black py-4">
-          <div className="flex flex-wrap text-xs">
-            <div className="flex space-x-1 mb-1 md:mb-0">
-              <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-500 focus:text-gray-500">MIT License</a>
+        <div className="border-top py-2">
+          <div className="flex flex-wrap">
+            <FooterLeft>
+              <a
+                href="https://opensource.org/licenses/MIT"
+                target="_blank"
+                rel="noopener noreferrer">
+                Instagram
+              </a>
+              <span className="block sm-spacing">&bull;</span>
+              <span className="block sm-spacing">
+                <a
+                  href="https://github.com/samuelgoddard/next-tailwind-motion"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Twitter
+                </a>
+              </span>
+              <span className="block sm-spacing">&bull;</span>
+              <span className="block sm-spacing">
+                <a
+                  href="https://twitter.com/samuelgoddard"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Facebook
+                </a>
+              </span>
+            </FooterLeft>
 
-              <span className="block">&bull;</span>
-
-              <span className="block"><a href="https://github.com/samuelgoddard/next-tailwind-motion" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-500 focus:text-gray-500">Github</a></span>
-
-              <span className="block">&bull;</span>
-
-              <span className="block"><a href="https://twitter.com/samuelgoddard" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-500 focus:text-gray-500">Twitter</a></span>
-            </div>
-
-            <div className="md:ml-auto w-full md:w-auto flex space-x-1">
-              <span className="block">Maintained by <a href="https://samgoddard.co.uk" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-500 focus:text-gray-500">Sam Goddard</a></span>
-            </div>
+            <FooterRight>
+              <span className="block">
+                Maintained by{' '}
+                <a
+                  href="https://godwinebikwo.dev"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Godwin Ebikwo
+                </a>
+              </span>
+            </FooterRight>
           </div>
         </div>
       </Container>
-    </footer>
-  )
+    </FooterBox>
+  );
 }

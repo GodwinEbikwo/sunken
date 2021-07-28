@@ -1,46 +1,36 @@
 {
-  "name": "next-tailwind-motion",
-  "description": "A simple Next.js starter kit with TailwindCSS (JIT) and Framer Motion preconfigured",
-  "author": "Sam Goddard <hello@samgoddard.co.uk> (https://samgoddard.co.uk)",
+  "name": "sunken",
+  "description": "A simple Next.js starter kit with Framer Motion",
   "version": "1.0.0",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:samuelgoddard/next-tailwind-motion.git"
-  },
-  "bugs": {
-    "url": "https://github.com/samuelgoddard/next-tailwind-motion/issues"
-  },
   "license": "ISC",
   "keywords": [
     "nextjs",
     "next",
-    "tailwind",
     "framer",
     "motion",
     "preact"
   ],
-  "homepage": "https://sg-next-tailwind-motion.vercel.app/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "classnames": "^2.3.1",
+    "embla-carousel": "^4.5.3",
     "framer-motion": "^4.1.17",
     "locomotive-scroll": "^4.1.1",
     "next": "^11.0.1",
     "next-seo": "^4.26.0",
-    "postcss-import": "^14.0.0",
-    "postcss-nested": "^5.0.5",
-    "postcss-preset-env": "^6.7.0",
+    "next-themes": "^0.0.15",
     "preact": "^10.5.13",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-locomotive-scroll": "^0.1.8"
+    "react-intersection-observer": "^8.32.0",
+    "react-locomotive-scroll": "^0.1.8",
+    "styled-components": "^5.2.3"
   },
   "devDependencies": {
-    "autoprefixer": "^10.2.6",
-    "postcss": "^8.3.5",
-    "tailwindcss": "^2.2.4"
+    "babel-plugin-styled-components": "^1.12.0"
   }
 }
