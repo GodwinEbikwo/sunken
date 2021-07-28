@@ -26,7 +26,7 @@ export default function Navigation() {
 
         <Link href="/" passHref>
           <Logo>
-            <Image src="/logo.svg" height={50} width={50} />
+            <Image src="/logo.svg" height={50} width={50} alt="logo" />
           </Logo>
         </Link>
 
@@ -85,7 +85,7 @@ export const Nav = styled.nav`
   font-weight: 500;
 `;
 
-export const NavList = styled.div`
+export const NavList = styled.ul`
   display: flex;
   justify-content: space-between;
   width: 10.764vw;

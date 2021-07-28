@@ -29,7 +29,8 @@ export default function Hero() {
         <div className="b-image_wrapper" data-scroll data-scroll-repeat>
           <div className="b-image bgWrap" data-scroll>
             <Image
-              src="https://res.cloudinary.com/godwinebikwo/image/upload/e_grayscale/v1627453729/jason-wang-NxAwryAbtIw-unsplash_ltdiyg.jpg"
+              alt="beautiful image"
+              src="https://res.cloudinary.com/godwinebikwo/image/upload/v1627453729/jason-wang-NxAwryAbtIw-unsplash_ltdiyg.jpg"
               quality="95"
               layout="fill"
               objectFit="cover"
