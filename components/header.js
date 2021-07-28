@@ -1,45 +1,82 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
-import { m } from 'framer-motion';
+import { m, LazyMotion, domAnimation } from 'framer-motion';
 import { fade } from '@/helpers/transitions';
 import FancyLink from './fancyLink';
+import FancySpan from './fancySpan';
+
+const navLogoReveal = {
+  initial: { y: '-100%' },
+  enter: {
+    y: 0,
+    transition: {
+      delay: 0.35,
+      duration: 1,
+      ease: [0.83, 0, 0.17, 1],
+    },
+  },
+  exit: {
+    y: '100%',
+    transition: { duration: 1, ease: [0.83, 0, 0.17, 1] },
+  },
+};
 
 export default function Navigation() {
   return (
-    <m.div variants={fade}>
-      <Header>
-        <Nav>
-          <NavList>
-            <li>
-              <span>
+    <LazyMotion features={domAnimation}>
+      <m.div
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        variants={{
+          enter: { transition: { staggerChildren: 0.08, delay: 0.2 } },
+        }}>
+        <Header>
+          <Nav>
+            <NavList>
+              <li>
+                <span>
+                  <FancySpan>
+                    <m.div variants={navLogoReveal} className="block">
+                      <FancyLink
+                        destination="/contact"
+                        a11yText="Navigate to the contact page"
+                        label="Contact"
+                        className="link link--metis"
+                      />
+                    </m.div>
+                  </FancySpan>
+                </span>
+              </li>
+            </NavList>
+          </Nav>
+
+          <Link href="/" passHref>
+            <Logo>
+              <FancySpan>
+                <m.span variants={navLogoReveal} className="block">
+                  <Image src="/logo.svg" height={50} width={50} alt="logo" />
+                </m.span>
+              </FancySpan>
+            </Logo>
+          </Link>
+
+          <CartContainer>
+            <FancySpan>
+              <m.div variants={navLogoReveal} className="block">
                 <FancyLink
-                  destination="/contact"
-                  a11yText="Navigate to the contact page"
-                  label="Contact"
+                  destination="/menu"
+                  a11yText="Navigate to the menu"
+                  label="menu"
                   className="link link--metis"
                 />
-              </span>
-            </li>
-          </NavList>
-        </Nav>
-
-        <Link href="/" passHref>
-          <Logo>
-            <Image src="/logo.svg" height={50} width={50} alt="logo" />
-          </Logo>
-        </Link>
-
-        <CartContainer>
-          <FancyLink
-            destination="/menu"
-            a11yText="Navigate to the menu"
-            label="menu"
-            className="link link--metis"
-          />
-        </CartContainer>
-      </Header>
-    </m.div>
+              </m.div>
+            </FancySpan>
+          </CartContainer>
+        </Header>
+      </m.div>
+    </LazyMotion>
   );
 }
 

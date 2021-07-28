@@ -304,7 +304,7 @@ html,
   }
 }
 
-  .img {
+  .a-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -316,7 +316,7 @@ html,
   }
 
    &.is-inview {
-    .img {
+    .a-img {
       opacity: 1;
       transform: scale(1) rotate(0deg);
       transition-delay: 0.45s;

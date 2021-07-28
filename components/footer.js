@@ -23,7 +23,7 @@ export default function Footer() {
           <div className="flex flex-wrap">
             <FooterLeft>
               <a
-                href="https://opensource.org/licenses/MIT"
+                href="/"
                 target="_blank"
                 rel="noopener noreferrer">
                 Instagram
@@ -31,7 +31,7 @@ export default function Footer() {
               <span className="block sm-spacing">&bull;</span>
               <span className="block sm-spacing">
                 <a
-                  href="https://github.com/samuelgoddard/next-tailwind-motion"
+                  href="/"
                   target="_blank"
                   rel="noopener noreferrer">
                   Twitter
@@ -40,7 +40,7 @@ export default function Footer() {
               <span className="block sm-spacing">&bull;</span>
               <span className="block sm-spacing">
                 <a
-                  href="https://twitter.com/samuelgoddard"
+                  href="/"
                   target="_blank"
                   rel="noopener noreferrer">
                   Facebook
@@ -50,7 +50,7 @@ export default function Footer() {
 
             <FooterRight>
               <span className="block">
-                Maintained by{' '}
+                Developed by{' '}
                 <a
                   href="https://godwinebikwo.dev"
                   target="_blank"
