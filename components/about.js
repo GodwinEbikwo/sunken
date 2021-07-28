@@ -216,7 +216,7 @@ export default function About() {
                   height={488}
                   alt="5n6"
                   quality="85"
-                  className="img"
+                  className="a-img"
                 />
               </div>
             </m.div>
