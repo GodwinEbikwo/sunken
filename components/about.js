@@ -92,19 +92,7 @@ export default function About() {
 
                 <FancySpan>
                   <m.span className="block" variants={revealInOut}>
-                    design achitecture, Segun Sowunmi. We work together
-                  </m.span>
-                </FancySpan>
-
-                <FancySpan>
-                  <m.span className="block" variants={revealInOut}>
-                    to bring your project one step closer to reality by using
-                  </m.span>
-                </FancySpan>
-
-                <FancySpan>
-                  <m.span className="block" variants={revealInOut}>
-                    creative direction, 3D visualisations and motion design.
+                    design achitecture and interior, Segun Sowunmi.
                   </m.span>
                 </FancySpan>
               </p>

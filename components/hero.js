@@ -92,8 +92,6 @@ const HeroTitle = styled.h1`
   font-weight: 600;
   color: var(--text-black);
   font-family: var(--font);
-  /* font-feature-settings: 'liga', 'clig';
-  font-variant-ligatures: common-ligatures; */
   margin-left: -0.9em;
   margin-right: 0.4em;
 `;
