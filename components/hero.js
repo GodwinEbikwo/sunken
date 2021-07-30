@@ -25,20 +25,22 @@ export default function Hero() {
         </HeroTitle>
       </m.aside>
 
-      <aside className="b-speed-block" data-scroll>
-        <div className="b-image_wrapper" data-scroll data-scroll-repeat>
-          <div className="b-image bgWrap" data-scroll>
-            <Image
-              alt="beautiful image"
-              src="https://res.cloudinary.com/godwinebikwo/image/upload/v1627453729/jason-wang-NxAwryAbtIw-unsplash_ltdiyg.jpg"
-              quality="95"
-              layout="fill"
-              objectFit="cover"
-              className="b-speed-block_image img not-selectable"
-            />
+      <m.aside variants={fade}>
+        <div className="b-speed-block" data-scroll>
+          <div className="b-image_wrapper" data-scroll data-scroll-repeat>
+            <div className="b-image bgWrap" data-scroll>
+              <Image
+                alt="beautiful image"
+                src="https://res.cloudinary.com/godwinebikwo/image/upload/v1627453729/jason-wang-NxAwryAbtIw-unsplash_ltdiyg.jpg"
+                quality="95"
+                layout="fill"
+                objectFit="cover"
+                className="b-speed-block_image img not-selectable"
+              />
+            </div>
           </div>
         </div>
-      </aside>
+      </m.aside>
     </HeroBox>
   );
 }
@@ -47,10 +49,6 @@ const HeroBox = styled.section`
   position: relative;
   height: 65vh;
   transition: all var(--easing) 350ms;
-
-  .grayscale {
-    filter: grayscale(100%);
-  }
 
   @media (min-width: 800px) {
     height: 100vh;

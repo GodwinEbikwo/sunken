@@ -34,8 +34,9 @@ export const GlobalStyles = createGlobalStyle`
   --black: #111;
   --white: #f8f8f8;
 
-  --accent-1: #d3fd50;
+  --accent-1: #dc2f02;
   --accent-2: hsl(252, 83%, 87%);
+  --accent-3: #001d3d;
 
   --font: 'Helvetica Neue', sans-serif;
   --secondary-font: 'F37-M', 'Helvetica Neue', sans-serif;
@@ -109,6 +110,7 @@ html,
   html {
     font-size: 62.5%;
     background-color: var(--fg);
+    font-family: sans-serif;
     &:not(.has-scroll-init) {
       cursor: wait;
       overflow: hidden;
@@ -125,6 +127,10 @@ html,
     line-height: 1.3;
     font-size: 1.7rem;
     color: var(--text-white);
+    &.no-scroll {
+      overflow-y: hidden;
+      touch-action: none;
+    }
   }
 
   li,
@@ -155,6 +161,14 @@ html,
      margin: auto;
   }
 
+  .w-full{
+    width: 100%;
+  }
+
+  .h-full{
+    height: 100%;
+  }
+
   .relative {
     position: relative;
   }
@@ -169,6 +183,19 @@ html,
 
   .flex-wrap {
     flex-wrap: wrap;
+  }
+
+  .mt-auto {
+    margin-top: auto;
+  }
+
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .flex-column {
+    flex-direction: column
   }
 
   .align-center {
@@ -207,6 +234,10 @@ html,
 
   .overflow-hidden {
     overflow: hidden;
+  }
+
+  .grayscale {
+    filter: grayscale(100%);
   }
 
   .center {
@@ -407,10 +438,17 @@ html,
   .embla__slide {
     opacity: .25;
     transition: opacity var(--easing) 300ms !important;
+
+    .enmla__slide_content_box {
+      visibility: hidden
+    }
   }
 
   .is-selected {
     opacity: 1;
+    .enmla__slide_content_box {
+      visibility: visible;
+    }
     .embla__slide__title {
      -webkit-text-fill-color: var(--text-white);
     }

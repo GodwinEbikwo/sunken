@@ -5,24 +5,26 @@ import { m, LazyMotion, domAnimation } from 'framer-motion';
 import { fade } from '@/helpers/transitions';
 import FancyLink from './fancyLink';
 import FancySpan from './fancySpan';
+import Menu from './menu';
+import { useMenu } from '@/helpers/menuState';
 
 const navLogoReveal = {
   initial: { y: '-100%' },
   enter: {
     y: 0,
     transition: {
-      delay: 0.35,
       duration: 1,
-      ease: [0.83, 0, 0.17, 1],
+      ease: [0.77, 0, 0.175, 1],
     },
   },
   exit: {
     y: '100%',
-    transition: { duration: 1, ease: [0.83, 0, 0.17, 1] },
+    transition: { duration: 1, ease: [0.77, 0, 0.175, 1] },
   },
 };
 
 export default function Navigation() {
+  const { openMenu } = useMenu();
   return (
     <LazyMotion features={domAnimation}>
       <m.div
@@ -65,16 +67,22 @@ export default function Navigation() {
           <CartContainer>
             <FancySpan>
               <m.div variants={navLogoReveal} className="block">
-                <FancyLink
-                  destination="/menu"
-                  a11yText="Navigate to the menu"
-                  label="menu"
-                  className="link link--metis"
-                />
+                <button
+                  type="button"
+                  onClick={openMenu}
+                  style={{ outline: 'none' }}
+                  aria-label="open cart">
+                  <div className="flex items-center">
+                    <a className="link link--metis">
+                      <span>Menu</span>
+                    </a>
+                  </div>
+                </button>
               </m.div>
             </FancySpan>
           </CartContainer>
         </Header>
+        <Menu />
       </m.div>
     </LazyMotion>
   );

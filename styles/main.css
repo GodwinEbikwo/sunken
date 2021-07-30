@@ -84,3 +84,35 @@ html.has-scroll-dragging {
   right: auto;
   bottom: 0;
 }
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button {
+  font-family: inherit;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.row-letter {
+  font-size: 3rem;
+  font-weight: 500;
+  position: relative;
+  letter-spacing: -0.1rem;
+  display: inline-block;
+  white-space: nowrap;
+}

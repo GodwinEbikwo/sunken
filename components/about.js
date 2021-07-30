@@ -132,7 +132,7 @@ export default function About() {
             <m.div className="admo" data-scroll>
               <div className="w-full first" data-scroll>
                 <Image
-                  src="https://res.cloudinary.com/godwinebikwo/image/upload/v1625124781/spacejoy-umAXneH4GhA-unsplash_ynu5ej.jpg"
+                  src="https://res.cloudinary.com/godwinebikwo/image/upload/v1627588899/amira-aboalnaga-f9O-1eKGlQM-unsplash_kg1rwm.jpg"
                   width={679}
                   height={388}
                   alt="5n6"

@@ -9,8 +9,8 @@ import { useInView } from 'react-intersection-observer';
 import FancySpan from './fancySpan';
 
 export const Carousel = () => {
-   const newControls = useAnimation();
-   const { ref, inView } = useInView();
+  const newControls = useAnimation();
+  const { ref, inView } = useInView({ trackVisibility: true, delay: 250 });
   const [viewportRef, embla] = useEmblaCarousel({
     align: 'center',
     skipSnaps: false,
@@ -48,12 +48,15 @@ export const Carousel = () => {
             <CarouselTitle ref={ref}>
               <FancySpan>
                 <m.span variants={revealInOut} className="block">
-                  History
+                  Selected Work
                 </m.span>
               </FancySpan>
             </CarouselTitle>
             <m.div variants={fadeSmallDelay} ref={ref}>
-              <p className="text-center py-2">A look back in time</p>
+              <p className="text-center py-2">
+                A look at some of our selected works our client are extremely
+                proud of.{' '}
+              </p>
             </m.div>
           </m.div>
         </aside>
@@ -116,7 +119,7 @@ function ImageWrapper({ src }) {
         alt="building"
         className="embla__slide__img will-change"
       />
-      <div className="py-2">
+      <div className="py-2 enmla__slide_content_box">
         <h2 className="embla__slide__title">The lockwood - 2011</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
@@ -131,13 +134,15 @@ const CarouselBox = styled.div`
 `;
 
 const CarouselTitle = styled.h1`
-  margin-bottom: var(--spacer-half);
+  /* margin-bottom: var(--spacer-half); */
   text-align: center;
-  font-size: 7.7vw;
+  font-size: 4.5vw;
+  font-weight: 600;
   line-height: 0.9;
+  letter-spacing: var(--ls-lg);
   text-transform: uppercase;
   color: var(--text-white);
-  font-family: var(--secondary-font);
+  /* font-family: var(--secondary-font); */
   font-feature-settings: 'liga', 'clig';
   font-variant-ligatures: common-ligatures;
 `;
