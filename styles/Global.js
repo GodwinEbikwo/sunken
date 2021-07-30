@@ -436,9 +436,12 @@ html,
 .embla__container {
   
   h2 {
-    font-size: 2.75vw;
+    font-size: 6.5vw;
     font-weight: 500;
     letter-spacing: var(--ls-lg);
+    @media (min-width: 768px) {
+      font-size: 2.5vw;
+    }
   }
 
   .embla__slide {
@@ -454,9 +457,6 @@ html,
     opacity: 1;
     .enmla__slide_content_box {
       visibility: visible;
-    }
-    .embla__slide__title {
-     -webkit-text-fill-color: var(--text-white);
     }
   }
 }

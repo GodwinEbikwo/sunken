@@ -45,7 +45,7 @@ export const Carousel = () => {
             animate={newControls}
             initial="initial"
             exit="exit">
-            <CarouselTitle ref={ref}>
+            <CarouselTitle ref={ref} className="py-2">
               <FancySpan>
                 <m.span variants={revealInOut} className="block">
                   Selected Work
@@ -125,7 +125,6 @@ function ImageWrapper({ src }) {
       />
       <div className="py-2 enmla__slide_content_box">
         <h2 className="embla__slide__title">The lockwood - 2011</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
     </m.div>
   );
@@ -139,7 +138,7 @@ const CarouselBox = styled.div`
 
 const CarouselTitle = styled.h1`
   text-align: center;
-  font-size: 10vw;
+  font-size: 9vw;
   font-weight: 600;
   line-height: 0.9;
   letter-spacing: var(--ls-lg);
