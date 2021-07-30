@@ -131,6 +131,10 @@ html,
       overflow-y: hidden;
       touch-action: none;
     }
+    &.loading{
+      overflow: hidden;
+      height: 100vh;
+    }
   }
 
   li,
@@ -451,6 +455,89 @@ html,
     }
     .embla__slide__title {
      -webkit-text-fill-color: var(--text-white);
+    }
+  }
+}
+
+.loader {
+  .loader-inner {
+    .image-block {
+      position: absolute;
+      transform-origin: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &.image-1 {
+        width: 400px;
+        left: 16%;
+        bottom: 14%;
+        @media (max-width: 420px) {
+          left: 4%;
+          bottom: 28%;
+        }
+      }
+      &.image-3 {
+        width: 300px;
+        right: 12%;
+        top: 8%;
+        @media (max-width: 420px) {
+          top: 16%;
+          right: 4%;
+        }
+      }
+      &.image-4 {
+        max-width: 400px;
+        width: 40%;
+        right: 20%;
+        bottom: 10%;
+        @media (max-width: 420px) {
+          right: 6%;
+          bottom: 32%;
+        }
+      }
+      &.image-5 {
+        width: 280px;
+        left: 14%;
+        top: 12%;
+        @media (max-width: 420px) {
+          left: 6%;
+          top: 18%;
+        }
+      }
+      img {
+        width: 100%;
+        object-fit: fill;
+      }
+    }
+  }
+}
+
+.transition-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 800px;
+    display: flex;
+  }
+  &.final {
+    display: block;
+    top: -128px;
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    z-index: -100;
+    @media (max-width: $layout-breakpoint-xsmall) {
+      top: -56px;
+    }
+    img {
+      width: 100%;
+      max-width: 100%;
     }
   }
 }

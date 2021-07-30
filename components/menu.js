@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { m, useAnimation } from 'framer-motion';
 import FancySpan from './fancySpan';
 import { useInView } from 'react-intersection-observer';
-import { menuInOut, } from '@/helpers/transitions';
+import { menuInOut } from '@/helpers/transitions';
 
 export function useOnClickOutside(ref, handler) {
   useEffect(() => {
@@ -35,7 +35,6 @@ export const linerevealIn = {
     transition: { duration: 1, ease: [0.83, 0, 0.17, 1] },
   },
 };
-
 
 export default function Menu() {
   const closeRef = useRef();
@@ -157,10 +156,6 @@ const MenuBox = styled.aside`
 
   @media (max-width: 767px) {
     min-width: 100%;
-  }
-
-  p {
-    letter-spacing: var(--ls-lg);
   }
 
   .header-container {

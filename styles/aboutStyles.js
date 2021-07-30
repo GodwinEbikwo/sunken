@@ -4,7 +4,7 @@ export const AboutBox = styled.aside`
   position: relative;
   min-height: 100vh;
   @media (min-width: 600px) {
-    margin: -2rem var(--golden-ratio);
+    margin: 0 var(--spacer-half);
   }
 `;
 

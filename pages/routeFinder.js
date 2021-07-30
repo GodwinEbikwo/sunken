@@ -8,7 +8,6 @@ import Navigation from '@/components/header';
 import Layout from '@/components/layout';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import { fade, revealIn } from '@/helpers/transitions';
-import Container from '@/components/container';
 
 export default function routeFinder() {
   const containerRef = useRef(null);

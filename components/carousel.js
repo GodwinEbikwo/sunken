@@ -134,15 +134,13 @@ const CarouselBox = styled.div`
 `;
 
 const CarouselTitle = styled.h1`
-  /* margin-bottom: var(--spacer-half); */
   text-align: center;
   font-size: 4.5vw;
   font-weight: 600;
   line-height: 0.9;
   letter-spacing: var(--ls-lg);
   text-transform: uppercase;
-  color: var(--text-white);
-  /* font-family: var(--secondary-font); */
+  font-family: var(--Ros);
   font-feature-settings: 'liga', 'clig';
   font-variant-ligatures: common-ligatures;
 `;
