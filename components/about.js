@@ -12,6 +12,7 @@ import {
   AboutMiddleInner,
   AboutMiddleP,
 } from '@/styles/aboutStyles';
+import Div100vh from 'react-div-100vh';
 
 export default function About() {
   const controls = useAnimation();
@@ -40,7 +41,6 @@ export default function About() {
     if (reveal) {
       controls.start('enter');
     }
-
     if (!reveal) {
       controls.start('hidden');
     }
@@ -58,19 +58,14 @@ export default function About() {
             variants={{
               enter: { transition: { staggerChildren: 0.08, delay: 0.2 } },
             }}>
-            {/* <div className="ab_intro_one">
-            <h1>
-              <FancySpan>
-                <m.span className="block">
-                  At Sunken, we exist to ideate,
-                </m.span>
-                <m.span className="block">visualise, and create a new</m.span>
-                <m.span className="block">era of modern infrastructure.</m.span>
-              </FancySpan>
-            </h1>
-          </div> */}
-
             <div>
+              <div className="ab-text">
+                At Sunken, we exist to ideate, visualise, and create a new era
+                of modern infrastructure. Our team, led by contemporary
+                designer, and leader in modern design achitecture interior,
+                Segun Sowunmi.
+              </div>
+
               <p ref={animateRef}>
                 <FancySpan>
                   <m.span className="block" variants={revealInOut}>
@@ -80,7 +75,7 @@ export default function About() {
 
                 <FancySpan>
                   <m.span className="block" variants={revealInOut}>
-                    a new era of modern infrastructure. Our in-house team,
+                    a new era of modern infrastructure. Our team,
                   </m.span>
                 </FancySpan>
 

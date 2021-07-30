@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 export const ContainerBox = styled.div`
   position: relative;
-  margin-top: var(--spacer);
-  padding-top: var(--spacer-double);
   padding-bottom: var(--spacer-half);
   margin-left: auto;
   margin-right: auto;
@@ -14,8 +12,8 @@ export const ContainerBox = styled.div`
     padding-right: var(--spacer);
   }
 
-  @media (max-width: 1024px) {
-    padding-top: 13vw;
+  @media (min-width: 800px) {
+    padding-top: var(--spacer-double);
   }
 `;
 

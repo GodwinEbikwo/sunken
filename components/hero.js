@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import FancySpan from './fancySpan';
 import { m } from 'framer-motion';
 import { revealInOut, revealInOutReserve, fade } from '@/helpers/transitions';
+import Div100vh from 'react-div-100vh';
 
 export default function Hero() {
   return (
@@ -47,10 +48,9 @@ export default function Hero() {
 
 const HeroBox = styled.section`
   position: relative;
-  height: 65vh;
+  height: 75vh;
   transition: all var(--easing) 350ms;
-
-  @media (min-width: 800px) {
+  @media (min-width: 768px) {
     height: 100vh;
   }
   .m-left {
@@ -58,50 +58,31 @@ const HeroBox = styled.section`
   }
 
   .hero-absolute {
-    padding: 2.25em;
+    padding: 1.25em;
     position: absolute;
     left: var(--spacer);
-    bottom: 22vw;
+    bottom: 3vw;
     background: white;
     overflow: hidden;
+    border-radius: 5px;
     @media (min-width: 800px) {
       bottom: 7vw;
-      border-radius: 5px;
+      padding: 2.25em;
     }
   }
-
-  /* .hero-absolute {
-    position: absolute;
-    margin-left: -0.125em;
-    bottom: 22vw;
-    @media (min-width: 800px) {
-      bottom: 7vw;
-      margin-left: -1.65em;
-    }
-  } */
 `;
 
 const HeroTitle = styled.h1`
-  text-align: start;
-  font-size: 5vw;
+  text-align: center;
+  font-size: 8vw;
   line-height: 0.85;
-  /* text-transform: uppercase; */
   letter-spacing: -0.055em;
   font-weight: 600;
   color: var(--text-black);
-  font-family: var(--font);
-  margin-left: -0.9em;
-  margin-right: 0.4em;
+  @media (min-width: 800px) {
+    text-align: start;
+    margin-left: -0.9em;
+    margin-right: 0.4em;
+    font-size: 5vw;
+  }
 `;
-// const HeroTitle = styled.h1`
-//   margin-bottom: var(--spacer-half);
-//   text-align: start;
-//   font-size: 16.7vw;
-//   letter-spacing: -0.015em;
-//   line-height: 0.85;
-//   text-transform: uppercase;
-//   color: var(--text-white);
-//   font-family: var(--secondary-font);
-//   font-feature-settings: 'liga', 'clig';
-//   font-variant-ligatures: common-ligatures;
-// `;

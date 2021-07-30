@@ -107,10 +107,8 @@ export const Header = styled.header`
   color: white;
 
   @media (max-width: 800px) {
-    padding: var(--spacer) 0;
-    padding-right: var(--spacer);
+    padding: var(--spacer);
     display: flex;
-
     .header_inner {
       display: flex;
       align-items: center;

@@ -52,16 +52,20 @@ export const Carousel = () => {
                 </m.span>
               </FancySpan>
             </CarouselTitle>
-            <m.div variants={fadeSmallDelay} ref={ref}>
+            <m.div variants={fade} ref={ref}>
               <p className="text-center py-2">
-                A look at some of our selected works our client are extremely
-                proud of.{' '}
+                <FancySpan>
+                  <m.span variants={revealInOut} className="block">
+                    A look at some of our selected <br />
+                    works our client are extremely proud of.{' '}
+                  </m.span>
+                </FancySpan>
               </p>
             </m.div>
           </m.div>
         </aside>
 
-        <aside className="embla">
+        <m.aside className="embla" variants={fade}>
           <div className="embla__viewport" ref={viewportRef}>
             <div className="embla__container">
               <div className="embla__slide">
@@ -84,7 +88,7 @@ export const Carousel = () => {
               </div>
             </div>
           </div>
-        </aside>
+        </m.aside>
       </CarouselBox>
     </Container>
   );
@@ -139,8 +143,5 @@ const CarouselTitle = styled.h1`
   font-weight: 600;
   line-height: 0.9;
   letter-spacing: var(--ls-lg);
-  text-transform: uppercase;
-  font-family: var(--Ros);
-  font-feature-settings: 'liga', 'clig';
-  font-variant-ligatures: common-ligatures;
+  text-transform: capitalize;
 `;

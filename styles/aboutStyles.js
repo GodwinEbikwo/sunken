@@ -1,22 +1,19 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
-export const AboutBox = styled.aside`
+export const AboutBox = styled.section`
   position: relative;
   min-height: 100vh;
+  margin-top: calc(var(--spacer) * 4);
   @media (min-width: 600px) {
     margin: 0 var(--spacer-half);
   }
 `;
 
-export const AboutIntro = styled.div`
-  max-width: 100%;
-  padding: var(--spacer-half) var(--golden-ratio);
-  max-width: 90vw;
-
+export const AboutIntro = styled.aside`
+  padding: var(--spacer-half) calc(var(--golden-ratio) + 8px);
   @media (min-width: 800px) {
-    /* max-width: 36.5vw; */
     max-width: 100%;
-    padding: var(--spacer-half) 4vw;
+    padding: var(--spacer-half) var(--spacer);
   }
 
   .ab_intro_inner {
@@ -36,8 +33,17 @@ export const AboutIntro = styled.div`
       }
     }
 
-    p {
+    .ab-text {
       @media (min-width: 600px) {
+        display: none;
+        line-height: 1.4;
+      }
+    }
+
+    p {
+      display: none;
+      @media (min-width: 600px) {
+        display: unset;
         line-height: 1.4;
       }
     }
@@ -45,7 +51,7 @@ export const AboutIntro = styled.div`
 `;
 
 export const AboutMiddle = styled.div`
-  margin-top: 30px;
+  margin-top: 20px;
   position: relative;
   @media (min-width: 600px) {
     margin-top: 150px;
@@ -56,21 +62,30 @@ export const AboutMiddleInner = styled.div`
   max-width: 100%;
   padding: 0 var(--golden-ratio);
 
-  @media (min-width: 600px) {
-    .row {
+  .row {
+    @media (min-width: 600px) {
       display: flex;
       flex-wrap: wrap;
+    }
 
-      .col {
+    .col {
+      width: 100%;
+      padding: var(--golden-ratio) 8px;
+
+      @media (min-width: 600px) {
         width: 50%;
         padding: 0 8px;
+      }
 
+      @media (min-width: 600px) {
         &.has-firstchild {
           &:first-child {
             padding-left: 20%;
           }
         }
+      }
 
+      @media (min-width: 600px) {
         &.has-items-end {
           display: flex;
           align-items: flex-start;
@@ -89,6 +104,11 @@ export const AboutMiddleP = styled.div`
   padding: 0 var(--golden-ratio);
 
   .admo {
+    .first,
+    .second {
+      padding: var(--golden-ratio) 0;
+    }
+
     @media (min-width: 600px) {
       width: 83.333333%;
       display: flex;
@@ -114,107 +134,9 @@ export const AboutMiddleP = styled.div`
           margin-left: 0;
           width: auto;
           position: relative;
-          line-height: 1.4
+          line-height: 1.4;
         }
       }
-    }
-  }
-`;
-
-export const AboutContentN = styled.div`
-  max-width: 100%;
-  padding: 0 var(--golden-ratio);
-  position: relative;
-
-  .a-c-n {
-    @media (min-width: 600px) {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 3em;
-
-      & > div {
-        width: 50%;
-        display: block;
-        padding-left: var(--golden-ratio);
-        padding-right: var(--golden-ratio);
-
-        h2 {
-          font-size: 3vw;
-          letter-spacing: normal;
-          margin-bottom: var(--spacer-half);
-        }
-
-        p {
-          padding: var(--golden-ratio) 0;
-          line-height: 1.5;
-        }
-
-        .arrow-svg {
-          width: 20vw;
-          height: 20vw;
-          padding: 3em;
-          border-radius: 50%;
-          &.rotate {
-            transform: rotate(-180deg);
-          }
-        }
-
-        &.flip {
-          &:first-child {
-            order: 2;
-          }
-        }
-
-        &:last-child {
-          padding: 4em 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-      }
-    }
-  }
-`;
-
-export const AboutContent = styled.div`
-  max-width: 100%;
-  padding: 0 var(--golden-ratio);
-  position: relative;
-
-  @media (min-width: 600px) {
-    .about-content-row {
-      display: flex;
-      position: relative;
-
-      .about-content-col {
-        width: 50%;
-        padding: 0 8px 0;
-        max-width: 41vw;
-
-        &.right {
-          margin-right: 50%;
-        }
-        &.left {
-          margin-left: 50%;
-        }
-
-        h2 {
-          font-size: 3vw;
-          letter-spacing: normal;
-          margin-bottom: var(--spacer-half);
-        }
-
-        p {
-          padding: var(--golden-ratio) 0;
-          line-height: 1.5;
-        }
-      }
-    }
-
-    .about-arrow {
-      position: absolute;
-      top: 0;
     }
   }
 `;

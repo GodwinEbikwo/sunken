@@ -1,8 +1,8 @@
 import { m, LazyMotion, domAnimation } from 'framer-motion';
-import Image from 'next/image';
-import {  fade } from '@/helpers/transitions';
-import styled from "styled-components";
+import { fade } from '@/helpers/transitions';
+import styled from 'styled-components';
 import FancySpan from './fancySpan';
+import Div100vh from 'react-div-100vh';
 
 export const LoaderRevealInOut = {
   hidden: { y: '110%', opacity: 0 },
@@ -10,7 +10,7 @@ export const LoaderRevealInOut = {
     y: '0%',
     opacity: 1,
     transition: {
-      duration: 1.1,
+      duration: 1.5,
       ease: [0.77, 0, 0.175, 1],
       repeat: 1,
       repeatType: 'reverse',
@@ -28,7 +28,7 @@ export const LoaderRevealInOutReserve = {
     y: '0%',
     opacity: 1,
     transition: {
-      duration: 1.1,
+      duration: 1.5,
       ease: [0.77, 0, 0.175, 1],
       repeat: 1,
       repeatType: 'reverse',
@@ -48,72 +48,67 @@ const container = {
   },
 };
 
-export const ImageBlock = ({ posX, posY, variants, id }) => {
-  return (
-    <m.div
-      variants={variants}
-      className={`image-block ${id}`}
-      style={{
-        top: `${posY}vh`,
-        left: `${posX}vw `,
-      }}>
-      <Image
-        width={400}
-        height={200}
-        src="https://res.cloudinary.com/godwinebikwo/image/upload/v1627317608/inside-weather-OzqieLcs464-unsplash_ipy4fb.jpg"
-        alt={id}
-      />
-    </m.div>
-  );
-};
-
-
 const Loader = ({ setLoading }) => {
   return (
     <LazyMotion features={domAnimation}>
-      <m.section className="loader">
-        <m.aside
-          variants={container}
-          onAnimationComplete={() => setLoading(false)}
-          initial="hidden"
-          animate="show"
-          exit="exit"
-          className="loader-inner">
-          <div className="center">
-            <m.div variants={fade}>
-              <LoaderTitle>
-                <FancySpan>
-                  <m.span variants={LoaderRevealInOut} className="inline-block">
-                    Sunken
-                  </m.span>
-                  <m.span
-                    variants={LoaderRevealInOutReserve}
-                    className="inline-block m-left">
-                    Interior
-                  </m.span>
-                </FancySpan>
-              </LoaderTitle>
-            </m.div>
-          </div>
-        </m.aside>
-      </m.section>
+      <Div100vh>
+        <m.div>
+          <m.aside
+            variants={container}
+            onAnimationComplete={() => setLoading(false)}
+            initial="hidden"
+            animate="show"
+            exit="exit">
+            <div className="center">
+              <m.div variants={fade}>
+                <LoaderTitle>
+                  <FancySpan>
+                    <m.span
+                      variants={LoaderRevealInOut}
+                      className="inline-block">
+                      Sunken
+                    </m.span>
+                    <m.span
+                      variants={LoaderRevealInOutReserve}
+                      className="inline-block m-left">
+                      Interior
+                    </m.span>
+                  </FancySpan>
+                </LoaderTitle>
+              </m.div>
+            </div>
+          </m.aside>
+        </m.div>
+      </Div100vh>
     </LazyMotion>
   );
 };
 export default Loader;
 
 const LoaderTitle = styled.h1`
-  text-align: start;
-  font-size: 5vw;
+  text-align: center;
+  font-size: 10vw;
   line-height: 0.85;
+  white-space: nowrap;
   letter-spacing: -0.055em;
   font-weight: 600;
-  font-family: var(--font);
-  margin-left: -0.9em;
-  margin-right: 0.4em;
+  /* font-family: var(--Ros); */
+  @media (min-width: 768px) {
+    font-size: 5vw;
+  }
 
   .m-left {
-    margin-left: 0.15em;
+    margin-left: 0.2em;
+    @media (min-width: 768px) {
+      margin-left: 0.15em;
+    }
   }
 `;
 
+const LoaderBox = styled(m.section)`
+  background-color: var(--accent-1);
+`;
+
+const LoaderInner = styled(m.aside)`
+  background-color: var(--accent-1);
+`;

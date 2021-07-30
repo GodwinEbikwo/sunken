@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { m, useAnimation } from 'framer-motion';
 import FancySpan from './fancySpan';
 import { useInView } from 'react-intersection-observer';
-import { menuInOut } from '@/helpers/transitions';
+import { menuInOut, fade } from '@/helpers/transitions';
 
 export function useOnClickOutside(ref, handler) {
   useEffect(() => {
@@ -32,7 +32,7 @@ export const linerevealIn = {
   },
   exit: {
     x: '100%',
-    transition: { duration: 1, ease: [0.83, 0, 0.17, 1] },
+    transition: { duration: 0.85, ease: [0.83, 0, 0.17, 1] },
   },
 };
 
@@ -64,7 +64,7 @@ export default function Menu() {
                 height="53"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                stroke="var(--text-white)"
+                stroke="var(--black)"
                 strokeWidth="1"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -131,7 +131,7 @@ export default function Menu() {
 
 const MenuBox = styled.aside`
   position: fixed;
-  background-color: var(--fg);
+  background-color: var(--accent-1);
   height: 100vh;
   top: 0;
   right: 0;
@@ -139,19 +139,19 @@ const MenuBox = styled.aside`
   width: 100%;
   max-width: 590px;
   transform: translate3d(100%, 0, 0);
-  transition: transform 1.2s cubic-bezier(0.77, 0, 0.18, 1) 0.1s;
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.18, 1) 0.45s;
   will-change: transform;
   z-index: 5;
   display: grid;
   grid-template-rows: auto 1fr auto;
   padding: 0 calc(var(--golden-ratio) * 2) calc(var(--golden-ratio));
-  color: var(--text-white);
+  color: var(--black);
 
   .line {
     width: 100%;
     height: 1px;
     transform-origin: bottom;
-    background: var(--text-white);
+    background: var(--black);
   }
 
   @media (max-width: 767px) {
@@ -185,7 +185,7 @@ const MenuBox = styled.aside`
   ${(props) =>
     props.open &&
     `transform: translate3d(0, 0, 0); 
-    transition: transform 1s cubic-bezier(.76,0,.24,1);
+    transition: transform 1.1s cubic-bezier(.76,0,.24,1);
     cursor: pointer;`};
 
   footer {
@@ -216,7 +216,7 @@ export const Overlay = styled.div`
     visibility 1.2s cubic-bezier(0.77, 0, 0.18, 1);
   cursor: pointer;
   ${(props) =>
-    props.open && `opacity: 1; visibility: visible; transition-delay: 0.1s;`};
+    props.open && `opacity: 1; visibility: visible; transition-delay: 0.3s;`};
 `;
 
 // const banner = {
