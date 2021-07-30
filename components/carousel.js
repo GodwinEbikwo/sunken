@@ -52,7 +52,7 @@ export const Carousel = () => {
                 </m.span>
               </FancySpan>
             </CarouselTitle>
-            <m.div variants={fade} ref={ref}>
+            {/* <m.div variants={fade} ref={ref}>
               <p className="text-center py-2">
                 <FancySpan>
                   <m.span variants={revealInOut} className="block">
@@ -61,7 +61,7 @@ export const Carousel = () => {
                   </m.span>
                 </FancySpan>
               </p>
-            </m.div>
+            </m.div> */}
           </m.div>
         </aside>
 
@@ -139,9 +139,12 @@ const CarouselBox = styled.div`
 
 const CarouselTitle = styled.h1`
   text-align: center;
-  font-size: 4.5vw;
+  font-size: 10vw;
   font-weight: 600;
   line-height: 0.9;
   letter-spacing: var(--ls-lg);
   text-transform: capitalize;
+  @media (min-width: 768px) {
+    font-size: 4.5vw;
+  }
 `;

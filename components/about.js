@@ -59,7 +59,7 @@ export default function About() {
               enter: { transition: { staggerChildren: 0.08, delay: 0.2 } },
             }}>
             <div>
-              <div className="intro">
+              <div className="ab-text">
                 At Sunken, we exist to ideate, visualise, and create a new era
                 of modern infrastructure. Our team, led by contemporary
                 designer, and leader in modern design achitecture interior,

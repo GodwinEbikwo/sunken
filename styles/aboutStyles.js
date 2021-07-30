@@ -11,13 +11,13 @@ export const AboutBox = styled.section`
 
 export const AboutIntro = styled.aside`
   padding: var(--spacer-half) calc(var(--golden-ratio) + 8px);
-  @media (min-width: 800px) {
+  @media (min-width: 768px) {
     max-width: 100%;
     padding: var(--spacer-half) var(--spacer);
   }
 
   .ab_intro_inner {
-    @media (min-width: 800px) {
+    @media (min-width: 768px) {
       display: flex;
       justify-content: space-between;
     }
