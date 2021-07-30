@@ -362,7 +362,7 @@ html,
     bottom: 0;
     left: 0;
     position: sticky;
-    height: 75vh;
+    height: 85vh;
     width: 100vw;
     overflow: hidden;
     z-index: -1;

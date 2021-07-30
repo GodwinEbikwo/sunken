@@ -101,7 +101,7 @@ export const AboutMiddleP = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  padding: 0 var(--golden-ratio);
+  padding: 0 calc(var(--golden-ratio) + 8px);
 
   .admo {
     .first,

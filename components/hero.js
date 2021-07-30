@@ -48,7 +48,7 @@ export default function Hero() {
 
 const HeroBox = styled.section`
   position: relative;
-  height: 75vh;
+  height: 85vh;
   transition: all var(--easing) 350ms;
   @media (min-width: 768px) {
     height: 100vh;
