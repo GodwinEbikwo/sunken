@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { m, useAnimation, LazyMotion, domAnimation } from 'framer-motion';
 import FancySpan from './fancySpan';
-import { revealInOut, fade } from '@/helpers/transitions';
+import { revealInOut, fade, revealIn, revealInOutReserve } from '@/helpers/transitions';
 import useOnScreen from '@/helpers/useOnScreen';
 import { useInView } from 'react-intersection-observer';
 import {
@@ -59,12 +59,12 @@ export default function About() {
               enter: { transition: { staggerChildren: 0.08, delay: 0.2 } },
             }}>
             <div>
-              <div className="ab-text">
+              <m.div className="ab-text" variants={revealInOut}>
                 At Sunken, we exist to ideate, visualise, and create a new era
                 of modern infrastructure. Our team, led by contemporary
                 designer, and leader in modern design achitecture interior,
                 Segun Sowunmi.
-              </div>
+              </m.div>
 
               <p ref={animateRef}>
                 <FancySpan>
