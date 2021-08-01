@@ -1,54 +1,33 @@
-import styled from 'styled-components';
-import Container from '@/components/container';
+import { ContainerBox } from '@/components/container';
 import { FooterBox } from '@/styles/headings';
-
-const FooterLeft = styled.div`
-  display: flex;
-`;
-
-const FooterRight = styled.div`
-  display: flex;
-  width: 100%;
-  @media (min-width: 520px) {
-    width: auto;
-    margin-left: auto;
-  }
-`;
 
 export default function Footer() {
   return (
     <FooterBox>
-      <Container>
+      <ContainerBox>
         <div className="border-top py-2">
-          <div className="flex flex-wrap">
-            <FooterLeft>
-              <a
-                href="/"
-                target="_blank"
-                rel="noopener noreferrer">
+          <div className="flex space-between flex-wrap">
+            <div className="footer-middle">©2021—SUNKEN BUILDERS Legal</div>
+
+            <div className="flex">
+              <a href="/" target="_blank" rel="noopener noreferrer">
                 Instagram
               </a>
               <span className="block sm-spacing">&bull;</span>
               <span className="block sm-spacing">
-                <a
-                  href="/"
-                  target="_blank"
-                  rel="noopener noreferrer">
+                <a href="/" target="_blank" rel="noopener noreferrer">
                   Twitter
                 </a>
               </span>
               <span className="block sm-spacing">&bull;</span>
               <span className="block sm-spacing">
-                <a
-                  href="/"
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  Facebook
+                <a href="/" target="_blank" rel="noopener noreferrer">
+                  Contact
                 </a>
               </span>
-            </FooterLeft>
+            </div>
 
-            <FooterRight>
+            <div className="flex">
               <span className="block">
                 Developed by{' '}
                 <a
@@ -58,10 +37,10 @@ export default function Footer() {
                   Godwin Ebikwo
                 </a>
               </span>
-            </FooterRight>
+            </div>
           </div>
         </div>
-      </Container>
+      </ContainerBox>
     </FooterBox>
   );
 }

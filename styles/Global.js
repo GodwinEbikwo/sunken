@@ -2,6 +2,16 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   @font-face {
+    src: url('fonts/NeueMontreal-Medium.woff2')
+      format('woff2'),
+    url('fonts/NeueMontreal-Medium.woff2') format('woff2');
+    font-family: 'NeueMontreal';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+  }
+
+  @font-face {
     src: url('fonts/RoslindaleRegular.woff2')
       format('woff2'),
     url('fonts/RoslindaleRegular.woff') format('woff');
@@ -10,6 +20,7 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: normal;
     font-display: swap;
   }
+
 
   @font-face {
     src: url('fonts/F37-Medium.otf')
@@ -25,44 +36,61 @@ export const GlobalStyles = createGlobalStyle`
   --golden-ratio: 1.35rem;
   --max-width: 142rem;
 
-  --bg: rgb(247, 243, 240);
+  /* background-color */
+  /* --bg: #e8e5e1; */
+  --bg: #f9f8f7;
   --fg: #0a0a0a;
 
-  --text-white: hsl(206, 12%,99%);
-  --text-black: rgb(38, 38, 38);
+  /* text-color */
+  --text-white: hsl(200, 12%, 95%);
+  --text-black: rgb(18, 18, 18);
 
   --black: #111;
   --white: #f8f8f8;
 
-  --accent-1: #FF5C00;
+  --accent-1: #6c12ff;
   --accent-2: hsl(252, 83%, 87%);
   --accent-3: #001d3d;
 
-  --font: 'Helvetica Neue', sans-serif;
-  --secondary-font: 'F37-M', 'Helvetica Neue', sans-serif;
-  --Ros: 'Roslindale', 'Helvetica Neue', sans-serif;
-   
-  --fluid-type-min: 2rem;
-  --fluid-type-max: 3.25rem;
-  --fluid-type-target: 3.25vw;
+  /* font-family */
+  --font: 'NeueMontreal', 'Inter', 'Helvetica Neue', -apple-system, sans-serif;
+  --font-2: 'F37-M', 'Inter', sans-serif;
+  --font-3: 'Roslindale', 'Times', sans-serif;
+  --font-4: 'ivypresto-display', 'NeueMontreal', 'Inter', sans-serif;
 
+  /* font-weight */
+  --font-xsm: 300;
+  --font-sm: 400;
+  --font-md: 500;
+  --font-lg: 700;
+
+  /* font-fluid-sizes */
+  --fluid-type-min: 3rem;
+  --fluid-type-max: 5rem;
+  --fluid-type-target: 5vw;
+
+  /* box-shadow */
   --btn-bs: 0 4px 14px 0 rgb(0 0 0 / 10%);
   --form-bs: 0 4px 50px 0 rgb(0 0 0 / 18%);
 
   --border-color: hsl(206, 6%, 54%);
  
+  /* border-radius */
   --radii-sm: 3px;
   --radii-md: 5px;
   --radii-lg: 30px;
 
+  /* letter-spacing */
+  --ls-xsm: -0.011em;
   --ls-sm: -0.02em;
-  --ls-mg: -0.03em;
+  --ls-md: -0.03em;
   --ls-lg: -0.05em;
 
   --spacing-small: 10px;
   --spacing-medium: 20px;
   --spacing-large: 30px;
 
+  /* spacing-spacing */
   --spacer: 2.083vw;
   --spacer-half: 1.041vw;
   --spacer-double: 4.166vw;
@@ -110,12 +138,12 @@ html,
   html {
     font-size: 62.5%;
     background-color: var(--fg);
-    font-family: sans-serif;
     &:not(.has-scroll-init) {
       cursor: wait;
       overflow: hidden;
     }
   }
+
 
   body {
     min-height: 100vh;
@@ -134,6 +162,38 @@ html,
     &.loading{
       overflow: hidden;
       height: 100vh;
+/* 
+      &::before,
+      &::after{
+        content: '';
+	      position: fixed;
+	      z-index: 1000;
+      }
+
+      &::before{
+        top: 0;
+	      left: 0;
+	      width: 100%;
+	      height: 100%;
+      }
+
+      &::after{
+        top: 0;
+	      left: 0;
+	      width: 100%;
+	      height: 100%;
+        background: var(--fg);
+        transform: translateY(100%);
+        animation: loaderAnim 0.7s var(--easing) forwards;
+        z-index: -1;
+      } */
+
+      /* @keyframes loaderAnim {
+	      to {
+		      opacity: 1;
+		      transform: translateY(0%);
+	      }
+      } */
     }
   }
 
@@ -142,19 +202,38 @@ html,
     list-style: none;
   }
 
-
   a {
     text-decoration: inherit;
     color: inherit;
     background-color: transparent;
   }
 
-  .text-center {
-    text-align: center;
+  h1 {
+    font-weight: var(--font-xsm);
+    font-family: var(--font-4);
+    letter-spacing: var(--ls-md);
+    font-size: clamp(
+      var(--fluid-type-min, 1rem),
+      calc(1rem + var(--fluid-type-target, 3vw)),
+      var(--fluid-type-max, 1.3rem)
+    );
   }
 
-  .text-right {
-    text-align: right;
+  .loading-title {
+    text-align: center;
+    line-height: 0.85;
+    white-space: nowrap;
+    
+    .m-left {
+      margin-left: 0.2em;
+      @media (min-width: 768px) {
+        margin-left: 0.15em;
+      }
+    }
+  }
+
+  .text-center {
+    text-align: center;
   }
 
   .text_uppercase {
@@ -238,10 +317,6 @@ html,
 
   .overflow-hidden {
     overflow: hidden;
-  }
-
-  .grayscale {
-    filter: grayscale(100%);
   }
 
   .center {
@@ -460,5 +535,4 @@ html,
     }
   }
 }
-
 `;

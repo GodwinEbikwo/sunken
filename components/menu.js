@@ -64,7 +64,7 @@ export default function Menu() {
                 height="53"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                stroke="var(--black)"
+                stroke="var(--white)"
                 strokeWidth="1"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -116,6 +116,15 @@ export default function Menu() {
               </m.span>
               <m.div variants={linerevealIn} className="line"></m.div>
             </FancySpan>
+
+            <FancySpan>
+              <m.span className="block" variants={menuInOut}>
+                <Link href="/faq">
+                  <a onClick={closeMenu}>FAQ</a>
+                </Link>
+              </m.span>
+              <m.div variants={linerevealIn} className="line"></m.div>
+            </FancySpan>
           </div>
         </m.div>
 
@@ -145,13 +154,13 @@ const MenuBox = styled.aside`
   display: grid;
   grid-template-rows: auto 1fr auto;
   padding: 0 calc(var(--golden-ratio) * 2) calc(var(--golden-ratio));
-  color: var(--black);
+  color: var(--text-white);
 
   .line {
     width: 100%;
     height: 1px;
     transform-origin: bottom;
-    background: var(--black);
+    background: var(--white);
   }
 
   @media (max-width: 767px) {
@@ -173,11 +182,10 @@ const MenuBox = styled.aside`
     -webkit-overflow-scrolling: touch;
 
     a {
-      font-size: 4vw;
-      letter-spacing: var(--ls-lg);
-      @media (max-width: 767px) {
-        font-size: 10vw;
-        letter-spacing: var(--ls-md);
+      font-size: 10vw;
+      letter-spacing: var(--ls-sm);
+      @media (min-width: 768px) {
+        font-size: 3vw;
       }
     }
   }

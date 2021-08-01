@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
-import { fade } from '@/helpers/transitions';
 import FancyLink from './fancyLink';
 import FancySpan from './fancySpan';
 import Menu from './menu';
@@ -58,7 +57,7 @@ export default function Navigation() {
             <Logo>
               <FancySpan>
                 <m.span variants={navLogoReveal} className="block">
-                  <Image src="/logo.svg" height={50} width={50} alt="logo" />
+                  SUNKEN
                 </m.span>
               </FancySpan>
             </Logo>
@@ -103,8 +102,7 @@ export const Header = styled.header`
   right: var(--spacer);
   z-index: 100;
   cursor: pointer;
-  z-index: 3;
-  color: white;
+  z-index: 4;
 
   @media (max-width: 800px) {
     padding: var(--spacer);
@@ -125,7 +123,7 @@ export const Nav = styled.nav`
   justify-content: flex-start;
   grid-area: nav;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: var(--font-md);
 `;
 
 export const NavList = styled.ul`
@@ -135,7 +133,6 @@ export const NavList = styled.ul`
   text-transform: uppercase;
 
   li {
-    color: white;
     display: list-item;
     text-align: -webkit-match-parent;
     &:not(:first-child) {
@@ -150,6 +147,12 @@ export const NavList = styled.ul`
 export const Logo = styled.div`
   text-align: center;
   grid-area: logo;
+  font-family: var(--font-2);
+  font-size: 3rem;
+  text-transform: uppercase;
+  @media (min-width: 768px) {
+    font-size: 3.75rem;
+  }
 `;
 
 export const CartContainer = styled.div`
@@ -158,7 +161,7 @@ export const CartContainer = styled.div`
   justify-content: flex-end;
   grid-area: cart;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: var(--font-md);
 
   & > {
     a,
@@ -182,6 +185,6 @@ export const CartContainer = styled.div`
   button {
     color: white;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: var(--font-md);
   }
 `;

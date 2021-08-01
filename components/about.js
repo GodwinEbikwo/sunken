@@ -12,7 +12,6 @@ import {
   AboutMiddleInner,
   AboutMiddleP,
 } from '@/styles/aboutStyles';
-import Div100vh from 'react-div-100vh';
 
 export default function About() {
   const controls = useAnimation();
@@ -56,7 +55,8 @@ export default function About() {
             initial="initial"
             exit="exit"
             variants={{
-              enter: { transition: { staggerChildren: 0.08, delay: 0.2 } },
+              enter: { transition: 
+                { staggerChildren: 0.08, delay: 0.2 } },
             }}>
             <div>
               <div className="ab-text">
@@ -75,19 +75,19 @@ export default function About() {
 
                 <FancySpan>
                   <m.span className="block" variants={revealInOut}>
-                    a new era of modern infrastructure. Our team,
+                    a new era of modern infrastructure. Our team, led by
                   </m.span>
                 </FancySpan>
 
                 <FancySpan>
                   <m.span className="block" variants={revealInOut}>
-                    led by contemporary designer, and leader in modern
+                    contemporary designer, and leader in modern design
                   </m.span>
                 </FancySpan>
 
                 <FancySpan>
                   <m.span className="block" variants={revealInOut}>
-                    design achitecture and interior, Segun Sowunmi.
+                    achitecture and interior, Segun Sowunmi.
                   </m.span>
                 </FancySpan>
               </p>

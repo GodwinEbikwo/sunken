@@ -1,7 +1,7 @@
 export default {
-  defaultTitle: 'Boilerplate | Sunken Builders',
-  description: 'A simple Next.js starter kit with Tailwind, Framer Motion and Locomotive.',
-  titleTemplate: '%s | Sunken Builders',
+  defaultTitle: 'Sunken Interiors',
+  description: 'A renovation design studio focusing on creating eye worth plans our clients would love.',
+  titleTemplate: '%s | Sunken Interiors',
   openGraph: {
     type: 'website',
     locale: 'en_GB',

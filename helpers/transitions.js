@@ -23,15 +23,22 @@ export const fadeSmallDelay = {
 };
 
 export const revealInOut = {
-  initial: { y: '110%', opacity: 0 },
+  initial: { y: '150%', opacity: 0, rotate: '45deg' },
   enter: {
     y: '0%',
     opacity: 1,
-    transition: { duration: 1, ease: [0.77, 0, 0.175, 1] },
+    rotate: '0deg',
+    originX: 0,
+    originY: 0.5,
+    transition: {
+      duration: 1.5,
+      ease: [0.77, 0, 0.175, 1],
+      staggerChildren: 0.03,
+    },
   },
   exit: {
-    y: '110%',
-    transition: { duration: 0.8, ease: [0.77, 0, 0.175, 1] },
+    y: '150%',
+    transition: { duration: 1.5, ease: [0.77, 0, 0.175, 1] },
   },
 };
 
@@ -58,7 +65,7 @@ export const revealInOutReserve = {
   initial: { y: '-110%', opacity: 0 },
   enter: {
     y: '0%',
-    opacity: 1,
+    opacity: 1.2,
     transition: { duration: 1, ease: [0.77, 0, 0.175, 1] },
   },
   exit: {

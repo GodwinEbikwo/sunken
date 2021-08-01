@@ -2,7 +2,7 @@ import { useEffect, useCallback } from 'react';
 import { useEmblaCarousel } from 'embla-carousel/react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import Container from './container';
+import { ContainerBox } from './container';
 import { m, useAnimation } from 'framer-motion';
 import { fade, fadeSmallDelay, revealInOut } from '@/helpers/transitions';
 import { useInView } from 'react-intersection-observer';
@@ -37,7 +37,7 @@ export const Carousel = () => {
   }, [newControls, inView]);
 
   return (
-    <Container>
+    <ContainerBox>
       <CarouselBox>
         <aside className="flex">
           <m.div
@@ -90,7 +90,7 @@ export const Carousel = () => {
           </div>
         </m.aside>
       </CarouselBox>
-    </Container>
+    </ContainerBox>
   );
 };
 
@@ -138,12 +138,6 @@ const CarouselBox = styled.div`
 
 const CarouselTitle = styled.h1`
   text-align: center;
-  font-size: 9vw;
-  font-weight: 600;
-  line-height: 0.9;
-  letter-spacing: var(--ls-lg);
+  line-height: 0.823;
   text-transform: capitalize;
-  @media (min-width: 768px) {
-    font-size: 4.5vw;
-  }
 `;

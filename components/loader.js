@@ -61,7 +61,7 @@ const Loader = ({ setLoading }) => {
             exit="exit">
             <div className="center">
               <m.div variants={fade}>
-                <LoaderTitle>
+                <h1 className="loading-title">
                   <FancySpan>
                     <m.span
                       variants={LoaderRevealInOut}
@@ -74,7 +74,7 @@ const Loader = ({ setLoading }) => {
                       Interior
                     </m.span>
                   </FancySpan>
-                </LoaderTitle>
+                </h1>
               </m.div>
             </div>
           </m.aside>
@@ -85,30 +85,5 @@ const Loader = ({ setLoading }) => {
 };
 export default Loader;
 
-const LoaderTitle = styled.h1`
-  text-align: center;
-  font-size: 10vw;
-  line-height: 0.85;
-  white-space: nowrap;
-  letter-spacing: -0.055em;
-  font-weight: 600;
-  /* font-family: var(--Ros); */
-  @media (min-width: 768px) {
-    font-size: 5vw;
-  }
 
-  .m-left {
-    margin-left: 0.2em;
-    @media (min-width: 768px) {
-      margin-left: 0.15em;
-    }
-  }
-`;
 
-const LoaderBox = styled(m.section)`
-  background-color: var(--accent-1);
-`;
-
-const LoaderInner = styled(m.aside)`
-  background-color: var(--accent-1);
-`;

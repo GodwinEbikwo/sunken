@@ -2,8 +2,25 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import FancySpan from './fancySpan';
 import { m } from 'framer-motion';
-import { revealInOut, revealInOutReserve, fade } from '@/helpers/transitions';
-import Div100vh from 'react-div-100vh';
+import { revealInOutReserve, fade } from '@/helpers/transitions';
+
+ const HeroRevealIn = {
+  initial: { y: '110%', opacity: 0, },
+  enter: {
+    y: '0%',
+    opacity: 1,
+    transition: {
+      duration: 1.2,
+      ease: [0.77, 0, 0.175, 1],
+      staggerChildren: 0.03,
+    },
+  },
+  exit: {
+    y: '150%',
+    transition: { duration: 1.5, ease: [0.77, 0, 0.175, 1] },
+  },
+};
+
 
 export default function Hero() {
   return (
@@ -14,7 +31,7 @@ export default function Hero() {
           data-scroll-speed="1.25"
           data-scroll-direction="horizontal">
           <FancySpan>
-            <m.span variants={revealInOut} className="inline-block">
+            <m.span variants={HeroRevealIn} className="inline-block">
               Sunken
             </m.span>
             <m.span
@@ -62,7 +79,7 @@ const HeroBox = styled.section`
     position: absolute;
     left: var(--spacer);
     bottom: 3vw;
-    background: white;
+    background: var(--bg);
     overflow: hidden;
     border-radius: 5px;
     @media (min-width: 800px) {
@@ -74,15 +91,11 @@ const HeroBox = styled.section`
 
 const HeroTitle = styled.h1`
   text-align: center;
-  font-size: 8vw;
-  line-height: 0.85;
-  letter-spacing: -0.055em;
-  font-weight: 600;
+  line-height: 0.823;
   color: var(--text-black);
-  @media (min-width: 800px) {
+  @media (min-width: 768px) {
     text-align: start;
-    margin-left: -0.9em;
+    margin-left: -1.15em;
     margin-right: 0.4em;
-    font-size: 5vw;
   }
 `;

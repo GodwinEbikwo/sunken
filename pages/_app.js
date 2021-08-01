@@ -17,6 +17,8 @@ export default function App({ Component, pageProps }) {
       ? document.querySelector('body').classList.add('loading')
       : document.querySelector('body').classList.remove('loading');
   }, [loading]);
+
+  
   return (
     <>
       <GlobalStyles />

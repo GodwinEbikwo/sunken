@@ -10,6 +10,7 @@ import { LazyMotion, domAnimation, m } from 'framer-motion';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import About from '@/components/about';
 import { Carousel } from '@/components/carousel';
+import Information from '@/components/information';
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -29,6 +30,7 @@ export default function Home() {
                   <Container>
                     <Hero />
                     <About />
+                    <Information />
                     <Carousel />
                     <m.aside variants={fade}>
                       <Footer />

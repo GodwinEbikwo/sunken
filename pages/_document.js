@@ -32,6 +32,10 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <link rel="stylesheet" href="https://use.typekit.net/jpj8own.css" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />

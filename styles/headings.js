@@ -20,8 +20,8 @@ export const P = styled.p`
 `;
 
 export const FooterBox = styled.footer`
-  margin-bottom: var(--spacer);
   padding-left: var(--spacer);
   padding-right: var(--spacer);
+  text-transform: uppercase;
 `;
 
