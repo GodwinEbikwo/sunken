@@ -2,9 +2,22 @@ import styled from 'styled-components';
 import { useEffect } from 'react';
 import { ContainerBox } from './container';
 import FancySpan from './fancySpan';
-import { revealInOut } from '@/helpers/transitions';
+import { revealInOut, fade } from '@/helpers/transitions';
 import { m, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+
+const gridFade = {
+  initial: { opacity: 0, y: 60 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1.4, ease: [0.83, 0, 0.17, 1] },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.4, ease: [0.83, 0, 0.17, 1] },
+  },
+};
 
 export default function Information() {
   const controls = useAnimation();
@@ -22,45 +35,93 @@ export default function Information() {
 
   return (
     <ContainerBox className="has-px">
-      <InfoContainer>
-        <InfoGrid className="align-middle">
-          <InfoLeft>
-            <div className="info__left__inner">
+      <InfoContainer className="has-my">
+        <InfoHeader>
+          <m.div
+            className="flex space-between w-full"
+            animate={controls}
+            initial="initial"
+            exit="exit"
+            variants={fade}>
+            <InfoTitle ref={ref}>
+              <FancySpan>
+                <m.span className="block" variants={revealInOut}>
+                  Offering a variety
+                </m.span>
+                <m.span className="block" variants={revealInOut}>
+                  of high-end services
+                </m.span>
+              </FancySpan>
+            </InfoTitle>
+
+            {/* <p ref={ref}>
+              <FancySpan>
+                <m.span variants={revealInOut}>
+                  We are a carbon neutral company & cruelty-free <br /> brand
+                  with a foucs on ustainable packaging.
+                </m.span>
+              </FancySpan>
+            </p> */}
+
+            {/* <Button>
+              <span>learn more</span>
+            </Button> */}
+          </m.div>
+        </InfoHeader>
+
+        {/* <InfoGrid>
+          <m.ul
+            animate={controls}
+            className="services"
+            initial="initial"
+            exit="exit"
+            variants={gridFade}
+            ref={ref}>
+            <li>
               <img
                 loading="lazy"
-                src="https://res.cloudinary.com/godwinebikwo/image/upload/v1625124905/spacejoy-jfVTVARGCao-unsplash_qxae0d.jpg"
-                alt="fivensix"
+                width="24"
+                height="24"
+                src="https://onenil.com/media/pages/home/7f5f63efbb-1624885754/target.svg"
               />
-            </div>
-          </InfoLeft>
-
-          <InfoRight>
-            <m.div
-              className="info__right__inner"
-              animate={controls}
-              initial="initial"
-              exit="exit">
-              <InfoTitle ref={ref}>
-                <FancySpan>
-                  <m.span className="block" variants={revealInOut}>
-                    Earth friendly &
-                  </m.span>
-                  <m.span className="block" variants={revealInOut}>
-                    ethically-conscious
-                  </m.span>
-                </FancySpan>
-              </InfoTitle>
+              <h3>Strategy</h3>
               <p>
-                We are a carbon neutral company & products and certified
-                cruelty-free brand with a foucs on ustainable packaging.
+                Strategy Strategic masterplans and business/concept strategy
               </p>
+            </li>
+            <li>
+              <img
+                loading="lazy"
+                src="https://onenil.com/media/pages/home/f1624e1c2e-1624885752/image-landscape.svg"
+                height="24"
+                width="24"
+              />
+              <h3>Concept</h3>
+              <p>Award winning concepts and ideas</p>
+            </li>
+            <li>
+              <img
+                loading="lazy"
+                src="https://onenil.com/media/pages/home/2faf4a5ae5-1624885752/film.svg"
+                height="24"
+                width="24"
+              />
+              <h3>Strategy</h3>
+              <p>High quality campaigns that offer an all-in solution</p>
+            </li>
 
-              <Button>
-                <span>learn more</span>
-              </Button>
-            </m.div>
-          </InfoRight>
-        </InfoGrid>
+            <li>
+              <img
+                loading="lazy"
+                src="https://onenil.com/media/pages/home/42da5d70e9-1624885754/package.svg"
+                height="24"
+                width="24"
+              />
+              <h3>Bespoke</h3>
+              <p>Standard of own film production that delivers</p>
+            </li>
+          </m.ul>
+        </InfoGrid> */}
       </InfoContainer>
     </ContainerBox>
   );
@@ -93,62 +154,51 @@ const Button = styled.button`
 const InfoContainer = styled.section`
   position: relative;
   overflow: hidden;
-  margin-top: 6vw;
-  margin-bottom: 6vw;
+  padding-left: var(--golden-ratio);
+  padding-right: var(--golden-ratio);
+
+  &.has-my {
+    margin-top: 6vw;
+  }
 `;
 
 const InfoGrid = styled.div`
   position: relative;
-  display: grid;
-  gap: 0;
+  padding-top: var(--spacer);
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+  .services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-template-rows: 1fr;
-  }
-`;
+    gap: 0;
 
-const InfoLeft = styled.aside`
-  @media (max-width: 767px) {
-    grid-area: 1 / 1 / 2 / 2;
-  }
+    & > li {
+      border: 1px solid var(--border-color);
+      padding: var(--golden-ratio);
+      img,
+      h3 {
+        margin-bottom: var(--spacing-medium);
+      }
 
-  .info__left__inner {
-    display: block;
-    width: 100%;
-    height: 100%;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      p {
+        max-width: 250px;
+      }
     }
   }
 `;
 
-const InfoRight = styled.aside`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  @media (max-width: 767px) {
-    grid-area: 2 / 1 / 3 / 2;
+const InfoHeader = styled.aside`
+  .info_header_inner {
   }
-
-  .info__right__inner {
-    max-width: 488px;
-  }
-
   p {
-    margin-bottom: var(--spacer);
+    margin-bottom: var(--spacing-medium);
   }
 `;
 
 const InfoTitle = styled.h1`
   line-height: 1.2;
-  margin-bottom: var(--spacer);
+  margin-bottom: var(--spacing-medium);
   @media (min-width: 768px) {
-    line-height: 1;
+    line-height: 1.3;
   }
 `;

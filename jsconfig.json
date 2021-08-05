@@ -5,7 +5,9 @@
       "@/components/*": ["components/*"],
       "@/helpers/*": ["helpers/*"],
       "@/styles/*": ["styles/*"],
-      "@/public/*": ["public/*"],
+      "@/lib/*": ["lib/*"],
+      "@/post/*": ["post/*"],
+      "@/public/*": ["public/*"]
     }
   }
 }

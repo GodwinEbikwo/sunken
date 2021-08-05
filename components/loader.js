@@ -10,7 +10,7 @@ export const LoaderRevealInOut = {
     y: '0%',
     opacity: 1,
     transition: {
-      duration: 1.5,
+      duration: 1.25,
       ease: [0.77, 0, 0.175, 1],
       repeat: 1,
       repeatType: 'reverse',
@@ -28,7 +28,7 @@ export const LoaderRevealInOutReserve = {
     y: '0%',
     opacity: 1,
     transition: {
-      duration: 1.5,
+      duration: 1.25,
       ease: [0.77, 0, 0.175, 1],
       repeat: 1,
       repeatType: 'reverse',
@@ -84,6 +84,3 @@ const Loader = ({ setLoading }) => {
   );
 };
 export default Loader;
-
-
-

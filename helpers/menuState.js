@@ -16,7 +16,7 @@ function MenuStateProvider({ children }) {
   }, [canScroll]);
 
   function toogleMenu() {
-    setMenuOpen(!cartOpen);
+    setMenuOpen(!menuOpen);
   }
 
   function closeMenu() {

@@ -1,46 +1,57 @@
-import { ContainerBox } from '@/components/container';
+import { useTheme } from 'next-themes';
+import { useState, useEffect } from 'react';
 import { FooterBox } from '@/styles/headings';
+import styled from 'styled-components';
 
 export default function Footer() {
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
   return (
     <FooterBox>
-      <ContainerBox>
-        <div className="border-top py-2">
-          <div className="flex space-between flex-wrap">
-            <div className="footer-middle">©2021—SUNKEN BUILDERS Legal</div>
-
-            <div className="flex">
-              <a href="/" target="_blank" rel="noopener noreferrer">
-                Instagram
+      <div className="border-top py-2">
+        <div className="flex space-between flex-wrap">
+          <div className="footer-middle">©2021—SUNKEN BUILDERS Legal</div>
+          <button
+            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+            <Switcher />
+          </button>
+          <div className="flex">
+            <span className="block">
+              Developed by{' '}
+              <a
+                href="https://godwinebikwo.dev"
+                target="_blank"
+                rel="noopener noreferrer">
+                Godwin Ebikwo
               </a>
-              <span className="block sm-spacing">&bull;</span>
-              <span className="block sm-spacing">
-                <a href="/" target="_blank" rel="noopener noreferrer">
-                  Twitter
-                </a>
-              </span>
-              <span className="block sm-spacing">&bull;</span>
-              <span className="block sm-spacing">
-                <a href="/" target="_blank" rel="noopener noreferrer">
-                  Contact
-                </a>
-              </span>
-            </div>
-
-            <div className="flex">
-              <span className="block">
-                Developed by{' '}
-                <a
-                  href="https://godwinebikwo.dev"
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  Godwin Ebikwo
-                </a>
-              </span>
-            </div>
+            </span>
           </div>
         </div>
-      </ContainerBox>
+      </div>
     </FooterBox>
   );
 }
+
+const Switcher = styled.div`
+  position: absolute;
+  left: 50%;
+  margin-left: -0.6875rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 3.125rem;
+  overflow: hidden;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 1.125rem;
+    height: 2.125rem;
+    background: var(--white);
+  }
+`;

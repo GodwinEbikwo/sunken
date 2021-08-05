@@ -5,6 +5,7 @@ import FancySpan from './fancySpan';
 import { revealInOut, fade } from '@/helpers/transitions';
 import useOnScreen from '@/helpers/useOnScreen';
 import { useInView } from 'react-intersection-observer';
+import { SplitText } from '@/helpers/split-text';
 import {
   AboutBox,
   AboutIntro,
@@ -55,19 +56,28 @@ export default function About() {
             initial="initial"
             exit="exit"
             variants={{
-              enter: { transition: 
-                { staggerChildren: 0.08, delay: 0.2 } },
+              enter: { transition: { staggerChildren: 0.08, delay: 0.2 } },
             }}>
-            <div>
-              <div className="ab-text">
+            <>
+              {/* <div className="ab-text">
                 At Sunken, we exist to ideate, visualise, and create a new era
                 of modern infrastructure. Our team, led by contemporary
                 designer, and leader in modern design achitecture interior,
                 Segun Sowunmi.
-              </div>
+              </div> */}
 
               <p ref={animateRef}>
-                <FancySpan>
+                <SplitText
+                  initial="initial"
+                  exit="exit"
+                  animate="enter"
+                  variants={revealInOut}>
+                  At Sunken, we exist to ideate, visualise, and create a new era
+                  of modern infrastructure. Our team, led by contemporary
+                  designer, and leader in modern design achitecture interior,
+                  Segun Sowunmi.
+                </SplitText>
+                {/* <FancySpan>
                   <m.span className="block" variants={revealInOut}>
                     At Sunken, we exist to ideate, visualise, and create
                   </m.span>
@@ -89,14 +99,14 @@ export default function About() {
                   <m.span className="block" variants={revealInOut}>
                     achitecture and interior, Segun Sowunmi.
                   </m.span>
-                </FancySpan>
+                </FancySpan> */}
               </p>
-            </div>
+            </>
           </m.div>
         </AboutIntro>
 
         <AboutMiddle>
-          <AboutMiddleInner>
+          <AboutMiddleInner data-scroll>
             <div className="row" data-scroll>
               <div className="col has-firstchild" data-scroll>
                 <Image
@@ -148,7 +158,30 @@ export default function About() {
                   enter: { transition: { staggerChildren: 0.08, delay: 0.2 } },
                 }}>
                 <p ref={ref}>
-                  <FancySpan>
+                  <SplitText
+                    initial={{ y: '110%', opacity: 0 }}
+                    animate="visible"
+                    exit={{ y: '110%' }}
+                    variants={{
+                      visible: (i) => ({
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                          duration: 1.3,
+                          ease: [0.77, 0, 0.175, 1],
+                          delay: i * 0.015,
+                        },
+                      }),
+                    }}>
+                    We work together to bring your project one step closer to
+                    reality by using creative direction, visualisations, 3D
+                    architectural and motion design. If you are looking for an
+                    elevated physical or digital experience, we specialise in
+                    leading the creative thinking behind your projects to craft
+                    awe-inspiring and uniquely desirable experiences.
+                  </SplitText>
+
+                  {/* <FancySpan>
                     <m.span className="block" variants={revealInOut}>
                       We work together to bring your project one step closer
                     </m.span>
@@ -184,7 +217,7 @@ export default function About() {
                     <m.span className="block" variants={revealInOut}>
                       awe-inspiring and uniquely desirable experiences.
                     </m.span>
-                  </FancySpan>
+                  </FancySpan> */}
                 </p>
               </m.div>
             </m.div>

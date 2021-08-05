@@ -2,34 +2,11 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   @font-face {
-    src: url('fonts/NeueMontreal-Medium.woff2')
-      format('woff2'),
-    url('fonts/NeueMontreal-Medium.woff2') format('woff2');
-    font-family: 'NeueMontreal';
+    font-family: 'CabinetGrotesk';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 100 900;
     font-display: swap;
-  }
-
-  @font-face {
-    src: url('fonts/RoslindaleRegular.woff2')
-      format('woff2'),
-    url('fonts/RoslindaleRegular.woff') format('woff');
-    font-family: 'Roslindale';
-    font-style: normal;
-    font-weight: normal;
-    font-display: swap;
-  }
-
-
-  @font-face {
-    src: url('fonts/F37-Medium.otf')
-      format('otf'),
-    url('fonts/F37-Medium.otf') format('woff');
-    font-family: 'F37-M';
-    font-style: normal;
-    font-weight: normal;
-    font-display: swap;
+    src: url('/fonts/CabinetGrotesk-Variable.woff2') format('woff2');
   }
 
   :root{
@@ -38,25 +15,23 @@ export const GlobalStyles = createGlobalStyle`
 
   /* background-color */
   /* --bg: #e8e5e1; */
-  --bg: #f9f8f7;
-  --fg: #0a0a0a;
+  --bg:#111;
 
   /* text-color */
   --text-white: hsl(200, 12%, 95%);
   --text-black: rgb(18, 18, 18);
 
-  --black: #111;
-  --white: #f8f8f8;
+  --black: #000;
+  --white: #fff;
 
-  --accent-1: #6c12ff;
+  --accent-1: #1b1b1b;
   --accent-2: hsl(252, 83%, 87%);
   --accent-3: #001d3d;
 
   /* font-family */
-  --font: 'NeueMontreal', 'Inter', 'Helvetica Neue', -apple-system, sans-serif;
-  --font-2: 'F37-M', 'Inter', sans-serif;
-  --font-3: 'Roslindale', 'Times', sans-serif;
-  --font-4: 'ivypresto-display', 'NeueMontreal', 'Inter', sans-serif;
+  --font: 'CabinetGrotesk', 'Helvetica Neue', sans-serif;
+  --font-2: 'Helvetica Neue', sans-serif;
+  --font-4: 'ivypresto-display', 'CabinetGrotesk', 'Helvetica Neue', sans-serif;
 
   /* font-weight */
   --font-xsm: 300;
@@ -98,6 +73,13 @@ export const GlobalStyles = createGlobalStyle`
   --easing: cubic-bezier(0.215, 0.61, 0.355, 1);  
 }
 
+[data-theme="light"] {
+  --bg:#f2efea;
+  --text-white: #222;
+  --white: #000;
+  --border-color: #302f2f;
+}
+
 html,
   body,
   div,
@@ -137,7 +119,7 @@ html,
 
   html {
     font-size: 62.5%;
-    background-color: var(--fg);
+    background-color: var(--bg);
     &:not(.has-scroll-init) {
       cursor: wait;
       overflow: hidden;
@@ -155,6 +137,7 @@ html,
     line-height: 1.3;
     font-size: 1.7rem;
     color: var(--text-white);
+
     &.no-scroll {
       overflow-y: hidden;
       touch-action: none;
@@ -162,38 +145,6 @@ html,
     &.loading{
       overflow: hidden;
       height: 100vh;
-/* 
-      &::before,
-      &::after{
-        content: '';
-	      position: fixed;
-	      z-index: 1000;
-      }
-
-      &::before{
-        top: 0;
-	      left: 0;
-	      width: 100%;
-	      height: 100%;
-      }
-
-      &::after{
-        top: 0;
-	      left: 0;
-	      width: 100%;
-	      height: 100%;
-        background: var(--fg);
-        transform: translateY(100%);
-        animation: loaderAnim 0.7s var(--easing) forwards;
-        z-index: -1;
-      } */
-
-      /* @keyframes loaderAnim {
-	      to {
-		      opacity: 1;
-		      transform: translateY(0%);
-	      }
-      } */
     }
   }
 
@@ -381,7 +332,6 @@ html,
     transform: scale3d(1, 1, 1);
   }
 
-
   .b-speed-block {
     position: relative;
   }
@@ -413,12 +363,15 @@ html,
 }
 
   .a-img {
+    overflow: hidden;
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    transform: translate(100%, 0%) rotate(-10deg);
-    transform-origin: 0% 100%;
+    /* transform: translate(100%, 0%) rotate(-5deg) scale(1.4);
+    transform-origin: 0% 100%; */
+    transform: scale(1.4);
+    transform-origin: 50% 50%;
     transition: opacity 1.2s var(--easing), transform 1.2s var(--easing);
     will-change: transform, opacity;
   }
@@ -426,8 +379,8 @@ html,
    &.is-inview {
     .a-img {
       opacity: 1;
-      transform: scale(1) rotate(0deg);
-      transition-delay: 0.45s;
+      transform: scale(1);
+      transition-delay: 0.475s;
     }
   }
 
@@ -437,7 +390,7 @@ html,
     bottom: 0;
     left: 0;
     position: sticky;
-    height: 85vh;
+    height: 87vh;
     width: 100vw;
     overflow: hidden;
     z-index: -1;
@@ -445,7 +398,6 @@ html,
       position: sticky;
       height: 100vh;
     }
-
     @media (min-width: 1025px) {
       position: fixed;
     }

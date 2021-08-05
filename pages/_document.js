@@ -33,8 +33,11 @@ export default class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <link rel="stylesheet" href="https://use.typekit.net/jpj8own.css" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter"
-            rel="stylesheet"
+            rel="preload"
+            href="/fonts/CabinetGrotesk-Variable.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
           />
         </Head>
         <body>

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import Image from 'next/image';
 import Link from 'next/link';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
 import FancyLink from './fancyLink';
 import FancySpan from './fancySpan';
-import Menu from './menu';
+import Menu, { Burger } from './menu';
 import { useMenu } from '@/helpers/menuState';
+import { useState } from 'react';
 
 const navLogoReveal = {
   initial: { y: '-100%' },
@@ -23,7 +23,7 @@ const navLogoReveal = {
 };
 
 export default function Navigation() {
-  const { openMenu } = useMenu();
+ const [open, setOpen] = useState(false);
   return (
     <LazyMotion features={domAnimation}>
       <m.div
@@ -37,18 +37,30 @@ export default function Navigation() {
           <Nav>
             <NavList>
               <li>
-                <span>
-                  <FancySpan>
-                    <m.div variants={navLogoReveal} className="block">
-                      <FancyLink
-                        destination="/contact"
-                        a11yText="Navigate to the contact page"
-                        label="Contact"
-                        className="link link--metis"
-                      />
-                    </m.div>
-                  </FancySpan>
-                </span>
+                <FancySpan>
+                  <m.span variants={navLogoReveal} className="block">
+                    <FancyLink
+                      destination="/About"
+                      a11yText="Navigate to the about page"
+                      label="About"
+                      className="link link--metis"
+                    />
+                  </m.span>
+                </FancySpan>
+              </li>
+              <li>
+                <FancySpan>
+                  <m.span
+                    variants={navLogoReveal}
+                    className="block hide-for-mobile">
+                    <FancyLink
+                      destination="/projects"
+                      a11yText="Navigate to the contact page"
+                      label="Projects"
+                      className="link link--metis"
+                    />
+                  </m.span>
+                </FancySpan>
               </li>
             </NavList>
           </Nav>
@@ -57,7 +69,7 @@ export default function Navigation() {
             <Logo>
               <FancySpan>
                 <m.span variants={navLogoReveal} className="block">
-                  SUNKEN
+                  S.
                 </m.span>
               </FancySpan>
             </Logo>
@@ -65,23 +77,24 @@ export default function Navigation() {
 
           <CartContainer>
             <FancySpan>
-              <m.div variants={navLogoReveal} className="block">
+              <m.div variants={navLogoReveal} className="block hide-for-mobile">
                 <button
                   type="button"
-                  onClick={openMenu}
-                  style={{ outline: 'none' }}
+                  style={{ outline: 'none', marginRight: '1em' }}
                   aria-label="open cart">
-                  <div className="flex items-center">
-                    <a className="link link--metis">
-                      <span>Menu</span>
-                    </a>
-                  </div>
+                  <span>Invert-color</span>
                 </button>
+              </m.div>
+            </FancySpan>
+
+            <FancySpan>
+              <m.div variants={navLogoReveal} className="block">
+                <Burger open={open} setOpen={setOpen}  />
               </m.div>
             </FancySpan>
           </CartContainer>
         </Header>
-        <Menu />
+        <Menu open={open} setOpen={setOpen} />
       </m.div>
     </LazyMotion>
   );
@@ -97,12 +110,13 @@ export const Header = styled.header`
   background: none;
   mix-blend-mode: difference;
   position: fixed;
-  top: var(--spacer-half);
+  top: var(--golden-ratio);
   left: var(--spacer);
   right: var(--spacer);
   z-index: 100;
   cursor: pointer;
-  z-index: 4;
+  z-index: 7;
+  /* color: white; */
 
   @media (max-width: 800px) {
     padding: var(--spacer);
@@ -147,11 +161,13 @@ export const NavList = styled.ul`
 export const Logo = styled.div`
   text-align: center;
   grid-area: logo;
-  font-family: var(--font-2);
+  font-family: var(--font);
   font-size: 3rem;
-  text-transform: uppercase;
+  font-weight: var(--font-lg);
+  text-transform: capitalize;
+  letter-spacing: -0.07em;
   @media (min-width: 768px) {
-    font-size: 3.75rem;
+    font-size: 4rem;
   }
 `;
 
@@ -162,6 +178,7 @@ export const CartContainer = styled.div`
   grid-area: cart;
   text-transform: uppercase;
   font-weight: var(--font-md);
+  z-index: 10;
 
   & > {
     a,
@@ -183,7 +200,7 @@ export const CartContainer = styled.div`
   }
 
   button {
-    color: white;
+    color: var(--white);
     text-transform: uppercase;
     font-weight: var(--font-md);
   }

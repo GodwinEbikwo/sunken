@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ['res.cloudinary.com'],
+    domains: ['res.cloudinary.com', 'www.datocms-assets.com'],
   },
   webpack: (config, { dev, isServer }) => {
     // Replace React with Preact only in client production build

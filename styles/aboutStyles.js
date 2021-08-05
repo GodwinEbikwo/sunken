@@ -45,6 +45,7 @@ export const AboutIntro = styled.aside`
       @media (min-width: 600px) {
         display: unset;
         line-height: 1.4;
+        max-width: 40rem;
       }
     }
   }
@@ -61,8 +62,11 @@ export const AboutMiddle = styled.div`
 export const AboutMiddleInner = styled.div`
   max-width: 100%;
   padding: 0 var(--golden-ratio);
+  position: relative;
 
   .row {
+    position: relative;
+    overflow: hidden;
     @media (min-width: 600px) {
       display: flex;
       flex-wrap: wrap;

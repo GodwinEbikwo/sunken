@@ -5,11 +5,11 @@ export const ContainerBox = styled.div`
   padding-bottom: var(--spacer-half);
   margin-left: auto;
   margin-right: auto;
-  max-width: 1600px;
+  max-width: var(--max-width);
 
   &.has-px {
-    padding-left: var(--spacer);
-    padding-right: var(--spacer);
+    padding-left: var(--golden-ratio);
+    padding-right: var(--golden-ratio);
   }
 
   @media (min-width: 800px) {

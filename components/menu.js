@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { m, useAnimation } from 'framer-motion';
 import FancySpan from './fancySpan';
 import { useInView } from 'react-intersection-observer';
-import { menuInOut, fade } from '@/helpers/transitions';
+import { menuInOut } from '@/helpers/transitions';
 
 export function useOnClickOutside(ref, handler) {
   useEffect(() => {
@@ -36,50 +36,29 @@ export const linerevealIn = {
   },
 };
 
-export default function Menu() {
+export default function Menu({ open, setOpen }) {
   const closeRef = useRef();
-  const { menuOpen, closeMenu } = useMenu();
-  const newControls = useAnimation();
+  const { closeMenu } = useMenu();
+  const controls = useAnimation();
   const { ref, inView } = useInView({ trackVisibility: true, delay: 100 });
-  useOnClickOutside(closeRef, () => closeMenu(false));
+  useOnClickOutside(closeRef, () => setOpen(false));
 
   useEffect(() => {
     if (inView) {
-      newControls.start('enter');
+      controls.start('enter');
     }
     if (!inView) {
-      newControls.start('hidden');
+      controls.start('hidden');
     }
-  }, [newControls, inView]);
+  }, [controls, inView]);
 
   return (
     <m.div animate="enter" initial="initial" exit="exit">
-      <MenuBox open={menuOpen} data-scroll-section ref={closeRef}>
-        <div className="header-container" data-scroll>
-          <header className="flex sb cart-header">
-            <button type="button" onClick={closeMenu} className="button_label">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="53"
-                height="53"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                stroke="var(--white)"
-                strokeWidth="1"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="feather feather-x">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
-          </header>
-        </div>
-
+      <MenuBox open={open} data-scroll-section>
         <m.div
           className="scroll-container"
           initial="initial"
-          animate={newControls}
+          animate={controls}
           exit="exit"
           variants={{
             enter: {
@@ -93,7 +72,7 @@ export default function Menu() {
             <FancySpan>
               <m.span className="block" variants={menuInOut}>
                 <Link href="/routeFinder">
-                  <a onClick={closeMenu}>About</a>
+                  <a onClick={() => setOpen(!open)}>About</a>
                 </Link>
               </m.span>
               <m.div variants={linerevealIn} className="line"></m.div>
@@ -102,7 +81,7 @@ export default function Menu() {
             <FancySpan>
               <m.span className="block" variants={menuInOut}>
                 <Link href="/">
-                  <a onClick={closeMenu}>Work</a>
+                  <a onClick={() => setOpen(!open)}>Work</a>
                 </Link>
               </m.span>
               <m.div variants={linerevealIn} className="line"></m.div>
@@ -111,7 +90,7 @@ export default function Menu() {
             <FancySpan>
               <m.span className="block" variants={menuInOut}>
                 <Link href="/">
-                  <a onClick={closeMenu}>Contact</a>
+                  <a onClick={() => setOpen(!open)}>Contact</a>
                 </Link>
               </m.span>
               <m.div variants={linerevealIn} className="line"></m.div>
@@ -120,7 +99,7 @@ export default function Menu() {
             <FancySpan>
               <m.span className="block" variants={menuInOut}>
                 <Link href="/faq">
-                  <a onClick={closeMenu}>FAQ</a>
+                  <a onClick={() => setOpen(!open)}>FAQ</a>
                 </Link>
               </m.span>
               <m.div variants={linerevealIn} className="line"></m.div>
@@ -129,38 +108,154 @@ export default function Menu() {
         </m.div>
 
         <footer>
-          <p>email</p>
-          <p>contact</p>
+          <div className="flex">
+            <a href="/" target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+            <span className="block sm-spacing">&bull;</span>
+            <span className="block sm-spacing">
+              <a href="/" target="_blank" rel="noopener noreferrer">
+                Twitter
+              </a>
+            </span>
+            <span className="block sm-spacing">&bull;</span>
+            <span className="block sm-spacing">
+              <a href="/" target="_blank" rel="noopener noreferrer">
+                Contact
+              </a>
+            </span>
+          </div>
         </footer>
       </MenuBox>
-      <Overlay open={menuOpen} />
+
+      <MenuLeft open={open}>
+        <h2>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed iure
+          nostrum molestiae ea est tempora fugiat eos voluptatum? Aperiam cum
+          pariatur veritatis eos aspernatur earum quae temporibus laboriosam
+          sint eaque, eligendi cupiditate, harum error ducimus dignissimos
+          distinctio voluptate asperiores modi?
+        </h2>
+      </MenuLeft>
+      <Overlay open={open} />
     </m.div>
   );
 }
 
-const MenuBox = styled.aside`
+export const Burger = ({ open, setOpen }) => {
+  return (
+    <StyledBurger
+      title="menu"
+      aria-label="hamburger menu"
+      open={open}
+      onClick={() => setOpen(!open)}>
+      <div aria-hidden="true" className="bg-line-top" />
+      <div aria-hidden="true" className="bg-line-middle" />
+      <div aria-hidden="true" className="bg-line-bottom" />
+    </StyledBurger>
+  );
+};
+
+const StyledBurger = styled.button`
+  /* position: absolute;
+  right: var(--spacer);
+  top: var(--spacer); */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 3rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  div {
+    width: 3rem;
+    height: 1.5px;
+    background: ${({ open }) => (open ? '#fff' : '#fff')};
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 3.5px;
+    will-change: transform;
+
+    :first-child {
+      transform: ${({ open }) =>
+        open ? 'translate3d(0, 0,  0) rotate(45deg)' : 'rotate(0)'};
+    }
+
+    :nth-child(2) {
+      opacity: ${({ open }) => (open ? '0' : '1')};
+      transform: ${({ open }) => (open ? 'translateX(20px)' : 'translateX(0)')};
+    }
+
+    :nth-child(3) {
+      transform: ${({ open }) =>
+        open ? 'rotate(-45deg)' : 'rotate(0)'};
+    }
+  }
+`;
+
+const MenuLeft = styled(m.aside)`
   position: fixed;
-  background-color: var(--accent-1);
+  background-color: var(--white);
   height: 100vh;
   top: 0;
-  right: 0;
+  left: 0;
   bottom: 0;
   width: 100%;
-  max-width: 590px;
-  transform: translate3d(100%, 0, 0);
-  transition: transform 1.2s cubic-bezier(0.77, 0, 0.18, 1) 0.45s;
+  max-width: 50%;
+  transform: translate3d(-100%, 0, 0);
+  transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.18, 1) 0.35s;
   will-change: transform;
   z-index: 5;
   display: grid;
   grid-template-rows: auto 1fr auto;
   padding: 0 calc(var(--golden-ratio) * 2) calc(var(--golden-ratio));
-  color: var(--text-white);
+  color: white;
+  perspective: 1000px;
+  ${(props) =>
+    props.open &&
+    `transform: translate3d(0, 0, 0); 
+    transition: transform 1.1s cubic-bezier(.76,0,.24,1);
+    cursor: pointer;`};
+`;
+
+const MenuBox = styled.aside`
+  position: fixed;
+  background-color: var(--black);
+  height: 100vh;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 50%;
+  transform: translate3d(100%, 0, 0);
+  transition: transform 1s cubic-bezier(0.77, 0, 0.18, 1) 0.35s;
+  will-change: transform;
+  z-index: 5;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 0 calc(var(--golden-ratio) * 2) calc(var(--golden-ratio));
+  color: white;
+  perspective: 1000px;
+
+  ${(props) =>
+    props.open &&
+    `transform: translate3d(0, 0, 0); 
+    transition: transform 1.1s cubic-bezier(.76,0,.24,1);
+    cursor: pointer;`};
 
   .line {
     width: 100%;
     height: 1px;
-    transform-origin: bottom;
-    background: var(--white);
+    transform-origin: left;
+    background: white;
   }
 
   @media (max-width: 767px) {
@@ -183,18 +278,13 @@ const MenuBox = styled.aside`
 
     a {
       font-size: 10vw;
-      letter-spacing: var(--ls-sm);
+      letter-spacing: var(--ls-md);
       @media (min-width: 768px) {
         font-size: 3vw;
+        font-weight: 600;
       }
     }
   }
-
-  ${(props) =>
-    props.open &&
-    `transform: translate3d(0, 0, 0); 
-    transition: transform 1.1s cubic-bezier(.76,0,.24,1);
-    cursor: pointer;`};
 
   footer {
     align-items: center;
@@ -220,11 +310,11 @@ export const Overlay = styled.div`
   height: 100%;
   background-color: rgba(9, 9, 9, 0.9);
   z-index: 4;
-  transition: opacity 1.2s cubic-bezier(0.77, 0, 0.18, 1),
-    visibility 1.2s cubic-bezier(0.77, 0, 0.18, 1);
+  transition: opacity 1s cubic-bezier(0.77, 0, 0.18, 1),
+    visibility 1s cubic-bezier(0.77, 0, 0.18, 1);
   cursor: pointer;
   ${(props) =>
-    props.open && `opacity: 1; visibility: visible; transition-delay: 0.3s;`};
+    props.open && `opacity: 1; visibility: visible; transition-delay: 0.1s;`};
 `;
 
 // const banner = {

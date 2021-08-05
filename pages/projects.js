@@ -3,20 +3,23 @@ import { NextSeo } from 'next-seo';
 import Layout from '@/components/layout';
 import { ContainerBox } from '@/components/container';
 import Footer from '@/components/footer';
-import Hero from '@/components/hero';
 import Navigation from '@/components/header';
 import { fade } from '@/helpers/transitions';
 import { LazyMotion, domAnimation, m } from 'framer-motion';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
-import About from '@/components/about';
-import { Carousel } from '@/components/carousel';
-import Information from '@/components/information';
+import Faq from '@/components/faq';
+import MoreStories from '@/post/more-stories';
+import HeroPost from '@/post/hero-post';
+import { getAllPostsForHome } from '@/lib/api';
 
-export default function Home() {
+export default function FaqPage({ allPosts }) {
   const containerRef = useRef(null);
+  const heroPost = allPosts[0];
+  const morePosts = allPosts.slice(1);
+
   return (
     <Layout>
-      <NextSeo title="Home" />
+      <NextSeo title="Projects" />
       <Navigation />
       <LocomotiveScrollProvider
         options={{ smooth: true, lerp: 0.05 }}
@@ -27,11 +30,19 @@ export default function Home() {
             <LazyMotion features={domAnimation}>
               <m.div initial="initial" animate="enter" exit="exit">
                 <m.main>
-                  <ContainerBox>
-                    <Hero />
-                    <About />
-                    <Information />
-                    <Carousel />
+                  <ContainerBox className="has-px">
+                    {/* <Faq /> */}
+                    {heroPost && (
+                      <HeroPost
+                        title={heroPost.title}
+                        coverImage={heroPost.coverImage}
+                        date={heroPost.date}
+                        author={heroPost.author}
+                        slug={heroPost.slug}
+                        excerpt={heroPost.excerpt}
+                      />
+                    )}
+                    {morePosts.length > 0 && <MoreStories posts={morePosts} />}
                   </ContainerBox>
                   <m.aside variants={fade}>
                     <Footer />
@@ -44,4 +55,11 @@ export default function Home() {
       </LocomotiveScrollProvider>
     </Layout>
   );
+}
+
+export async function getStaticProps({ preview = false }) {
+  const allPosts = (await getAllPostsForHome(preview)) || [];
+  return {
+    props: { allPosts },
+  };
 }

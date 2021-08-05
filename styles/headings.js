@@ -20,8 +20,11 @@ export const P = styled.p`
 `;
 
 export const FooterBox = styled.footer`
+  padding-top: var(--golden-ratio);
+  padding-bottom: var(--golden-ratio);
   padding-left: var(--spacer);
   padding-right: var(--spacer);
   text-transform: uppercase;
+  font-weight: 450;
 `;
 
