@@ -6,18 +6,32 @@ import PostTitle from './post-title';
 import styled from 'styled-components';
 import { fade, revealInOut } from '@/helpers/transitions';
 import FancySpan from '@/components/fancySpan';
+import { SplitText } from '@/helpers/split-text';
 
 export default function PostHeader({ title, coverImage, date, author }) {
   return (
     <m.div variants={fade}>
       <PostDiv>
         <PostTitle>
-          <FancySpan>
-            <m.span className="inline-block" variants={revealInOut}>
-              {title}
-            </m.span>
-          </FancySpan>
+          <SplitText
+            initial={{ y: '130%', opacity: 0 }}
+            animate="enter"
+            exit={{ y: '130%' }}
+            variants={{
+              enter: (i) => ({
+                y: 0,
+                opacity: 1,
+                transition: {
+                  duration: 1.5,
+                  ease: [0.77, 0, 0.175, 1],
+                  delay: i * 0.02,
+                },
+              }),
+            }}>
+            {title}
+          </SplitText>
         </PostTitle>
+
         <PostAvatarBox className="flex align-center justify-center">
           <Avatar name={author.name} picture={author.picture} />
         </PostAvatarBox>

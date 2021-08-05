@@ -130,8 +130,6 @@ export const AboutMiddleP = styled.div`
       }
 
       .second {
-        /* padding-left: var(--golden-ratio);
-        padding-right: var(--golden-ratio); */
         width: 41.666667%;
         p {
           text-align: left;

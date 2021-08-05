@@ -157,9 +157,6 @@ export const Burger = ({ open, setOpen }) => {
 };
 
 const StyledBurger = styled.button`
-  /* position: absolute;
-  right: var(--spacer);
-  top: var(--spacer); */
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -185,7 +182,7 @@ const StyledBurger = styled.button`
 
     :first-child {
       transform: ${({ open }) =>
-        open ? 'translate3d(0, 0,  0) rotate(45deg)' : 'rotate(0)'};
+        open ? 'rotate(45deg)' : 'rotate(0)'};
     }
 
     :nth-child(2) {

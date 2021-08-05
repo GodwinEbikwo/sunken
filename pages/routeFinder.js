@@ -177,6 +177,6 @@ const List = styled.li`
     height: 100%;
     width: 1px;
     transform-origin: bottom;
-    background: var(--fg);
+    background: black;
   }
 `;

@@ -5,6 +5,7 @@ export default function PostBody({ content }) {
   return (
     <PostBox className="px-2">
       <div
+        data-scroll
         className={markdownStyles['markdown']}
         dangerouslySetInnerHTML={{ __html: content }}
       />
