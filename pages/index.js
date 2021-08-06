@@ -8,9 +8,8 @@ import Navigation from '@/components/header';
 import { fade } from '@/helpers/transitions';
 import { LazyMotion, domAnimation, m } from 'framer-motion';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
-import About from '@/components/about';
-import { Carousel } from '@/components/carousel';
-import Information from '@/components/information';
+import Services from '@/components/services';
+import Cta from '@/components/cta';
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -29,9 +28,8 @@ export default function Home() {
                 <m.main>
                   <ContainerBox>
                     <Hero />
-                    <About />
-                    <Information />
-                    <Carousel />
+                    <Services />
+                    <Cta />
                   </ContainerBox>
                   <m.aside variants={fade}>
                     <Footer />

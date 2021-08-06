@@ -21,10 +21,30 @@ export const P = styled.p`
 
 export const FooterBox = styled.footer`
   padding-top: var(--golden-ratio);
-  padding-bottom: var(--golden-ratio);
-  padding-left: var(--spacer);
-  padding-right: var(--spacer);
   text-transform: uppercase;
-  font-weight: 450;
+  font-weight: 500;
 `;
 
+export const Button = styled.button`
+  pointer-events: auto;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 1.5rem 3rem;
+  font-family: inherit;
+  font-size: inherit;
+  position: relative;
+  display: inline-block;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  color: inherit;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+`;

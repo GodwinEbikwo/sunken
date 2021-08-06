@@ -12,8 +12,8 @@ export default function Footer() {
   if (!mounted) return null;
   return (
     <FooterBox>
-      <div className="border-top py-2">
-        <div className="flex space-between flex-wrap">
+      <div className="border-top py-2 px-2">
+        <div className="flex align-center space-between flex-wrap">
           <div className="footer-middle">©2021—SUNKEN BUILDERS Legal</div>
           <button
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
@@ -37,9 +37,6 @@ export default function Footer() {
 }
 
 const Switcher = styled.div`
-  position: absolute;
-  left: 50%;
-  margin-left: -0.6875rem;
   width: 2.25rem;
   height: 2.25rem;
   border: 1px solid var(--border-color);

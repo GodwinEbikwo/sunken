@@ -5,11 +5,14 @@ export const ContainerBox = styled.div`
   padding-bottom: var(--spacer-half);
   margin-left: auto;
   margin-right: auto;
-  max-width: var(--max-width);
-
+  
   &.has-px {
     padding-left: var(--golden-ratio);
     padding-right: var(--golden-ratio);
+  }
+
+  &.has-mw {
+     max-width: var(--max-width); 
   }
 
   @media (min-width: 800px) {
@@ -20,3 +23,5 @@ export const ContainerBox = styled.div`
 export default function Container({ children }) {
   return <ContainerBox>{children}</ContainerBox>;
 }
+
+

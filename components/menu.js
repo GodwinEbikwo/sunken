@@ -54,7 +54,7 @@ export default function Menu({ open, setOpen }) {
 
   return (
     <m.div animate="enter" initial="initial" exit="exit">
-      <MenuBox open={open} data-scroll-section>
+      <MenuRight open={open} data-scroll-section>
         <m.div
           className="scroll-container"
           initial="initial"
@@ -109,33 +109,39 @@ export default function Menu({ open, setOpen }) {
 
         <footer>
           <div className="flex">
-            <a href="/" target="_blank" rel="noopener noreferrer">
+            <a
+              aria-label="navigate to instagram"
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer">
               Instagram
             </a>
             <span className="block sm-spacing">&bull;</span>
             <span className="block sm-spacing">
-              <a href="/" target="_blank" rel="noopener noreferrer">
+              <a
+                aria-label="navigate to twitter"
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer">
                 Twitter
               </a>
             </span>
             <span className="block sm-spacing">&bull;</span>
             <span className="block sm-spacing">
-              <a href="/" target="_blank" rel="noopener noreferrer">
+              <a
+                aria-label="navigate to contact page"
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer">
                 Contact
               </a>
             </span>
           </div>
         </footer>
-      </MenuBox>
+      </MenuRight>
 
       <MenuLeft open={open}>
-        <h2>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed iure
-          nostrum molestiae ea est tempora fugiat eos voluptatum? Aperiam cum
-          pariatur veritatis eos aspernatur earum quae temporibus laboriosam
-          sint eaque, eligendi cupiditate, harum error ducimus dignissimos
-          distinctio voluptate asperiores modi?
-        </h2>
+       
       </MenuLeft>
       <Overlay open={open} />
     </m.div>
@@ -174,15 +180,14 @@ const StyledBurger = styled.button`
   div {
     width: 3rem;
     height: 1.5px;
-    background: ${({ open }) => (open ? '#fff' : '#fff')};
+    background: ${({ open }) => (open ? '#fff' : 'var(--text-white)')};
     transition: all 0.3s linear;
     position: relative;
-    transform-origin: 3.5px;
+    transform-origin: 6px;
     will-change: transform;
 
     :first-child {
-      transform: ${({ open }) =>
-        open ? 'rotate(45deg)' : 'rotate(0)'};
+      transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
     }
 
     :nth-child(2) {
@@ -191,13 +196,12 @@ const StyledBurger = styled.button`
     }
 
     :nth-child(3) {
-      transform: ${({ open }) =>
-        open ? 'rotate(-45deg)' : 'rotate(0)'};
+      transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
     }
   }
 `;
 
-const MenuLeft = styled(m.aside)`
+const MenuLeft = styled.aside`
   position: fixed;
   background-color: var(--white);
   height: 100vh;
@@ -214,7 +218,6 @@ const MenuLeft = styled(m.aside)`
   display: grid;
   grid-template-rows: auto 1fr auto;
   padding: 0 calc(var(--golden-ratio) * 2) calc(var(--golden-ratio));
-  color: white;
   perspective: 1000px;
   ${(props) =>
     props.open &&
@@ -223,7 +226,7 @@ const MenuLeft = styled(m.aside)`
     cursor: pointer;`};
 `;
 
-const MenuBox = styled.aside`
+const MenuRight = styled.aside`
   position: fixed;
   background-color: var(--black);
   height: 100vh;
@@ -232,11 +235,10 @@ const MenuBox = styled.aside`
   bottom: 0;
   width: 100%;
   max-width: 50%;
-  transform: translate3d(100%, 0, 0);
+  transform: translate3d(101%, 0, 0);
   transition: transform 1s cubic-bezier(0.77, 0, 0.18, 1) 0.35s;
   will-change: transform;
   z-index: 5;
-  display: grid;
   grid-template-rows: auto 1fr auto;
   padding: 0 calc(var(--golden-ratio) * 2) calc(var(--golden-ratio));
   color: white;
@@ -245,8 +247,9 @@ const MenuBox = styled.aside`
   ${(props) =>
     props.open &&
     `transform: translate3d(0, 0, 0); 
-    transition: transform 1.1s cubic-bezier(.76,0,.24,1);
-    cursor: pointer;`};
+      transition: transform 1.1s cubic-bezier(.76,0,.24,1);
+      cursor: pointer;
+    `};
 
   .line {
     width: 100%;
@@ -256,16 +259,7 @@ const MenuBox = styled.aside`
   }
 
   @media (max-width: 767px) {
-    min-width: 100%;
-  }
-
-  .header-container {
-    .button_label {
-      position: absolute;
-      right: var(--spacer);
-      top: var(--spacer);
-      cursor: pointer;
-    }
+    min-width: 50%;
   }
 
   .scroll-container {
@@ -278,12 +272,15 @@ const MenuBox = styled.aside`
       letter-spacing: var(--ls-md);
       @media (min-width: 768px) {
         font-size: 3vw;
-        font-weight: 600;
+        font-weight: var(--font-md);
       }
     }
   }
 
   footer {
+    position: absolute;
+    bottom: var(--golden-ratio);
+    left: var(--golden-ratio);
     align-items: center;
 
     p {
@@ -313,39 +310,3 @@ export const Overlay = styled.div`
   ${(props) =>
     props.open && `opacity: 1; visibility: visible; transition-delay: 0.1s;`};
 `;
-
-// const banner = {
-//   animate: {
-//     transition: {
-//       delayChildren: 0.4,
-//       staggerChildren: 0.1,
-//     },
-//   },
-// };
-
-// const letterAni = {
-//   initial: { y: '100%', opacity: 0, rotate: '-45deg' },
-//   animate: {
-//     opacity: 1,
-//     rotate: '0deg',
-//     y: '0%',
-//     transition: {
-//       ease: [0.83, 0, 0.17, 1],
-//       duration: 1,
-//     },
-//   },
-// };
-
-// export const AnimatedLetters = ({ title }) => (
-//   <m.span
-//     className="row-letter"
-//     variants={banner}
-//     initial="initial"
-//     animate="animate">
-//     {[...title].map((letter, index) => (
-//       <m.span className="row-letter" variants={letterAni} key={index}>
-//         {letter}
-//       </m.span>
-//     ))}
-//   </m.span>
-// );

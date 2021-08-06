@@ -2,7 +2,9 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  border: 0 solid #444;
 }
+
 html.has-scroll-smooth {
   overflow: hidden;
 }

@@ -18,7 +18,6 @@ export default function About() {
   const controls = useAnimation();
   const newControls = useAnimation();
   const { ref, inView } = useInView();
-
   const animateRef = useRef(null);
   const [reveal, setReveal] = useState(false);
   const onScreen = useOnScreen(animateRef);

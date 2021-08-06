@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyles />
       <DefaultSeo {...SEO} />
-      <ThemeProvider>
+      <ThemeProvider defaultTheme="dark">
         <MenuStateProvider>
           <AnimateSharedLayout type="crossfade">
             <AnimatePresence exitBeforeEnter>
