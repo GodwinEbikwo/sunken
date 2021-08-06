@@ -111,7 +111,7 @@ export const Nav = styled.nav`
   justify-content: flex-start;
   grid-area: nav;
   text-transform: uppercase;
-  font-weight: var(--font-md);
+  font-weight: var(--font-lg);
 `;
 
 export const NavList = styled.ul`

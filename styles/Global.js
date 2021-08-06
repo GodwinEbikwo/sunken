@@ -140,7 +140,7 @@ html,
     font-size: 1.7rem;
     color: var(--text-white);
 
-  &:before {
+  /* &:before {
     animation: grain 8s steps(10) infinite;
     background-image: url('https://res.cloudinary.com/godwinebikwo/image/upload/v1617194790/download_2_xwb86s.jpg');
     content: '';
@@ -185,7 +185,7 @@ html,
     90% {
       transform: translate(-10%, 10%);
     }
-  }
+  } */
 
     &.no-scroll {
       overflow-y: hidden;
@@ -406,7 +406,7 @@ html,
       .img {
         opacity: 1;
         transform: rotate(0deg)  scale(1);
-        transition-delay: 0.3s;
+        transition-delay: 0.5s;
     }
   }
 }

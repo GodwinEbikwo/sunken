@@ -48,7 +48,7 @@ export default function Services() {
           <div className="w-full">
             <div className="w-full-inner">
               <div className="w-full-title">
-                <NumberShape number="1" />
+                <NumberShape number="2" />
                 <h2>Development Delivery</h2>
               </div>
 
@@ -72,7 +72,7 @@ export default function Services() {
           <div className="w-full">
             <div className="w-full-inner">
               <div className="w-full-title">
-                <NumberShape number="1" />
+                <NumberShape number="3" />
                 <h2>Strategy</h2>
               </div>
 
@@ -88,7 +88,7 @@ export default function Services() {
           <div className="w-full">
             <div className="w-full-inner">
               <div className="w-full-title">
-                <NumberShape number="1" />
+                <NumberShape number="4" />
                 <h2>Award winning concepts and idea</h2>
               </div>
 
@@ -104,7 +104,7 @@ export default function Services() {
           <div className="w-full">
             <div className="w-full-inner">
               <div className="w-full-title">
-                <NumberShape number="1" />
+                <NumberShape number="5" />
                 <h2>Bespoke</h2>
               </div>
 
@@ -124,12 +124,15 @@ export default function Services() {
 }
 
 
-const ServicesBox = styled.section``;
+const ServicesBox = styled.section`
+  border-top: 1px solid var(--border-color);
+`;
 
 const ServicesTitle = styled.div`
   padding: var(--spacer);
 
   h2 {
+    padding: var(--spacer) 0;
     font-size: 4rem;
     line-height: 1;
     letter-spacing: var(--ls-lg);
@@ -192,6 +195,7 @@ const NumberBox = styled.div`
   background: var(--white);
   border-top-left-radius: 50%;
   border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
   text-align: center;
 
   span {

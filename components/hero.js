@@ -1,101 +1,108 @@
 import Image from 'next/image';
 import styled from 'styled-components';
-import FancySpan from './fancySpan';
 import { m } from 'framer-motion';
-import { revealInOutReserve, fade } from '@/helpers/transitions';
+import { SplitText } from '@/helpers/split-text';
 
- const HeroRevealIn = {
-  initial: { y: '110%', opacity: 0, },
+const fade = {
+  initial: { opacity: 0, y: 50 },
   enter: {
-    y: '0%',
     opacity: 1,
+    y: 0,
     transition: {
-      duration: 1.1,
-      ease: [0.77, 0, 0.175, 1],
-      staggerChildren: 0.03,
+      duration: 1,
+      ease: [0.83, 0, 0.17, 1],
+      staggerChildren: 0.3,
     },
   },
   exit: {
-    y: '150%',
-    transition: { duration: 1.5, ease: [0.77, 0, 0.175, 1] },
+    opacity: 0,
+    transition: { duration: 1, ease: [0.83, 0, 0.17, 1] },
   },
 };
-
 
 export default function Hero() {
   return (
     <HeroBox>
-      <m.aside className="hero-absolute" variants={fade}>
-        <HeroTitle
-          data-scroll
-          data-scroll-speed="1.25"
-          data-scroll-direction="horizontal">
-          <FancySpan>
-            <m.span variants={HeroRevealIn} className="inline-block">
-              Sunken
-            </m.span>
-            <m.span
-              variants={revealInOutReserve}
-              className="inline-block m-left">
-              Interior
-            </m.span>
-          </FancySpan>
-        </HeroTitle>
-      </m.aside>
+      <m.div variants={fade}>
+        <m.aside className="hero-absolute">
+          <HeroTitle data-scroll>
+            <SplitText
+              initial={{ y: '130%' }}
+              animate="enter"
+              exit={{
+                y: '130%',
+              }}
+              variants={{
+                enter: (i) => ({
+                  y: 0,
+                  transition: {
+                    duration: 1.5,
+                    ease: [0.77, 0, 0.175, 1],
+                    delay: i * 0.02,
+                  },
+                }),
+              }}>
+              Sunken Interior Helping to transform your home renovation
+            </SplitText>
+          </HeroTitle>
+        </m.aside>
 
-      <m.aside variants={fade}>
-        <div className="b-speed-block" data-scroll>
-          <div className="b-image_wrapper" data-scroll data-scroll-repeat>
-            <div className="b-image bgWrap" data-scroll>
-              <Image
-                alt="beautiful image"
-                src="https://res.cloudinary.com/godwinebikwo/image/upload/e_grayscale/v1627453729/jason-wang-NxAwryAbtIw-unsplash_ltdiyg.jpg"
-                quality="95"
-                layout="fill"
-                objectFit="cover"
-                className="b-speed-block_image img not-selectable"
-              />
+        <m.aside className="hero-img">
+          <div className="b-speed-block" data-scroll>
+            <div
+              className="b-image_wrapper overflow-hidden"
+              data-scroll
+              data-scroll-repeat>
+              <div
+                data-scroll
+                data-scroll-speed="-2.5"
+                className="b-image"
+                data-scroll>
+                <Image
+                  src="https://res.cloudinary.com/godwinebikwo/image/upload/v1627453729/jason-wang-NxAwryAbtIw-unsplash_ltdiyg.jpg"
+                  width={1920}
+                  height={960}
+                  alt="sunken-image"
+                  className="b-speed-block_image img not-selectable"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </m.aside>
+        </m.aside>
+      </m.div>
     </HeroBox>
   );
 }
 
 const HeroBox = styled.section`
   position: relative;
-  height: 85vh;
+  min-height: 85vh;
   transition: all var(--easing) 350ms;
+  padding: var(--spacer);
+
   @media (min-width: 768px) {
-    height: 100vh;
-  }
-  .m-left {
-    margin-left: 0.1em;
+    min-height: 100vh;
   }
 
   .hero-absolute {
-    padding: 1.25em;
-    position: absolute;
-    left: var(--spacer);
-    bottom: 3vw;
-    background: white;
-    overflow: hidden;
-    border-radius: 5px;
+    margin-top: var(--spacer);
+    top: 3vw;
     @media (min-width: 800px) {
-      bottom: 7vw;
-      padding: 2.25em;
+      top: 7vw;
     }
+  }
+
+  .hero-img {
+    max-width: 100vw;
+    margin-top: var(--spacer);
   }
 `;
 
 const HeroTitle = styled.h1`
-  text-align: center;
-  line-height: 0.823;
-  color: var(--text-black);
-  @media (min-width: 768px) {
-    text-align: start;
-    margin-left: -1.15em;
-    margin-right: 0.4em;
-  }
+  line-height: 0.825;
+  font-size: 100px;
+  font-weight: var(--font-md);
+  font-family: var(--font);
+  text-transform: uppercase;
+  max-width: 80vw;
 `;
