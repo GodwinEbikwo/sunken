@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const ContainerBox = styled.div`
   position: relative;
-  padding-bottom: var(--spacer-half);
   margin-left: auto;
   margin-right: auto;
   

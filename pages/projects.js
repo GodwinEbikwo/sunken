@@ -7,7 +7,6 @@ import Navigation from '@/components/header';
 import { fade } from '@/helpers/transitions';
 import { LazyMotion, domAnimation, m } from 'framer-motion';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
-import Faq from '@/components/faq';
 import MoreStories from '@/post/more-stories';
 import HeroPost from '@/post/hero-post';
 import { getAllPostsForHome } from '@/lib/api';

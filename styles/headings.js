@@ -20,7 +20,6 @@ export const P = styled.p`
 `;
 
 export const FooterBox = styled.footer`
-  padding-top: var(--golden-ratio);
   text-transform: uppercase;
   font-weight: 500;
 `;
@@ -28,16 +27,19 @@ export const FooterBox = styled.footer`
 export const Button = styled.button`
   pointer-events: auto;
   cursor: pointer;
-  background: transparent;
+  background: var(--white);
   border: none;
   padding: 1.5rem 3rem;
   font-family: inherit;
   font-size: inherit;
+  font-weight: var(--font-lg);
   position: relative;
   display: inline-block;
   border: 1px solid var(--border-color);
   border-radius: 50%;
-  color: inherit;
+  color: var(--black);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-md);
 
   &::before,
   &::after {

@@ -16,6 +16,7 @@ export default function Footer() {
         <div className="flex align-center space-between flex-wrap">
           <div className="footer-middle">©2021—SUNKEN BUILDERS Legal</div>
           <button
+            aria-label="theme switcher"
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
             <Switcher />
           </button>
