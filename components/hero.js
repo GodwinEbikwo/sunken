@@ -9,7 +9,7 @@ const fade = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 1,
+      duration: 0.9,
       ease: [0.83, 0, 0.17, 1],
       staggerChildren: 0.3,
     },
@@ -76,9 +76,9 @@ export default function Hero() {
 
 const HeroBox = styled.section`
   position: relative;
-  min-height: 85vh;
+  min-height: 50vh;
   transition: all var(--easing) 350ms;
-  padding: var(--spacer);
+  padding: var(--spacer-double) var(--spacer);
 
   @media (min-width: 768px) {
     min-height: 100vh;
@@ -100,9 +100,12 @@ const HeroBox = styled.section`
 
 const HeroTitle = styled.h1`
   line-height: 0.825;
-  font-size: 100px;
+  font-size: 10vw;
   font-weight: var(--font-md);
   font-family: var(--font);
   text-transform: uppercase;
-  max-width: 80vw;
+  @media (min-width: 768px) {
+    max-width: 80vw;
+    font-size: 100px;
+  }
 `;

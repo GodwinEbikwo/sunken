@@ -219,11 +219,24 @@ html,
     );
   }
 
+  .loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--white);
+  }
+
   .loading-title {
     text-align: center;
     line-height: 0.85;
     white-space: nowrap;
-    
+    font-family: var(--font);
+    font-weight: var(--font-lg);
+    letter-spacing: var(--ls-lg);
+    color: var(--black);
+
     .m-left {
       margin-left: 0.2em;
       @media (min-width: 768px) {

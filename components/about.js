@@ -57,13 +57,7 @@ export default function About() {
             variants={{
               enter: { transition: { staggerChildren: 0.08, delay: 0.2 } },
             }}>
-            {/* <div className="ab-text">
-                At Sunken, we exist to ideate, visualise, and create a new era
-                of modern infrastructure. Our team, led by contemporary
-                designer, and leader in modern design achitecture interior,
-                Segun Sowunmi.
-              </div> */}
-            {/* <p ref={animateRef}>
+            <p ref={animateRef}>
               <SplitText
                 key
                 ref={animateRef}
@@ -86,32 +80,6 @@ export default function About() {
                 designer, and leader in modern design achitecture interior,
                 Segun Sowunmi.
               </SplitText>
-            </p> */}
-
-            <p ref={animateRef}>
-              <FancySpan>
-                <m.span className="block" variants={revealInOut}>
-                  At Sunken, we exist to ideate, visualise, and create
-                </m.span>
-              </FancySpan>
-
-              <FancySpan>
-                <m.span className="block" variants={revealInOut}>
-                  a new era of modern infrastructure. Our team, led by
-                </m.span>
-              </FancySpan>
-
-              <FancySpan>
-                <m.span className="block" variants={revealInOut}>
-                  contemporary designer, and leader in modern design
-                </m.span>
-              </FancySpan>
-
-              <FancySpan>
-                <m.span className="block" variants={revealInOut}>
-                  achitecture and interior, Segun Sowunmi.
-                </m.span>
-              </FancySpan>
             </p>
           </m.div>
         </AboutIntro>

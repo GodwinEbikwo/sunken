@@ -7,6 +7,7 @@ import { LazyMotion, domAnimation, m } from 'framer-motion';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import About from '@/components/about';
 import Navigation from '@/components/header';
+import Footer from '@/components/footer';
 
 export default function AboutPage() {
   const containerRef = useRef(null);
@@ -19,13 +20,11 @@ export default function AboutPage() {
         containerRef={containerRef}
         watch={[]}>
         <section data-scroll-container ref={containerRef} id="scroll-container">
-          <div data-scroll-section>
+          <aside data-scroll-section>
             <LazyMotion features={domAnimation}>
               <m.div initial="initial" animate="enter" exit="exit">
-                <m.main
-                  variants={fade}
-                  className="mb-12 md:mb-16 xl:mb-24 pt-24 md:pt-20">
-                  <Container>
+                <m.main variants={fade}>
+                  <Container className="has-mx has-px">
                     <About />
                   </Container>
                   <m.aside variants={fade}>
@@ -34,7 +33,7 @@ export default function AboutPage() {
                 </m.main>
               </m.div>
             </LazyMotion>
-          </div>
+          </aside>
         </section>
       </LocomotiveScrollProvider>
     </Layout>

@@ -14,11 +14,11 @@ export const fadeSmallDelay = {
   initial: { opacity: 0 },
   enter: {
     opacity: 1,
-    transition: { duration: 0.55, ease: [0.83, 0, 0.17, 1], delay: 0.55 },
+    transition: { duration: 1, ease: [0.83, 0, 0.17, 1], delay: 0.55 },
   },
   exit: {
     opacity: 0,
-    transition: { duration: 0.55, ease: [0.83, 0, 0.17, 1], delay: 1 },
+    transition: { duration: 0.65, ease: [0.83, 0, 0.17, 1], delay: 1 },
   },
 };
 

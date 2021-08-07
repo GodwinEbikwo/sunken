@@ -20,6 +20,10 @@ export const P = styled.p`
 `;
 
 export const FooterBox = styled.footer`
+  position: sticky;
+  width: 100%;
+  top: var(--spacer-double);
+  bottom: var(--spacer);
   text-transform: uppercase;
   font-weight: 500;
 `;
