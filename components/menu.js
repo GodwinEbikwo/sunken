@@ -38,7 +38,6 @@ export const linerevealIn = {
 
 export default function Menu({ open, setOpen }) {
   const closeRef = useRef();
-  const { closeMenu } = useMenu();
   const controls = useAnimation();
   const { ref, inView } = useInView({ trackVisibility: true, delay: 100 });
   useOnClickOutside(closeRef, () => setOpen(false));

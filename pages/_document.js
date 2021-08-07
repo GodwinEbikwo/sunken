@@ -31,7 +31,6 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <link rel="stylesheet" href="https://use.typekit.net/jpj8own.css" />
           <link
             rel="preload"
             href="/fonts/CabinetGrotesk-Variable.woff2"
