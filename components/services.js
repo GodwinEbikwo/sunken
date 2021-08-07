@@ -107,7 +107,7 @@ export default function Services() {
                   <div className="w-full-inner">
                     <div className="w-full-title">
                       <NumberShape number="4" />
-                      <h2>Award winning concepts and idea</h2>
+                      <h2>Concept Design</h2>
                     </div>
 
                     <div className="w-full-para">
@@ -153,7 +153,7 @@ const ServicesTitle = styled.div`
 
   h2 {
     padding: var(--spacer) 0;
-    font-size: 4rem;
+    font-size: 3.5rem;
     line-height: 1;
     letter-spacing: var(--ls-lg);
     font-weight: var(--font-md);

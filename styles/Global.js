@@ -13,11 +13,8 @@ export const GlobalStyles = createGlobalStyle`
   --golden-ratio: 1.35rem;
   --max-width: 142rem;
 
-  /* background-color */
-  /* --bg: #e8e5e1; */
   --bg:#111;
 
-  /* text-color */
   --text-white: hsl(200, 12%, 95%);
   --text-black: rgb(18, 18, 18);
 
@@ -28,35 +25,27 @@ export const GlobalStyles = createGlobalStyle`
   --accent-2: hsl(252, 83%, 87%);
   --accent-3: #001d3d;
 
-  /* font-family */
   --font: 'CabinetGrotesk', 'Helvetica Neue', sans-serif;
-  --font-2: 'Helvetica Neue', sans-serif;
-  --font-4: 'ivypresto-display', 'CabinetGrotesk', 'Helvetica Neue', sans-serif;
+  --font-2: 'CabinetGrotesk', 'Helvetica Neue', sans-serif;
 
-  /* font-weight */
   --font-xsm: 300;
   --font-sm: 400;
   --font-md: 500;
   --font-lg: 700;
 
-  /* font-fluid-sizes */
   --fluid-type-min: 3rem;
   --fluid-type-max: 5rem;
   --fluid-type-target: 5vw;
 
-  /* box-shadow */
   --btn-bs: 0 4px 14px 0 rgb(0 0 0 / 10%);
   --form-bs: 0 4px 50px 0 rgb(0 0 0 / 18%);
 
   --border-color: hsl(206, 6%, 54%);
  
-  /* border-radius */
-  --radii-sm: 3px;
   --radii-md: 5px;
   --radii-lg: 30px;
 
-  /* letter-spacing */
-  --ls-xsm: -0.011em;
+  --ls-xsm: -0.015em;
   --ls-sm: -0.02em;
   --ls-md: -0.03em;
   --ls-lg: -0.05em;
@@ -65,11 +54,9 @@ export const GlobalStyles = createGlobalStyle`
   --spacing-medium: 20px;
   --spacing-large: 30px;
 
-  /* spacing-spacing */
   --spacer: 2.083vw;
   --spacer-half: 1.041vw;
   --spacer-double: 4.166vw;
-  --spacer-negative: -2.083vw;
   --easing: cubic-bezier(0.215, 0.61, 0.355, 1);  
 }
 
@@ -127,7 +114,6 @@ html,
       overflow: hidden;
     }
   }
-
 
   body {
     min-height: 100vh;
@@ -191,6 +177,7 @@ html,
       overflow-y: hidden;
       touch-action: none;
     }
+    
     &.loading{
       overflow: hidden;
       height: 100vh;
@@ -226,6 +213,12 @@ html,
     right: 0;
     bottom: 0;
     background-color: var(--white);
+  }
+
+   .loading-inner {
+    position: absolute;
+    bottom: 5vw;
+    right: 5vw;
   }
 
   .loading-title {

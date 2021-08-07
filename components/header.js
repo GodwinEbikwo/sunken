@@ -79,37 +79,35 @@ export default function Navigation() {
 }
 
 export const Header = styled.header`
-  padding: var(--golden-ratio);
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 11.733vw;
   width: 100%;
+  padding: var(--golden-ratio);
+  z-index: 100;
+  background: none;
+  mix-blend-mode: difference;
 
   @media (min-width: 768px) {
+    display: grid;
     position: fixed;
     top: calc(var(--golden-ratio) - 5px);
     left: var(--spacer);
     right: var(--spacer);
-    z-index: 100;
     padding: 0;
-    display: grid;
-    justify-content: space-between;
-    align-items: center;
     grid-template-columns: 16.806vw 20vw 16.806vw;
     grid-template-areas: 'nav logo cart';
     width: calc(100vw - var(--spacer-double));
     height: unset;
-    background: none;
-    mix-blend-mode: difference;
   }
 `;
 
 export const Nav = styled.nav`
+  grid-area: nav;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  grid-area: nav;
   text-transform: uppercase;
   font-weight: var(--font-lg);
 `;
@@ -126,12 +124,12 @@ export const NavList = styled.ul`
 `;
 
 export const Logo = styled.div`
-  text-align: center;
   grid-area: logo;
   font-family: var(--font);
   font-size: 3rem;
   font-weight: var(--font-lg);
   text-transform: capitalize;
+  text-align: center;
   @media (min-width: 768px) {
     font-size: 4rem;
   }
@@ -142,7 +140,6 @@ export const CartContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   grid-area: cart;
-  font-weight: var(--font-md);
 
   & > {
     button {

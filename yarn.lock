@@ -479,6 +479,11 @@ available-typed-arrays@^1.0.2:
   resolved "https://registry.yarnpkg.com/available-typed-arrays/-/available-typed-arrays-1.0.4.tgz#9e0ae84ecff20caae6a94a1c3bc39b955649b7a9"
   integrity sha512-SA5mXJWrId1TaQjfxUYghbqQ/hYioKmLJvPJyDuYRtXXenFNMjj4hSSt1Cf1xsuXSXrtxrVC5Ot4eU6cOtBDdA==
 
+babel-plugin-date-fns@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-date-fns/-/babel-plugin-date-fns-2.0.0.tgz#56074f1b4659c3b1208b5d156d4f51612d7af620"
+  integrity sha512-MbsQzEgglAIBZLQbKQDgMUgFDwf7sSHXgaWRXowiEVs1B+eiBge4JnhBQtIaHIVLE9QmXfDQbb18oggvP7KSFQ==
+
 "babel-plugin-styled-components@>= 1.12.0", babel-plugin-styled-components@^1.12.0:
   version "1.13.2"
   resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.13.2.tgz#ebe0e6deff51d7f93fceda1819e9b96aeb88278d"
@@ -1031,6 +1036,11 @@ core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
+
+countup.js@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/countup.js/-/countup.js-2.0.8.tgz#eca0c31c9db3f7769cba494d9315cd52dbaaf1b9"
+  integrity sha512-pW3xwwD+hB+xmtI16xFcuLS0D5hSQqPQWkZOdgpKQyzxCquDNo2VCFPkRw12vmvdpnicXVTcjmYiakG6biwINg==
 
 create-ecdh@^4.0.0:
   version "4.0.4"
@@ -3395,6 +3405,13 @@ raw-body@2.4.1:
     http-errors "1.7.3"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
+
+react-countup@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/react-countup/-/react-countup-5.2.0.tgz#58be5d97acebf767d5c61df5c3a3417b95c45a16"
+  integrity sha512-R6+FIrW8ypwoAe0Q0CZ16OhrgAntnnnch7HrnRAy9miXFKk8jQzVADjNtGSoNUuJeq/ZFiiXCGJCJIAmRJ5fLg==
+  dependencies:
+    countup.js "^2.0.8"
 
 react-datocms@^1.6.3:
   version "1.6.3"

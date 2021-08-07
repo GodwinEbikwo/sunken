@@ -146,3 +146,40 @@ export const revealIn = {
     transition: { duration: 1, ease: [0.83, 0, 0.17, 1] },
   },
 };
+
+
+const LoaderRevealInOut = {
+  hidden: { y: '110%', opacity: 0 },
+  show: {
+    y: '0%',
+    opacity: 1,
+    transition: {
+      duration: 1.5,
+      ease: [0.77, 0, 0.175, 1],
+      repeat: 1,
+      repeatType: 'reverse',
+    },
+  },
+  exit: {
+    y: '110%',
+    transition: { duration: 0.5, ease: [0.77, 0, 0.175, 1] },
+  },
+};
+
+const LoaderRevealInOutReserve = {
+  hidden: { y: '-110%', opacity: 0 },
+  show: {
+    y: '0%',
+    opacity: 1,
+    transition: {
+      duration: 1.5,
+      ease: [0.77, 0, 0.175, 1],
+      repeat: 1,
+      repeatType: 'reverse',
+    },
+  },
+  exit: {
+    y: '-110%',
+    transition: { duration: 0.5, ease: [0.77, 0, 0.175, 1] },
+  },
+};

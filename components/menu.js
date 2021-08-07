@@ -71,7 +71,7 @@ export default function Menu({ open, setOpen }) {
           <div ref={ref}>
             <FancySpan>
               <m.span className="block" variants={menuInOut}>
-                <Link href="/routeFinder">
+                <Link href="/about">
                   <a onClick={() => setOpen(!open)}>About</a>
                 </Link>
               </m.span>

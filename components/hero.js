@@ -3,23 +3,6 @@ import styled from 'styled-components';
 import { m } from 'framer-motion';
 import { SplitText } from '@/helpers/split-text';
 
-const fade = {
-  initial: { opacity: 0, y: 50 },
-  enter: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.9,
-      ease: [0.83, 0, 0.17, 1],
-      staggerChildren: 0.3,
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: { duration: 1, ease: [0.83, 0, 0.17, 1] },
-  },
-};
-
 export default function Hero() {
   return (
     <HeroBox>
@@ -27,14 +10,15 @@ export default function Hero() {
         <m.aside className="hero-absolute">
           <HeroTitle data-scroll>
             <SplitText
-              initial={{ y: '130%' }}
+              initial={{ y: '110%', opacity: 0 }}
               animate="enter"
               exit={{
-                y: '130%',
+                y: '110%',
               }}
               variants={{
                 enter: (i) => ({
                   y: 0,
+                  opacity: 1,
                   transition: {
                     duration: 1.5,
                     ease: [0.77, 0, 0.175, 1],
@@ -59,7 +43,7 @@ export default function Hero() {
                 className="b-image"
                 data-scroll>
                 <Image
-                  src="https://res.cloudinary.com/godwinebikwo/image/upload/v1627453729/jason-wang-NxAwryAbtIw-unsplash_ltdiyg.jpg"
+                  src="https://res.cloudinary.com/godwinebikwo/image/upload/e_grayscale,q_auto:good/v1627453729/jason-wang-NxAwryAbtIw-unsplash_ltdiyg.jpg"
                   width={1920}
                   height={960}
                   alt="sunken-image"
@@ -78,10 +62,15 @@ const HeroBox = styled.section`
   position: relative;
   min-height: 50vh;
   transition: all var(--easing) 350ms;
-  padding: var(--spacer-double) var(--spacer);
+  padding: calc(var(--spacer-double) + var(--spacer-double)) var(--spacer);
 
   @media (min-width: 768px) {
+    padding: calc(var(--spacer-double) * 4) var(--spacer);
     min-height: 100vh;
+  }
+
+  @media (min-width: 1024px) {
+    padding: var(--spacer-double) var(--spacer);
   }
 
   .hero-absolute {
@@ -100,12 +89,29 @@ const HeroBox = styled.section`
 
 const HeroTitle = styled.h1`
   line-height: 0.825;
-  font-size: 10vw;
+  font-size: 9vw;
   font-weight: var(--font-md);
   font-family: var(--font);
   text-transform: uppercase;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     max-width: 80vw;
     font-size: 100px;
   }
 `;
+
+const fade = {
+  initial: { opacity: 0 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.83, 0, 0.17, 1],
+      staggerChildren: 0.35,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 1, ease: [0.83, 0, 0.17, 1] },
+  },
+};

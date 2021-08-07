@@ -33,20 +33,9 @@ export const AboutIntro = styled.aside`
       }
     }
 
-    .ab-text {
-      @media (min-width: 600px) {
-        display: none;
-        line-height: 1.4;
-      }
-    }
-
     p {
-      display: none;
-      @media (min-width: 600px) {
-        display: unset;
-        line-height: 1.4;
-        max-width: 40rem;
-      }
+      line-height: 1.4;
+      max-width: 40rem;
     }
   }
 `;
