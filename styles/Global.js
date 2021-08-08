@@ -384,7 +384,7 @@ html,
     transform-origin: 0% 100%; */
     transform: scale(1.4);
     transform-origin: 50% 50%;
-    transition: opacity 0s var(--easing), transform 1.5s var(--easing);
+    transition: opacity 1.5s var(--easing), transform 1.5s var(--easing);
     will-change: transform, opacity;
   }
 

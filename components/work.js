@@ -1,32 +1,51 @@
-import { LazyMotion, domAnimation, m } from 'framer-motion';
+import Link from 'next/link';
+import { useEffect } from 'react';
+import { LazyMotion, domAnimation, m, useAnimation } from 'framer-motion';
 import styled from 'styled-components';
 import { WorkPreview } from '@/post/post-preview';
 import { ContainerBox } from '@/components/container';
 import { Button } from '@/styles/headings';
+import { fadeSmallDelay } from '@/helpers/transitions';
+import { useInView } from 'react-intersection-observer';
 
 export default function Work({ posts }) {
+    const controls = useAnimation();
+    const { ref, inView } = useInView();
+    useEffect(() => {
+      if (inView) {
+        controls.start('enter');
+      }
+      if (!inView) {
+        controls.start('hidden');
+      }
+    }, [controls, inView]);
+  
   return (
     <LazyMotion features={domAnimation}>
       <m.div initial="initial" animate="enter" exit="exit" className="relative">
-        <ContainerBox className="has-px has-mw">
-          <div className="px-2">
-            <WorkTitle>Selected work</WorkTitle>
-          </div>
-          <WorkGrid>
-            {posts.map((post) => (
-              <WorkPreview
-                key={post.slug}
-                title={post.title}
-                coverImage={post.coverImage}
-                slug={post.slug}
-              />
-            ))}
-          </WorkGrid>
+        <m.div ref={ref} variants={fadeSmallDelay}>
+          <ContainerBox className="has-px has-mw">
+            <div className="px-2">
+              <WorkTitle>Selected work</WorkTitle>
+            </div>
+            <WorkGrid>
+              {posts.map((post) => (
+                <WorkPreview
+                  key={post.slug}
+                  title={post.title}
+                  coverImage={post.coverImage}
+                  slug={post.slug}
+                />
+              ))}
+            </WorkGrid>
 
-          <div className="flex justify-center align-center py-2">
-            <Button>View more</Button>
-          </div>
-        </ContainerBox>
+            <WorkBtn className="flex justify-center align-center">
+              <Link href="/projects" passHref>
+                <Button>View more</Button>
+              </Link>
+            </WorkBtn>
+          </ContainerBox>
+        </m.div>
       </m.div>
     </LazyMotion>
   );
@@ -58,7 +77,7 @@ const WorkGrid = styled.ul`
       justify-content: center;
 
       &:not(:last-child) {
-        margin-bottom: calc(var(--spacer) + 5vw);
+        margin-bottom: calc(var(--spacer) + 2.5vw);
       }
 
       &:first-child {
@@ -90,4 +109,8 @@ const WorkTitle = styled.h2`
   @media (min-width: 768px) {
     font-size: 4rem;
   }
+`;
+
+const WorkBtn = styled.div`
+  padding-bottom: calc(var(--spacer-double) + 2vw);
 `;

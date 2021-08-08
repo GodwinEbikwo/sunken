@@ -11,7 +11,7 @@ import Layout from '@/components/layout';
 import PostTitle from '@/post/post-title';
 import PostHeader from '@/post/post-header';
 import Navigation from '@/components/header';
-import { fade } from '@/helpers/transitions';
+import { fade, fadeSmallDelay } from '@/helpers/transitions';
 import MoreStories from '@/post/more-stories';
 import markdownToHtml from '@/lib/markdownToHtml';
 import SectionSeparator from '@/post/section-seperator';
@@ -35,7 +35,7 @@ export default function Post({ post, morePosts, preview }) {
         <section data-scroll-container ref={containerRef} id="scroll-container">
           <aside data-scroll-section>
             <LazyMotion features={domAnimation}>
-              <m.main initial="initial" animate="enter" exit="exit">
+              <m.main initial="initial" animate="enter" exit="exit" variants={fadeSmallDelay}>
                 <PostContainerBox>
                   {router.isFallback ? (
                     <div className="center">

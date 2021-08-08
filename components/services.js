@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
+import Line from './line';
 import FancySpan from './fancySpan';
 import { m, useAnimation, LazyMotion, domAnimation } from 'framer-motion';
 import { revealInOut, fadeSmallDelay } from '@/helpers/transitions';
 import { useInView } from 'react-intersection-observer';
-import Line from './line';
+
 
 export default function Services() {
   const controls = useAnimation();
