@@ -12,9 +12,11 @@ import Services from '@/components/services';
 import Cta from '@/components/cta';
 import Line from '@/components/line';
 import Work from '@/components/work';
+import { getAllPostsForHome } from '@/lib/api';
 
-export default function Home() {
+export default function HomePage({ allPosts }) {
   const containerRef = useRef(null);
+  const workPosts = allPosts.slice(0, 3)
   return (
     <Layout>
       <NextSeo title="Home" />
@@ -31,7 +33,8 @@ export default function Home() {
                   <ContainerBox>
                     <Hero />
                     <Line />
-                    <Work />
+                    {workPosts.length > 0 && <Work posts={workPosts} />}
+                    <Line />
                     <Services />
                     <Line />
                     <Cta />
@@ -47,4 +50,11 @@ export default function Home() {
       </LocomotiveScrollProvider>
     </Layout>
   );
+}
+
+export async function getStaticProps({ preview = false }) {
+  const allPosts = (await getAllPostsForHome(preview)) || [];
+  return {
+    props: { allPosts },
+  };
 }

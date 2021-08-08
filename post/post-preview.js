@@ -35,11 +35,34 @@ export default function PostPreview({
   );
 }
 
+export function WorkPreview({ title, coverImage, slug }) {
+  return (
+    <li>
+      <div className="py-2">
+        <CoverImage
+          slug={slug}
+          title={title}
+          responsiveImage={coverImage.responsiveImage}
+        />
+      </div>
+      <div className="flex space-between">
+        <PostPreviewTitle>
+          <a className="text_uppercase">{title}</a>
+        </PostPreviewTitle>
+        <PostReadMore>
+          <Link href={`/posts/${slug}`}>
+            <a className="link link--metis">Read more</a>
+          </Link>
+        </PostReadMore>
+      </div>
+    </li>
+  );
+}
 
 const PostPreviewTitle = styled.h3`
   font-size: 2rem;
-  font-weight: 500;
-  letter-spacing: var(--ls-md);
+  font-weight: 600;
+  letter-spacing: var(--ls-xsm);
   margin-bottom: 0.75rem;
   line-height: 1.25;
 `;
@@ -49,5 +72,9 @@ const PostPreviewDate = styled.div`
 `;
 
 const PostPreviewExcerpt = styled.p`
+  margin-bottom: 1rem;
+`;
+
+const PostReadMore = styled.p`
   margin-bottom: 1rem;
 `;

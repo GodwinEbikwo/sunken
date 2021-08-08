@@ -30,7 +30,6 @@ export default function FaqPage({ allPosts }) {
               <m.div initial="initial" animate="enter" exit="exit">
                 <m.main>
                   <ContainerBox className="has-px">
-                    {/* <Faq /> */}
                     {heroPost && (
                       <HeroPost
                         title={heroPost.title}

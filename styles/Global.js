@@ -13,7 +13,7 @@ export const GlobalStyles = createGlobalStyle`
   --golden-ratio: 1.35rem;
   --max-width: 142rem;
 
-  --bg:#111;
+  --bg:#0a0a0a;
 
   --text-white: hsl(200, 12%, 95%);
   --text-black: rgb(18, 18, 18);
@@ -62,7 +62,7 @@ export const GlobalStyles = createGlobalStyle`
 
 [data-theme="light"] {
   --bg:#fff;
-  --text-white: #333;
+  --text-white: #222;
   --white: #000;
   --border-color: #333;
   --black: #fff
@@ -256,6 +256,10 @@ html,
     display: block;
   }
 
+  .not-selectable {
+    user-select: none;
+  }
+
   .border-top {
     border-top: 1px solid var(--border-color);
   }
@@ -380,7 +384,7 @@ html,
     transform-origin: 0% 100%; */
     transform: scale(1.4);
     transform-origin: 50% 50%;
-    transition: opacity 1.2s var(--easing), transform 1.2s var(--easing);
+    transition: opacity 0s var(--easing), transform 1.5s var(--easing);
     will-change: transform, opacity;
   }
 
@@ -388,7 +392,7 @@ html,
     .a-img {
       opacity: 1;
       transform: scale(1);
-      transition-delay: 0.475s;
+      transition-delay: 0.5s;
     }
   }
 
@@ -411,9 +415,7 @@ html,
     }
   }
 
-  .not-selectable {
-    user-select: none;
-  }
+
 
   .embla {
     position: relative;

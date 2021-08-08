@@ -4,7 +4,7 @@ import FancySpan from './fancySpan';
 import { m, useAnimation, LazyMotion, domAnimation } from 'framer-motion';
 import { revealInOut, fadeSmallDelay } from '@/helpers/transitions';
 import { useInView } from 'react-intersection-observer';
-import Line, { LineVertical } from './line';
+import Line from './line';
 
 export default function Services() {
   const controls = useAnimation();
@@ -40,7 +40,6 @@ export default function Services() {
             </h2>
           </ServicesTitle>
           <Line />
-          <LineVertical />
           <ServicesGrid>
             <div className="grid-col-1">
               <div className="w-full">
@@ -171,7 +170,7 @@ const ServicesGrid = styled.div`
 
   .grid-col-1 {
     @media (min-width: 768px) {
-      /* border-right: 1px solid var(--border-color); */
+      border-right: 1px solid var(--border-color);
       &:last-child {
         border-right: 0;
       }

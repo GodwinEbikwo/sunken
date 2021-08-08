@@ -37,9 +37,8 @@ const lineH = {
   enter: {
     x: 0,
     transition: {
-      duration: 1.75,
+      duration: 1.65,
       ease: [0.77, 0, 0.175, 1],
-      staggerChildren: 0.35,
     },
   },
   exit: {
@@ -87,7 +86,7 @@ const SeperatorVertical = styled(m.div)`
 `;
 
 const lineV = {
-  initial: { y: '-110%', opacity: 0.35 },
+  initial: { y: '-10%', opacity: 0.35 },
   enter: {
     y: 0,
     opacity: 1,

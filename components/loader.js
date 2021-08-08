@@ -73,7 +73,7 @@ const fadeOut = {
 };
 
 export const logoReveal = {
-  hidden: { opacity: 1, scale: 1.35 },
+  hidden: { opacity: 1, scale: 1.25 },
   show: {
     scale: 1,
     opacity: 1,
