@@ -57,10 +57,8 @@ export default function About() {
             variants={{
               enter: { transition: { staggerChildren: 0.08, delay: 0.2 } },
             }}>
-            <p ref={animateRef}>
+            <p>
               <SplitText
-                key
-                ref={animateRef}
                 initial={{ y: '110%', opacity: 0 }}
                 animate="visible"
                 exit={{ y: '110%' }}

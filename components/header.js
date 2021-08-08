@@ -25,7 +25,7 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
   return (
     <LazyMotion features={domAnimation}>
-      <m.div
+      <m.header
         initial="initial"
         animate="enter"
         exit="exit"
@@ -73,12 +73,12 @@ export default function Navigation() {
           </CartContainer>
         </Header>
         <Menu open={open} setOpen={setOpen} />
-      </m.div>
+      </m.header>
     </LazyMotion>
   );
 }
 
-export const Header = styled.header`
+export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;

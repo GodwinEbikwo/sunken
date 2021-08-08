@@ -1,6 +1,5 @@
 import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
-import { FooterBox } from '@/styles/headings';
 import styled from 'styled-components';
 
 export default function Footer() {
@@ -52,4 +51,13 @@ const Switcher = styled.div`
     height: 2.125rem;
     background: var(--white);
   }
+`;
+
+export const FooterBox = styled.div`
+  position: sticky;
+  width: 100%;
+  top: var(--spacer-double);
+  bottom: var(--spacer);
+  text-transform: uppercase;
+  font-weight: 500;
 `;

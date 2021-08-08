@@ -19,14 +19,7 @@ export const P = styled.p`
   margin-bottom: var(--spacer);
 `;
 
-export const FooterBox = styled.footer`
-  position: sticky;
-  width: 100%;
-  top: var(--spacer-double);
-  bottom: var(--spacer);
-  text-transform: uppercase;
-  font-weight: 500;
-`;
+
 
 export const Button = styled.button`
   pointer-events: auto;

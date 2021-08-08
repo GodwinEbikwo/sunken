@@ -43,9 +43,9 @@ export default function FaqPage({ allPosts }) {
                     )}
                     {morePosts.length > 0 && <MoreStories posts={morePosts} />}
                   </ContainerBox>
-                  <m.aside variants={fade}>
+                  <m.footer variants={fade}>
                     <Footer />
-                  </m.aside>
+                  </m.footer>
                 </m.main>
               </m.div>
             </LazyMotion>

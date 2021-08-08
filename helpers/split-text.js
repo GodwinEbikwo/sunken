@@ -7,7 +7,7 @@ export function SplitText({ children, ...rest }) {
       <span key={children + i} className="inline-block overflow-hidden">
         <motion.span
           {...rest}
-          className="inline-block will-change"
+          className="block will-change"
           custom={i}>
           {word + (i !== words.length - 1 ? '\u00A0' : '')}
         </motion.span>

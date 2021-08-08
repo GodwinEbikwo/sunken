@@ -10,6 +10,8 @@ import { LazyMotion, domAnimation, m } from 'framer-motion';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import Services from '@/components/services';
 import Cta from '@/components/cta';
+import Line from '@/components/line';
+import Work from '@/components/work';
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -28,12 +30,15 @@ export default function Home() {
                 <m.main>
                   <ContainerBox>
                     <Hero />
+                    <Line />
+                    <Work />
                     <Services />
+                    <Line />
                     <Cta />
                   </ContainerBox>
-                  <m.aside variants={fade}>
+                  <m.footer variants={fade}>
                     <Footer />
-                  </m.aside>
+                  </m.footer>
                 </m.main>
               </m.div>
             </LazyMotion>

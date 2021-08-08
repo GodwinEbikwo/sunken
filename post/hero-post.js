@@ -54,16 +54,12 @@ const HeroPostInner = styled.div`
 
 const HeroPostGrid = styled.div`
   margin-bottom: 5rem;
-
   @media (min-width: 768px) {
     display: flex;
     flex-direction: column;
     margin-bottom: 6rem;
   }
 
-  /* @media (min-width: 1024px) {
-    column-gap: 2rem;
-  } */
 
   .hpg-left {
     .hpg-left-title {

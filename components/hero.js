@@ -2,13 +2,14 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import { m } from 'framer-motion';
 import { SplitText } from '@/helpers/split-text';
+import { useEffect } from 'react';
 
 export default function Hero() {
   return (
     <HeroBox>
       <m.div variants={fade}>
         <m.aside className="hero-absolute">
-          <HeroTitle data-scroll>
+          <HeroTitle data-scroll data-scroll-id="title">
             <SplitText
               initial={{ y: '110%', opacity: 0 }}
               animate="enter"
@@ -43,10 +44,10 @@ export default function Hero() {
                 className="b-image"
                 data-scroll>
                 <Image
-                  src="https://res.cloudinary.com/godwinebikwo/image/upload/e_grayscale,q_auto:good/v1627453729/jason-wang-NxAwryAbtIw-unsplash_ltdiyg.jpg"
+                  src="https://res.cloudinary.com/godwinebikwo/image/upload/q_auto:best/v1628342053/fakurian-design-Z8Bux5T0XMg-unsplash_cnucvl.jpg"
                   width={1920}
                   height={960}
-                  alt="sunken-image"
+                  alt="photo by fakurian design on unsplash"
                   className="b-speed-block_image img not-selectable"
                 />
               </div>
@@ -61,7 +62,6 @@ export default function Hero() {
 const HeroBox = styled.section`
   position: relative;
   min-height: 50vh;
-  transition: all var(--easing) 350ms;
   padding: calc(var(--spacer-double) + var(--spacer-double)) var(--spacer);
 
   @media (min-width: 768px) {
@@ -88,12 +88,14 @@ const HeroBox = styled.section`
 `;
 
 const HeroTitle = styled.h1`
-  line-height: 0.825;
+  position: relative;
+  line-height: 0.9;
   font-size: 9vw;
   font-weight: var(--font-md);
   font-family: var(--font);
   text-transform: uppercase;
   @media (min-width: 1024px) {
+    line-height: 0.825;
     max-width: 80vw;
     font-size: 100px;
   }
@@ -115,3 +117,4 @@ const fade = {
     transition: { duration: 1, ease: [0.83, 0, 0.17, 1] },
   },
 };
+

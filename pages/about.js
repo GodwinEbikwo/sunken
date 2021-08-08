@@ -27,9 +27,9 @@ export default function AboutPage() {
                   <Container className="has-mx has-px">
                     <About />
                   </Container>
-                  <m.aside variants={fade}>
+                  <m.footer variants={fade}>
                     <Footer />
-                  </m.aside>
+                  </m.footer>
                 </m.main>
               </m.div>
             </LazyMotion>

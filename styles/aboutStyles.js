@@ -13,7 +13,7 @@ export const AboutIntro = styled.aside`
   padding: var(--spacer-half) calc(var(--golden-ratio) + 8px);
   @media (min-width: 768px) {
     max-width: 100%;
-    padding: var(--spacer-half) var(--spacer);
+    padding: var(--golden-ratio);
   }
 
   .ab_intro_inner {
@@ -24,7 +24,6 @@ export const AboutIntro = styled.aside`
 
     .ab_intro_one {
       max-width: 36.5vw;
-
       h1 {
         font-family: var(--Ros);
         font-weight: normal;
@@ -34,7 +33,7 @@ export const AboutIntro = styled.aside`
     }
 
     p {
-      line-height: 1.4;
+      line-height: 1.2;
       max-width: 40rem;
     }
   }
