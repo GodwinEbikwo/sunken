@@ -25,9 +25,9 @@ export const GlobalStyles = createGlobalStyle`
   --accent-2: hsl(252, 83%, 87%);
   --accent-3: #001d3d;
 
-  --font: 'CabinetGrotesk', 'Helvetica Neue', sans-serif;
+  --font: 'CabinetGrotesk', 'Helvetica Neue',  sans-serif;
   --font-2: 'CabinetGrotesk', 'Helvetica Neue', sans-serif;
-
+ 
   --font-xsm: 300;
   --font-sm: 400;
   --font-md: 500;
@@ -64,7 +64,7 @@ export const GlobalStyles = createGlobalStyle`
   --bg:#fff;
   --text-white: #222;
   --white: #000;
-  --border-color: #333;
+  --border-color: rgba(105, 105, 105, 0.8);
   --black: #fff
 }
 
@@ -102,7 +102,7 @@ html,
     border: 0;
     font-size: 100%;
     font: inherit;
-    vertical-align: baseline; 
+    vertical-align: middle; 
   }
 
 

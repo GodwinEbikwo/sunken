@@ -65,7 +65,6 @@ const WorkGrid = styled.ul`
   }
 
   @media (min-width: 1024px) {
-    /* all: unset; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -82,19 +81,19 @@ const WorkGrid = styled.ul`
 
       &:first-child {
         width: 60%;
-        margin-right: 20%;
+        margin-right: 30%;
       }
 
       &:nth-child(2) {
         width: 55%;
         float: right;
-        margin-left: 35%;
+        margin-left: 45%;
       }
 
       &:nth-child(3) {
         width: 60%;
         float: left;
-        margin-right: 20%;
+        margin-right: 30%;
       }
     }
   }

@@ -1,46 +1,20 @@
-import { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { useMenu } from '@/helpers/menuState';
-import styled from 'styled-components';
-import { m, useAnimation } from 'framer-motion';
+import Image from 'next/image';
 import FancySpan from './fancySpan';
-import { useInView } from 'react-intersection-observer';
+import styled from 'styled-components';
+import { useEffect, useState } from 'react';
+import { m, useAnimation } from 'framer-motion';
 import { menuInOut } from '@/helpers/transitions';
-
-export function useOnClickOutside(ref, handler) {
-  useEffect(() => {
-    const listener = (event) => {
-      if (!ref.current || ref.current.contains(event.target)) {
-        return;
-      }
-      handler(event);
-    };
-    document.addEventListener('mousedown', listener);
-    document.addEventListener('touchstart', listener);
-    return () => {
-      document.removeEventListener('mousedown', listener);
-      document.removeEventListener('touchstart', listener);
-    };
-  }, [ref, handler]);
-}
-
-export const linerevealIn = {
-  initial: { x: '-100%' },
-  enter: {
-    x: 0,
-    transition: { duration: 1, ease: [0.83, 0, 0.17, 1] },
-  },
-  exit: {
-    x: '100%',
-    transition: { duration: 0.85, ease: [0.83, 0, 0.17, 1] },
-  },
-};
+import { useInView } from 'react-intersection-observer';
+import { src1, src2, src3, src4 } from '@/helpers/src';
 
 export default function Menu({ open, setOpen }) {
-  const closeRef = useRef();
   const controls = useAnimation();
-  const { ref, inView } = useInView({ trackVisibility: true, delay: 100 });
-  useOnClickOutside(closeRef, () => setOpen(false));
+  const [faqImgHovered, setFaqImgHovered] = useState(false);
+  const [aboutImgHovered, setAboutImgHovered] = useState(false);
+  const [workImgHovered, setWorkImgHovered] = useState(false);
+  const [contactImgHovered, setContactImgHovered] = useState(false);
+  const { ref, inView } = useInView();
 
   useEffect(() => {
     if (inView) {
@@ -54,57 +28,73 @@ export default function Menu({ open, setOpen }) {
   return (
     <m.div animate="enter" initial="initial" exit="exit">
       <MenuRight open={open} data-scroll-section>
-        <m.div
-          className="scroll-container"
-          initial="initial"
-          animate={controls}
-          exit="exit"
-          variants={{
-            enter: {
-              transition: {
-                staggerChildren: 0.08,
-                delay: 0.35,
-              },
-            },
-          }}>
-          <div ref={ref}>
-            <FancySpan>
-              <m.span className="block" variants={menuInOut}>
-                <Link href="/about">
-                  <a onClick={() => setOpen(!open)}>About</a>
-                </Link>
-              </m.span>
-              <m.div variants={linerevealIn} className="line"></m.div>
-            </FancySpan>
+        {faqImgHovered && (
+          <ImageHoverDiv
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            variants={showImage}
+            data-scroll>
+            <Image
+              src={src1}
+              width={640}
+              height={631}
+              alt="about"
+              loading="eager"
+            />
+          </ImageHoverDiv>
+        )}
 
-            <FancySpan>
-              <m.span className="block" variants={menuInOut}>
-                <Link href="/">
-                  <a onClick={() => setOpen(!open)}>Work</a>
-                </Link>
-              </m.span>
-              <m.div variants={linerevealIn} className="line"></m.div>
-            </FancySpan>
+        {aboutImgHovered && (
+          <ImageHoverDiv
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            variants={showImage}
+            data-scroll>
+            <Image
+              src={src2}
+              width={640}
+              height={631}
+              alt="about"
+              loading="eager"
+            />
+          </ImageHoverDiv>
+        )}
 
-            <FancySpan>
-              <m.span className="block" variants={menuInOut}>
-                <Link href="/">
-                  <a onClick={() => setOpen(!open)}>Contact</a>
-                </Link>
-              </m.span>
-              <m.div variants={linerevealIn} className="line"></m.div>
-            </FancySpan>
+        {workImgHovered && (
+          <ImageHoverDiv
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            variants={showImage}
+            data-scroll>
+            <Image
+              src={src3}
+              width={640}
+              height={631}
+              alt="about"
+              loading="eager"
+            />
+          </ImageHoverDiv>
+        )}
 
-            <FancySpan>
-              <m.span className="block" variants={menuInOut}>
-                <Link href="/faq">
-                  <a onClick={() => setOpen(!open)}>FAQ</a>
-                </Link>
-              </m.span>
-              <m.div variants={linerevealIn} className="line"></m.div>
-            </FancySpan>
-          </div>
-        </m.div>
+        {contactImgHovered && (
+          <ImageHoverDiv
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            variants={showImage}
+            data-scroll>
+            <Image
+              src={src4}
+              width={640}
+              height={631}
+              alt="about"
+              loading="eager"
+            />
+          </ImageHoverDiv>
+        )}
 
         <footer>
           <div className="flex">
@@ -140,65 +130,82 @@ export default function Menu({ open, setOpen }) {
       </MenuRight>
 
       <MenuLeft open={open}>
-       
+        <m.div
+          className="scroll-container"
+          initial="initial"
+          animate={controls}
+          exit="exit"
+          variants={{
+            enter: {
+              transition: {
+                staggerChildren: 0.08,
+                delay: 0.35,
+              },
+            },
+          }}>
+          <div ref={ref}>
+            <FancySpan>
+              <m.span className="block" variants={menuInOut}>
+                <Link href="/faq">
+                  <a
+                    onMouseEnter={() => setFaqImgHovered(true)}
+                    onMouseLeave={() => setFaqImgHovered(false)}
+                    onClick={() => setOpen(!open)}>
+                    Faq
+                  </a>
+                </Link>
+              </m.span>
+              <m.div variants={linerevealIn} className="line"></m.div>
+            </FancySpan>
+
+            <FancySpan>
+              <m.span className="block" variants={menuInOut}>
+                <Link href="/about">
+                  <a
+                    onMouseEnter={() => setAboutImgHovered(true)}
+                    onMouseLeave={() => setAboutImgHovered(false)}
+                    onClick={() => setOpen(!open)}>
+                    About
+                  </a>
+                </Link>
+              </m.span>
+              <m.div variants={linerevealIn} className="line"></m.div>
+            </FancySpan>
+
+            <FancySpan>
+              <m.span className="block" variants={menuInOut}>
+                <Link href="/">
+                  <a
+                    onMouseEnter={() => setWorkImgHovered(true)}
+                    onMouseLeave={() => setWorkImgHovered(false)}
+                    onClick={() => setOpen(!open)}>
+                    Work
+                  </a>
+                </Link>
+              </m.span>
+              <m.div variants={linerevealIn} className="line"></m.div>
+            </FancySpan>
+
+            <FancySpan>
+              <m.span className="block" variants={menuInOut}>
+                <Link href="/">
+                  <a
+                    onMouseEnter={() => setContactImgHovered(true)}
+                    onMouseLeave={() => setContactImgHovered(false)}
+                    onClick={() => setOpen(!open)}>
+                    Contact
+                  </a>
+                </Link>
+              </m.span>
+              <m.div variants={linerevealIn} className="line"></m.div>
+            </FancySpan>
+          </div>
+        </m.div>
       </MenuLeft>
       <Overlay open={open} />
     </m.div>
   );
 }
-
-export const Burger = ({ open, setOpen }) => {
-  return (
-    <StyledBurger
-      title="menu"
-      aria-label="hamburger menu"
-      open={open}
-      onClick={() => setOpen(!open)}>
-      <div aria-hidden="true" className="bg-line-top" />
-      <div aria-hidden="true" className="bg-line-middle" />
-      <div aria-hidden="true" className="bg-line-bottom" />
-    </StyledBurger>
-  );
-};
-
-const StyledBurger = styled.button`
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 3rem;
-  height: 2rem;
-  background: transparent;
-  border: none;
-  padding: 0;
-
-  &:focus {
-    outline: none;
-  }
-
-  div {
-    width: 3rem;
-    height: 1.5px;
-    background: ${({ open }) => (open ? '#fff' : 'var(--text-white)')};
-    transition: all 0.3s linear;
-    position: relative;
-    transform-origin: 6px;
-    will-change: transform;
-
-    :first-child {
-      transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
-    }
-
-    :nth-child(2) {
-      opacity: ${({ open }) => (open ? '0' : '1')};
-      transform: ${({ open }) => (open ? 'translateX(20px)' : 'translateX(0)')};
-    }
-
-    :nth-child(3) {
-      transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
-    }
-  }
-`;
 
 const MenuLeft = styled.aside`
   position: fixed;
@@ -214,15 +221,37 @@ const MenuLeft = styled.aside`
   transition: transform 1s cubic-bezier(0.77, 0, 0.18, 1) 0.35s;
   will-change: transform;
   z-index: 5;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
   padding: 0 calc(var(--golden-ratio) * 2) calc(var(--golden-ratio));
   perspective: 1000px;
+  color: var(--black);
+
   ${(props) =>
     props.open &&
     `transform: translate3d(0, 0, 0); 
     transition: transform 1.1s cubic-bezier(.76,0,.24,1);
     cursor: pointer;`};
+
+  .line {
+    width: 100%;
+    height: 1px;
+    transform-origin: left;
+    background: var(--border-color);
+  }
+
+  .scroll-container {
+    margin-top: 10rem;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    a {
+      font-size: 10vw;
+      letter-spacing: var(--ls-md);
+      @media (min-width: 768px) {
+        font-size: 3vw;
+        font-weight: var(--font-md);
+      }
+    }
+  }
 `;
 
 const MenuRight = styled.aside`
@@ -240,53 +269,23 @@ const MenuRight = styled.aside`
   z-index: 5;
   grid-template-rows: auto 1fr auto;
   padding: 0 calc(var(--golden-ratio) * 2) calc(var(--golden-ratio));
-  color: white;
+  color: var(--white);
   perspective: 1000px;
-
   ${(props) =>
     props.open &&
     `transform: translate3d(0, 0, 0); 
       transition: transform 1.1s cubic-bezier(.76,0,.24,1);
       cursor: pointer;
     `};
-
-  .line {
-    width: 100%;
-    height: 1px;
-    transform-origin: left;
-    background: white;
-  }
-
   @media (max-width: 767px) {
     min-width: 50%;
-  }
-
-  .scroll-container {
-    margin-top: 8rem;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-
-    a {
-      font-size: 10vw;
-      letter-spacing: var(--ls-md);
-      @media (min-width: 768px) {
-        font-size: 3vw;
-        font-weight: var(--font-md);
-      }
-    }
   }
 
   footer {
     position: absolute;
     bottom: var(--golden-ratio);
-    left: var(--golden-ratio);
+    right: var(--golden-ratio);
     align-items: center;
-
-    p {
-      margin: 0.5rem 0;
-      padding-top: 0.25rem;
-      padding-bottom: 0.25rem;
-    }
   }
 `;
 
@@ -308,4 +307,44 @@ export const Overlay = styled.div`
   cursor: pointer;
   ${(props) =>
     props.open && `opacity: 1; visibility: visible; transition-delay: 0.1s;`};
+`;
+
+const showImage = {
+  initial: { opacity: 0 },
+  enter: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.77, 0, 0.18, 1],
+    },
+  },
+  exit: {
+    opacity: 0,
+  },
+};
+
+export const linerevealIn = {
+  initial: { x: '-100%' },
+  enter: {
+    x: 0,
+    transition: { duration: 1, ease: [0.77, 0, 0.18, 1] },
+  },
+  exit: {
+    x: '-100%',
+    transition: { duration: 0.85, ease: [0.77, 0, 0.18, 1] },
+  },
+};
+
+const ImageHoverDiv = styled(m.div)`
+  overflow: hidden;
+  padding: var(---spacer);
+  position: absolute;
+  bottom: 4vw;
+  right: calc(6vw / 2.125);
+  height: 482px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+  z-index: 15;
 `;

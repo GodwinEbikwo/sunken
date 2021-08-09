@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
 import FancyLink from './fancyLink';
 import FancySpan from './fancySpan';
-import Menu, { Burger } from './menu';
+import Menu from './menu';
+import Burger from './burger';
 import { useState } from 'react';
 
 const navLogoReveal = {
@@ -37,9 +38,7 @@ export default function Navigation() {
             <NavList>
               <li>
                 <FancySpan>
-                  <m.span
-                    variants={navLogoReveal}
-                    className="block">
+                  <m.span variants={navLogoReveal} className="block">
                     <FancyLink
                       destination="/projects"
                       a11yText="Navigate to the contact page"
@@ -131,7 +130,8 @@ export const Logo = styled.div`
   text-transform: capitalize;
   text-align: center;
   @media (min-width: 768px) {
-    font-size: 4rem;
+    font-size: 4.125rem;
+    margin-left: 8px;
   }
 `;
 

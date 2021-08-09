@@ -2,7 +2,6 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import { m } from 'framer-motion';
 import { SplitText } from '@/helpers/split-text';
-import { useEffect } from 'react';
 
 export default function Hero() {
   return (
@@ -27,7 +26,7 @@ export default function Hero() {
                   },
                 }),
               }}>
-              Sunken Interior Helping to transform your home renovation
+              Sunken Interior 
             </SplitText>
           </HeroTitle>
         </m.aside>
@@ -83,7 +82,7 @@ const HeroBox = styled.section`
 
   .hero-img {
     max-width: 100vw;
-    margin-top: var(--spacer);
+    /* margin-top: var(--spacer); */
   }
 `;
 
@@ -91,13 +90,13 @@ const HeroTitle = styled.h1`
   position: relative;
   line-height: 0.9;
   font-size: 9vw;
-  font-weight: var(--font-md);
+  font-weight: var(--font-lg);
   font-family: var(--font);
   text-transform: uppercase;
   @media (min-width: 1024px) {
+    /* max-width: 80vw; */
     line-height: 0.825;
-    max-width: 80vw;
-    font-size: 100px;
+    font-size: 12vw;
   }
 `;
 
