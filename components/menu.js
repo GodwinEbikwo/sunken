@@ -318,9 +318,9 @@ export const Overlay = styled.div`
 `;
 
 const showImage = {
-  initial: { opacity: 1 },
   enter: {
-    opacity: 1,
+    originX: 0.5,
+    originY: 0.5,
     transition: {
       duration: 0.5,
       ease: [0.77, 0, 0.18, 1],

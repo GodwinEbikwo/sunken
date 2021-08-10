@@ -53,7 +53,7 @@ export default function Cta() {
 
 const CtaBox = styled.section`
   position: relative;
-  padding: 250px 0;
+  height: 100vh;
   background-image: url('https://res.cloudinary.com/godwinebikwo/image/upload/v1627932917/header-jobs-1920x1080-q72_onv2uu.jpg');
   background-repeat: no-repeat;
   background-size: cover;

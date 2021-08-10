@@ -61,7 +61,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 [data-theme="light"] {
-  --bg:#fff;
+  --bg:#edeff1;
   --text-white: #222;
   --white: #000;
   --border-color: rgba(105, 105, 105, 0.8);
@@ -358,18 +358,20 @@ html,
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: 50% 50%;
       opacity: 0;
-      transform: rotate(8deg) scale(1.4);
+      transform: rotate(10deg) scale(1.4);
       transition: opacity 1.2s var(--easing), transform 1.2s var(--easing);
       will-change: transform, opacity;
       transform-origin: 50% 50%;
+      transform-style: preserve-3d;
   }
 
     &.is-inview {
       .img {
         opacity: 1;
         transform: rotate(0deg)  scale(1);
-        transition-delay: 0.5s;
+        transition-delay: 0.65s;
     }
   }
 }

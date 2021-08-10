@@ -126,7 +126,7 @@ const HeroTitle = styled.h1`
   font-weight: var(--font-sm);
   text-transform: uppercase;
   @media (min-width: 1024px) {
-    max-width: 35vw;
+    max-width: 32vw;
     line-height: 1;
     font-size: 2.75vw;
     letter-spacing: var(--ls-xsm);
@@ -158,7 +158,7 @@ export const enterIn = {
     y: '0%',
     opacity: 1,
     transition: {
-      duration: 1,
+      duration: 0.5,
       ease: [0.77, 0, 0.175, 1],
     },
   },
