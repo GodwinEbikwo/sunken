@@ -2,33 +2,59 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import { m } from 'framer-motion';
 import { SplitText } from '@/helpers/split-text';
+import FancySpan from './fancySpan';
+import { revealInOut } from '@/helpers/transitions';
 
 export default function Hero() {
   return (
     <HeroBox>
       <m.div variants={fade}>
         <m.aside className="hero-absolute">
-          <HeroTitle data-scroll data-scroll-id="title">
-            <SplitText
-              initial={{ y: '110%', opacity: 0 }}
-              animate="enter"
-              exit={{
-                y: '110%',
-              }}
-              variants={{
-                enter: (i) => ({
-                  y: 0,
-                  opacity: 1,
-                  transition: {
-                    duration: 1.5,
-                    ease: [0.77, 0, 0.175, 1],
-                    delay: i * 0.02,
-                  },
-                }),
-              }}>
-              Sunken Interior 
-            </SplitText>
-          </HeroTitle>
+          <m.div className="flex space-between wrap">
+            <HeroTitle data-scroll data-scroll-id="title">
+              <SplitText
+                initial={{ y: '110%', opacity: 0 }}
+                animate="enter"
+                exit={{
+                  y: '110%',
+                }}
+                variants={{
+                  enter: (i) => ({
+                    y: "0%",
+                    opacity: 1,
+                    transition: {
+                      duration: 1.5,
+                      ease: [0.77, 0, 0.175, 1],
+                      delay: i * 0.035,
+                    },
+                  }),
+                }}>
+                We turn your house into a home that your dog would love.
+              </SplitText>
+            </HeroTitle>
+
+            <m.div className="hero-right">
+              <h2>
+                <FancySpan>
+                  <m.span className="block" variants={enterIn}>
+                    Abuja
+                  </m.span>
+                </FancySpan>
+
+                <FancySpan>
+                  <m.span className="block" variants={enterIn}>
+                    Lagos
+                  </m.span>
+                </FancySpan>
+
+                <FancySpan>
+                  <m.span className="block" variants={enterIn}>
+                    Est 2013
+                  </m.span>
+                </FancySpan>
+              </h2>
+            </m.div>
+          </m.div>
         </m.aside>
 
         <m.aside className="hero-img">
@@ -78,11 +104,18 @@ const HeroBox = styled.section`
     @media (min-width: 800px) {
       top: 7vw;
     }
+
+    .hero-right {
+      align-self: flex-end;
+      h2 {
+        font-size: 1.4vw;
+      }
+    }
   }
 
   .hero-img {
     max-width: 100vw;
-    /* margin-top: var(--spacer); */
+    margin-top: var(--spacer);
   }
 `;
 
@@ -90,13 +123,13 @@ const HeroTitle = styled.h1`
   position: relative;
   line-height: 0.9;
   font-size: 9vw;
-  font-weight: var(--font-lg);
-  font-family: var(--font);
+  font-weight: var(--font-sm);
   text-transform: uppercase;
   @media (min-width: 1024px) {
-    /* max-width: 80vw; */
-    line-height: 0.825;
-    font-size: 12vw;
+    max-width: 35vw;
+    line-height: 1;
+    font-size: 2.75vw;
+    letter-spacing: var(--ls-xsm);
   }
 `;
 
@@ -117,3 +150,20 @@ const fade = {
   },
 };
 
+
+
+export const enterIn = {
+  initial: { y: '120%', opacity: 0 },
+  enter: {
+    y: '0%',
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: [0.77, 0, 0.175, 1],
+    },
+  },
+  exit: {
+    y: '110%',
+    transition: { duration: 1.5, ease: [0.77, 0, 0.175, 1] },
+  },
+};

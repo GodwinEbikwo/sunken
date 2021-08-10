@@ -23,7 +23,7 @@ export default function AboutPage() {
           <aside data-scroll-section>
             <LazyMotion features={domAnimation}>
               <m.div initial="initial" animate="enter" exit="exit">
-                <m.main variants={fade}>
+                <m.main>
                   <Container className="has-mx has-px">
                     <About />
                   </Container>

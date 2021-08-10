@@ -9,3 +9,4 @@ export default function FancyLink({ destination, a11yText, label, className}) {
     </Link>
   );
 }
+

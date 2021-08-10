@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { m, useAnimation, LazyMotion, domAnimation } from 'framer-motion';
+import { m, useAnimation } from 'framer-motion';
 import FancySpan from './fancySpan';
 import { revealInOut, fade } from '@/helpers/transitions';
 import useOnScreen from '@/helpers/useOnScreen';
@@ -46,13 +46,13 @@ export default function About() {
   }, [controls, reveal]);
 
   return (
-    <LazyMotion features={domAnimation}>
-      <AboutBox>
+    <AboutBox>
+      <m.div variants={fade}>
         <AboutIntro>
           <m.div
             className="ab_intro_inner"
-            animate={controls}
             initial="initial"
+            animate="enter"
             exit="exit"
             variants={{
               enter: { transition: { staggerChildren: 0.08, delay: 0.2 } },
@@ -180,7 +180,7 @@ export default function About() {
 
         <AboutMiddle>
           <AboutMiddleInner>
-            <m.div className="row" variants={fade} data-scroll>
+            <div className="row" data-scroll>
               <div className="col" data-scroll>
                 <Image
                   src="https://res.cloudinary.com/godwinebikwo/image/upload/v1627453776/jason-wang-5MG8cQbw-T8-unsplash_vb8la2.jpg"
@@ -201,10 +201,10 @@ export default function About() {
                   className="a-img"
                 />
               </div>
-            </m.div>
+            </div>
           </AboutMiddleInner>
         </AboutMiddle>
-      </AboutBox>
-    </LazyMotion>
+      </m.div>
+    </AboutBox>
   );
 }

@@ -126,7 +126,10 @@ export const menuInOut = {
   enter: {
     y: '0%',
     opacity: 1,
-    transition: { duration: 1.1, ease: [0.83, 0, 0.17, 1] },
+    transition: {
+      duration: 1.1,
+      ease: [0.83, 0, 0.17, 1],
+    },
   },
   exit: {
     y: '105%',
@@ -146,7 +149,6 @@ export const revealIn = {
     transition: { duration: 1, ease: [0.83, 0, 0.17, 1] },
   },
 };
-
 
 const LoaderRevealInOut = {
   hidden: { y: '110%', opacity: 0 },

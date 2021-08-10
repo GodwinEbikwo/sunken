@@ -29,7 +29,6 @@ const Seperator = styled(m.div)`
   background-color: var(--border-color);
   width: 100%;
   height: 1px;
-  line-height: 27px;
 `;
 
 const lineH = {
@@ -37,13 +36,13 @@ const lineH = {
   enter: {
     x: 0,
     transition: {
-      duration: 1.65,
+      duration: 1.35,
       ease: [0.77, 0, 0.175, 1],
     },
   },
   exit: {
     x: 0,
-    transition: { duration: 1.75, ease: [0.77, 0, 0.175, 1] },
+    transition: { duration: 1, ease: [0.77, 0, 0.175, 1] },
   },
 };
 

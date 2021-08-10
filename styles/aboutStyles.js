@@ -6,6 +6,7 @@ export const AboutBox = styled.section`
   margin-top: calc(var(--spacer) * 4);
   @media (min-width: 600px) {
     margin: 0 var(--spacer-half);
+    margin-bottom: var(--spacer);
   }
 `;
 
