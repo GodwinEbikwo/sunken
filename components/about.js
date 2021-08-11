@@ -1,26 +1,21 @@
-import { useState, useRef, useEffect } from 'react';
+import { useEffect } from 'react';
 import Image from 'next/image';
 import { m, useAnimation } from 'framer-motion';
 import FancySpan from './fancySpan';
 import { revealInOut, fade } from '@/helpers/transitions';
-import useOnScreen from '@/helpers/useOnScreen';
 import { useInView } from 'react-intersection-observer';
 import { SplitText } from '@/helpers/split-text';
 import {
   AboutBox,
   AboutIntro,
   AboutMiddle,
-  AboutMiddleInner,
   AboutMiddleP,
+  AboutGrid,
 } from '@/styles/aboutStyles';
 
 export default function About() {
-  const controls = useAnimation();
   const newControls = useAnimation();
   const { ref, inView } = useInView();
-  const animateRef = useRef(null);
-  const [reveal, setReveal] = useState(false);
-  const onScreen = useOnScreen(animateRef);
 
   useEffect(() => {
     if (inView) {
@@ -32,179 +27,157 @@ export default function About() {
     }
   }, [newControls, inView]);
 
-  useEffect(() => {
-    if (onScreen) setReveal(onScreen);
-  }, [onScreen]);
-
-  useEffect(() => {
-    if (reveal) {
-      controls.start('enter');
-    }
-    if (!reveal) {
-      controls.start('hidden');
-    }
-  }, [controls, reveal]);
-
   return (
-    <AboutBox>
-      <m.div variants={fade}>
-        <AboutIntro>
-          <m.div
-            className="ab_intro_inner"
-            initial="initial"
-            animate="enter"
-            exit="exit"
-            variants={{
-              enter: { transition: { staggerChildren: 0.08, delay: 0.2 } },
-            }}>
-            <p>
-              <SplitText
-                initial={{ y: '110%', opacity: 0 }}
-                animate="visible"
-                exit={{ y: '110%' }}
-                variants={{
-                  visible: (i) => ({
-                    y: 0,
-                    opacity: 1,
-                    transition: {
-                      duration: 1.5,
-                      ease: [0.77, 0, 0.175, 1],
-                      delay: i * 0.02,
-                    },
-                  }),
-                }}>
-                At Sunken, we exist to ideate, visualise, and create a new era
-                of modern infrastructure. Our team, led by contemporary
-                designer, and leader in modern design achitecture interior,
-                Segun Sowunmi.
-              </SplitText>
-            </p>
-          </m.div>
-        </AboutIntro>
-
-        <AboutMiddle>
-          <AboutMiddleInner data-scroll>
-            <div className="row" data-scroll>
-              <div className="col has-firstchild" data-scroll>
-                <Image
-                  src="https://res.cloudinary.com/godwinebikwo/image/upload/v1625124781/spacejoy-umAXneH4GhA-unsplash_ynu5ej.jpg"
-                  width={409}
-                  height={280}
-                  alt="5n6"
-                  quality="85"
-                  className="a-img"
-                />
-              </div>
-              <div className="col" data-scroll>
-                <Image
-                  src="https://res.cloudinary.com/godwinebikwo/image/upload/v1625122548/spacejoy-YI2YkyaREHk-unsplash_azlzhu.jpg"
-                  width={640}
-                  height={640}
-                  alt="5n6"
-                  quality="85"
-                  className="a-img"
-                />
-              </div>
-            </div>
-          </AboutMiddleInner>
-        </AboutMiddle>
-
-        <AboutMiddle>
-          <AboutMiddleP>
-            <m.div className="admo" data-scroll>
-              <div className="w-full first" data-scroll>
-                <Image
-                  src="https://res.cloudinary.com/godwinebikwo/image/upload/v1627588899/amira-aboalnaga-f9O-1eKGlQM-unsplash_kg1rwm.jpg"
-                  width={679}
-                  height={388}
-                  alt="5n6"
-                  quality="85"
-                  className="a-img"
-                />
-              </div>
-
-              <m.div
-                className="second"
-                animate={newControls}
-                initial="initial"
-                exit="exit"
-                style={{
-                  transformOrigin: 'translate(0%, 100%)',
-                }}
-                variants={{
-                  enter: { transition: { staggerChildren: 0.08, delay: 0.2 } },
-                }}>
-                <p ref={ref}>
-                  <FancySpan>
-                    <m.span className="block" variants={revealInOut}>
-                      We work together to bring your project one step closer
-                    </m.span>
-                  </FancySpan>
-
-                  <FancySpan>
-                    <m.span className="block" variants={revealInOut}>
-                      to reality by using creative direction, 3D architectural
-                    </m.span>
-                  </FancySpan>
-
-                  <FancySpan>
-                    <m.span className="block" variants={revealInOut}>
-                      visualisations, and motion design. If you are looking for
-                      an
-                    </m.span>
-                  </FancySpan>
-
-                  <FancySpan>
-                    <m.span className="block" variants={revealInOut}>
-                      elevated physical or digital experience, we specialise in
-                    </m.span>
-                  </FancySpan>
-
-                  <FancySpan>
-                    <m.span className="block" variants={revealInOut}>
-                      leading the creative thinking behind your projects to
-                      craft
-                    </m.span>
-                  </FancySpan>
-
-                  <FancySpan>
-                    <m.span className="block" variants={revealInOut}>
-                      awe-inspiring and uniquely desirable experiences.
-                    </m.span>
-                  </FancySpan>
-                </p>
-              </m.div>
+    <>
+      <AboutBox>
+        <m.div variants={fade}>
+          <AboutIntro data-scroll>
+            <m.div initial="initial" animate="enter" exit="exit">
+              <AboutGrid>
+                <div />
+                <div className="firs-col" data-scroll>
+                  <h1>
+                    <FancySpan>
+                      <m.span className="block" variants={revealInOut}>
+                        About us
+                      </m.span>
+                    </FancySpan>
+                  </h1>
+                  <div className="cc flex flex-column">
+                    <p>
+                      <SplitText
+                        initial={{ y: '110%', opacity: 0 }}
+                        animate="enter"
+                        exit={{ y: '110%' }}
+                        variants={{
+                          enter: (i) => ({
+                            y: '0%',
+                            opacity: 1,
+                            transition: {
+                              duration: 1.3,
+                              ease: [0.77, 0, 0.175, 1],
+                              delay: i * 0.01,
+                            },
+                          }),
+                        }}>
+                        At Sunken, we exist to ideate, visualise, and create a
+                        new era of modern infrastructure. Our team, led by
+                        contemporary designer, and leader in modern design
+                        achitecture interior, Segun Sowunmi.
+                      </SplitText>
+                    </p>
+                    <p>
+                      <SplitText
+                        initial={{ y: '110%', opacity: 0 }}
+                        animate="enter"
+                        exit={{ y: '110%' }}
+                        variants={{
+                          enter: (i) => ({
+                            y: '0%',
+                            opacity: 1,
+                            transition: {
+                              duration: 1.85,
+                              ease: [0.77, 0, 0.175, 1],
+                              delay: i * 0.02,
+                            },
+                          }),
+                        }}>
+                        We work to bring your project one step closer to reality
+                        by using creative direction, 3D architectural
+                        visualisations, and motion design.
+                      </SplitText>
+                    </p>
+                  </div>
+                </div>
+              </AboutGrid>
             </m.div>
-          </AboutMiddleP>
-        </AboutMiddle>
+          </AboutIntro>
 
-        <AboutMiddle>
-          <AboutMiddleInner>
-            <div className="row" data-scroll>
-              <div className="col" data-scroll>
+          <AboutMiddle>
+            <AboutMiddleP>
+              <div className="admo">
                 <Image
-                  src="https://res.cloudinary.com/godwinebikwo/image/upload/v1627453776/jason-wang-5MG8cQbw-T8-unsplash_vb8la2.jpg"
-                  width={640}
-                  height={640}
-                  alt="5n6"
-                  quality="85"
+                  src="https://res.cloudinary.com/godwinebikwo/image/upload/v1628623055/616b8f41346771.57a2374f72b0c_okygm3.jpg"
+                  width={1920}
+                  height={730}
+                  alt="j-waye-covington-unsplash"
                   className="a-img"
                 />
               </div>
-              <div className="col has-items-end" data-scroll>
-                <Image
-                  src="https://res.cloudinary.com/godwinebikwo/image/upload/v1625124781/spacejoy-umAXneH4GhA-unsplash_ynu5ej.jpg"
-                  width={409}
-                  height={488}
-                  alt="5n6"
-                  quality="85"
-                  className="a-img"
-                />
+            </AboutMiddleP>
+          </AboutMiddle>
+
+          <AboutMiddle data-scroll>
+            <AboutGrid>
+              <div />
+              <div className="firs-col" data-scroll>
+                <h1>
+                  <FancySpan>
+                    <m.span className="block" variants={revealInOut}>
+                      Team
+                    </m.span>
+                  </FancySpan>
+                </h1>
+                <div className="cc flex">
+                  <p>
+                    <SplitText
+                      initial={{ y: '110%', opacity: 0 }}
+                      animate="enter"
+                      exit={{ y: '110%' }}
+                      variants={{
+                        enter: (i) => ({
+                          y: '0%',
+                          opacity: 1,
+                          transition: {
+                            duration: 2.25,
+                            ease: [0.77, 0, 0.175, 1],
+                            delay: i * 0.03,
+                          },
+                        }),
+                      }}>
+                      We’re a growing team of achitects that love every detail
+                      of our work and believe in transforming your house space
+                      to something functional and peaceful.
+                    </SplitText>
+                  </p>
+                </div>
               </div>
-            </div>
-          </AboutMiddleInner>
-        </AboutMiddle>
-      </m.div>
-    </AboutBox>
+            </AboutGrid>
+
+            <AboutGrid>
+              <div />
+              <div className="flex flex-column cc-line" data-scroll>
+                <h2>Key Team Members</h2>
+                <div className="flex space-between wrap">
+                  <div className="gap">
+                    <Image
+                      src="https://res.cloudinary.com/godwinebikwo/image/upload/v1628672656/j-waye-covington-D38l260GHc4-unsplash_ic6yq2.jpg"
+                      width={640}
+                      height={640}
+                      alt="j-waye-covington-unsplash"
+                      className="a-img"
+                    />
+                    <h3>Segun Sowunmi</h3>
+                    <span>CEO</span>
+                  </div>
+
+                  <div>
+                    <Image
+                      src="https://res.cloudinary.com/godwinebikwo/image/upload/v1628673325/rachel-mcdermott-0fN7Fxv1eWA-unsplash_ujennl.jpg"
+                      width={640}
+                      height={640}
+                      alt="5n6"
+                      className="a-img"
+                    />
+                    <h3>Ferah Dominque</h3>
+                    <span>Chief Planner and Architect</span>
+                  </div>
+                </div>
+              </div>
+            </AboutGrid>
+          </AboutMiddle>
+        </m.div>
+      </AboutBox>
+    </>
   );
 }

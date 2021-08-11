@@ -5,14 +5,10 @@ export default function PostTitle({ children }) {
 }
 
 const PostT = styled.h1`
-  font-family: var(--font);
   font-weight: var(--font-lg);
   text-align: center;
-  line-height: 1.25;
-  letter-spacing: var(--ls-lg);
+  line-height: 1;
+  letter-spacing: var(--ls-md);
   margin-bottom: var(--golden-ratio);
-  @media (max-width: 640px) {
-    font-size: 4rem;
-  }
-  
+  text-transform: uppercase
 `;

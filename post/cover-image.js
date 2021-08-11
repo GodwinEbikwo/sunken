@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function CoverImage({ title, responsiveImage, slug }) {
   const image = (
-    <div data-scroll data-scroll-speed="-0.75">
+    <div data-scroll data-scroll-speed="-0.8">
       <Image
         data={{
           ...responsiveImage,

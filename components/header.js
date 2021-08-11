@@ -87,6 +87,8 @@ export const Header = styled.div`
   z-index: 100;
   background: none;
   mix-blend-mode: difference;
+  margin: 0 auto;
+  max-width: var(--max-width);
 
   @media (min-width: 768px) {
     display: grid;
@@ -108,7 +110,7 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: flex-start;
   text-transform: uppercase;
-  font-weight: var(--font-lg);
+  font-weight: var(--font-sm);
 `;
 
 export const NavList = styled.ul`

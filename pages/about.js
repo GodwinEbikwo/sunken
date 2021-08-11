@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo';
 import Layout from '@/components/layout';
 import Container from '@/components/container';
 import { fade } from '@/helpers/transitions';
-import { LazyMotion, domAnimation, m } from 'framer-motion';
+import { m, LazyMotion, domAnimation } from 'framer-motion';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import About from '@/components/about';
 import Navigation from '@/components/header';

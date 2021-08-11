@@ -11,7 +11,7 @@ export const GlobalStyles = createGlobalStyle`
 
   :root{
   --golden-ratio: 1.35rem;
-  --max-width: 142rem;
+  --max-width: 140rem;
 
   --bg:#0a0a0a;
 
@@ -62,7 +62,7 @@ export const GlobalStyles = createGlobalStyle`
 
 [data-theme="light"] {
   --bg:#edeff1;
-  --text-white: #222;
+  --text-white: #161616;
   --white: #000;
   --border-color: rgba(105, 105, 105, 0.8);
   --black: #fff
@@ -123,7 +123,7 @@ html,
     -webkit-font-smoothing: antialiased;
     font-family: var(--font);
     line-height: 1.3;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     color: var(--text-white);
 
     &.no-scroll {
@@ -157,6 +157,11 @@ html,
       calc(1rem + var(--fluid-type-target, 3vw)),
       var(--fluid-type-max, 1.3rem)
     );
+  }
+
+  img{
+    width: 100%;
+    height: 100%;
   }
 
   .loading-container {
@@ -250,6 +255,10 @@ html,
 
   .space-between {
     justify-content: space-between;
+  }
+
+  .space-around {
+    justify-content: space-around;
   }
 
   .block {

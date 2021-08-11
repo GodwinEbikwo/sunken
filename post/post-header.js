@@ -10,7 +10,7 @@ import { SplitText } from '@/helpers/split-text';
 
 export default function PostHeader({ title, coverImage, date, author }) {
   return (
-    <m.div variants={fade}>
+    <m.div>
       <PostDiv>
         <PostTitle>
           <SplitText

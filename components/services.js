@@ -153,8 +153,8 @@ const ServicesTitle = styled.div`
     padding: var(--spacer) 0;
     font-size: 3rem;
     line-height: 1;
-    letter-spacing: var(--ls-lg);
-    font-weight: var(--font-md);
+    letter-spacing: var(--ls-md);
+    font-weight: var(--font-sm);
     @media (min-width: 768px) {
       font-size: 4rem;
     }

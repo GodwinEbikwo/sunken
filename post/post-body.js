@@ -13,7 +13,6 @@ export default function PostBody({ content }) {
   );
 }
 
-
 const PostBox = styled.div`
   margin-top: var(--spacer-double);
   max-width: 72rem;

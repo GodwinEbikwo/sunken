@@ -16,7 +16,7 @@ import { getAllPostsForHome } from '@/lib/api';
 
 export default function HomePage({ allPosts }) {
   const containerRef = useRef(null);
-  const workPosts = allPosts.slice(0, 3)
+  const workPosts = allPosts.slice(0, 5,)
   return (
     <Layout>
       <NextSeo title="Home" />

@@ -6,7 +6,7 @@ export const fade = {
   },
   exit: {
     opacity: 0,
-    transition: { duration: 0.4, ease: [0.83, 0, 0.17, 1] },
+    transition: { ease: [0.83, 0, 0.17, 1] },
   },
 };
 
@@ -48,14 +48,14 @@ export const revealInOut = {
     y: '0%',
     opacity: 1,
     transition: {
-      duration: 1.5,
+      duration: 1.35,
       ease: [0.77, 0, 0.175, 1],
       staggerChildren: 0.03,
     },
   },
   exit: {
     y: '110%',
-    transition: { duration: 1.5, ease: [0.77, 0, 0.175, 1] },
+    transition: { ease: [0.77, 0, 0.175, 1] },
   },
 };
 

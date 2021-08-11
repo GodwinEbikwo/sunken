@@ -10,7 +10,14 @@ export default function Hero() {
     <HeroBox>
       <m.div variants={fade}>
         <m.aside className="hero-absolute">
-          <m.div className="flex space-between wrap">
+          <m.div
+            className="flex space-between wrap"
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            variants={{
+              enter: { transition: { staggerChildren: 0.08, delay: 0.2 } },
+            }}>
             <HeroTitle data-scroll data-scroll-id="title">
               <SplitText
                 initial={{ y: '110%', opacity: 0 }}
@@ -20,12 +27,12 @@ export default function Hero() {
                 }}
                 variants={{
                   enter: (i) => ({
-                    y: "0%",
+                    y: '0%',
                     opacity: 1,
                     transition: {
-                      duration: 1.5,
+                      duration: 1.3,
                       ease: [0.77, 0, 0.175, 1],
-                      delay: i * 0.035,
+                      delay: i * 0.02,
                     },
                   }),
                 }}>
@@ -139,31 +146,28 @@ const fade = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.9,
       ease: [0.83, 0, 0.17, 1],
-      staggerChildren: 0.35,
+      staggerChildren: 0.08,
     },
   },
   exit: {
     opacity: 0,
-    transition: { duration: 1, ease: [0.83, 0, 0.17, 1] },
+    transition: { ease: [0.83, 0, 0.17, 1] },
   },
 };
 
-
-
 export const enterIn = {
-  initial: { y: '120%', opacity: 0 },
+  initial: { y: '100%', opacity: 0 },
   enter: {
     y: '0%',
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 1.3,
       ease: [0.77, 0, 0.175, 1],
     },
   },
   exit: {
-    y: '110%',
-    transition: { duration: 1.5, ease: [0.77, 0, 0.175, 1] },
+    y: '100%',
+    transition: { ease: [0.77, 0, 0.175, 1] },
   },
 };
