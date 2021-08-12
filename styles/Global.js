@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   :root{
-  --golden-ratio: 1.35rem;
+  --golden-ratio: 1.4rem;
   --max-width: 140rem;
 
   --bg:#0a0a0a;
@@ -26,8 +26,7 @@ export const GlobalStyles = createGlobalStyle`
   --accent-3: #001d3d;
 
   --font: 'CabinetGrotesk', 'Helvetica Neue',  sans-serif;
-  --font-2: 'CabinetGrotesk', 'Helvetica Neue', sans-serif;
- 
+
   --font-xsm: 300;
   --font-sm: 400;
   --font-md: 500;
@@ -37,14 +36,8 @@ export const GlobalStyles = createGlobalStyle`
   --fluid-type-max: 5rem;
   --fluid-type-target: 5vw;
 
-  --btn-bs: 0 4px 14px 0 rgb(0 0 0 / 10%);
-  --form-bs: 0 4px 50px 0 rgb(0 0 0 / 18%);
-
   --border-color: hsl(206, 6%, 54%);
  
-  --radii-md: 5px;
-  --radii-lg: 30px;
-
   --ls-xsm: -0.015em;
   --ls-sm: -0.02em;
   --ls-md: -0.03em;
@@ -153,15 +146,16 @@ html,
     font-family: var(--font-4);
     letter-spacing: var(--ls-md);
     font-size: clamp(
-      var(--fluid-type-min, 1rem),
-      calc(1rem + var(--fluid-type-target, 3vw)),
-      var(--fluid-type-max, 1.3rem)
+      var(--fluid-type-min, 2rem),
+      calc(1rem + var(--fluid-type-target, 3.5vw)),
+      var(--fluid-type-max, 2.5rem)
     );
   }
 
-  img{
+  img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 
   .loading-container {
@@ -426,8 +420,6 @@ html,
     }
   }
 
-
-
   .embla {
     position: relative;
   }
@@ -507,5 +499,4 @@ html,
     }
   }
 }
-
 `;

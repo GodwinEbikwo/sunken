@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { m } from 'framer-motion';
 import { SplitText } from '@/helpers/split-text';
 import FancySpan from './fancySpan';
-import { revealInOut } from '@/helpers/transitions';
 
 export default function Hero() {
   return (

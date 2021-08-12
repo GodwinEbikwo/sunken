@@ -29,8 +29,8 @@ export default function PostPreview({
       <PostPreviewDate>
         <Date dateString={date} />
       </PostPreviewDate>
-      <PostPreviewExcerpt>{excerpt}</PostPreviewExcerpt>
-      <Avatar name={author.name} picture={author.picture} />
+      {/* <PostPreviewExcerpt>{excerpt}</PostPreviewExcerpt> */}
+      {/* <Avatar name={author.name} picture={author.picture} /> */}
     </div>
   );
 }
@@ -42,12 +42,15 @@ const PostPreviewTitle = styled.h3`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-transform: uppercase;
 `;
 
 const PostPreviewDate = styled.div`
   margin-bottom: 0.75rem;
+  text-transform: uppercase;
 `;
 
 const PostPreviewExcerpt = styled.p`
   margin-bottom: 1rem;
+  text-transform: uppercase;
 `;

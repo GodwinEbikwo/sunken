@@ -29,18 +29,16 @@ const MoreSoriesBox = styled.div`
 const MoreTitle = styled.h2`
   font-size: 4rem;
   text-align: center;
-  line-height: 1.25;
+  line-height: 1;
   font-weight: var(--font-lg);
-  letter-spacing: var(--ls-lg);
+  letter-spacing: var(--ls-md);
   margin-bottom: 2rem;
+  text-transform: uppercase;
 
   @media (min-width: 768px) {
     font-size: 4.5rem;
     text-align: left;
     line-height: 1;
-  }
-  @media (min-width: 1024px) {
-    font-size: 5rem;
   }
 `;
 

@@ -5,7 +5,7 @@ export default function Avatar({ name, picture }) {
     <AvatarBox>
       <AvatarBoxInner>
         <Image
-          src={picture.url}
+          src={picture?.url}
           layout="fill"
           className="rounded-full not-selectable"
           alt={name}

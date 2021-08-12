@@ -6,7 +6,7 @@ export default function PostTitle({ children }) {
 
 const PostT = styled.h1`
   font-weight: var(--font-lg);
-  text-align: center;
+  text-align: start;
   line-height: 1;
   letter-spacing: var(--ls-md);
   margin-bottom: var(--golden-ratio);

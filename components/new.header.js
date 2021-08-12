@@ -22,7 +22,7 @@ const navLogoReveal = {
   },
 };
 
-export default function Navigation() {
+export default function NNavigation() {
   const [open, setOpen] = useState(false);
   return (
     <LazyMotion features={domAnimation}>
@@ -31,18 +31,30 @@ export default function Navigation() {
         animate="enter"
         exit="exit"
         variants={{
-          enter: { transition: { staggerChildren: 0.09, delay: 0.2 } },
+          enter: { transition: { staggerChildren: 0.1, delay: 0.2 } },
         }}>
         <Header>
+          <Logo>
+            <Link href="/" passHref>
+              <a aria-label="Sunken Interior logo">
+                <FancySpan>
+                  <m.span variants={navLogoReveal} className="block">
+                    sunken interior
+                  </m.span>
+                </FancySpan>
+              </a>
+            </Link>
+          </Logo>
+
           <Nav>
             <NavList>
               <li>
                 <FancySpan>
                   <m.span variants={navLogoReveal} className="block">
                     <FancyLink
-                      destination="/projects"
+                      destination="/contact"
                       a11yText="Navigate to the contact page"
-                      label="SUNKEN INTERIOR"
+                      label="Hello@sunkeninterior.com"
                       className="link link--metis"
                     />
                   </m.span>
@@ -51,19 +63,24 @@ export default function Navigation() {
             </NavList>
           </Nav>
 
-          <Logo>
-            <Link href="/" passHref>
-              <a aria-label="Sunken Interior logo">
-                <FancySpan>
-                  <m.span variants={navLogoReveal} className="block">
-                    S.
-                  </m.span>
-                </FancySpan>
-              </a>
-            </Link>
-          </Logo>
-
           <CartContainer>
+            <Nav>
+              <NavList>
+                <li>
+                  <FancySpan>
+                    <m.span variants={navLogoReveal} className="block">
+                      <FancyLink
+                        destination="/projects"
+                        a11yText="Navigate to the contact page"
+                        label="SUNKEN INTERIOR"
+                        className="link link--metis"
+                      />
+                    </m.span>
+                  </FancySpan>
+                </li>
+              </NavList>
+            </Nav>
+
             <FancySpan>
               <m.div variants={navLogoReveal} className="block">
                 <Burger open={open} setOpen={setOpen} />
@@ -78,34 +95,23 @@ export default function Navigation() {
 }
 
 export const Header = styled.div`
+  position: fixed;
+  top: calc(var(--golden-ratio) - 5px);
+  left: var(--spacer);
+  right: var(--spacer);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 11.733vw;
   width: 100%;
-  padding: var(--golden-ratio);
+  padding: var(--golden-ratio) 0;
   z-index: 100;
   background: none;
   mix-blend-mode: difference;
   margin: 0 auto;
   max-width: var(--max-width);
-
-  @media (min-width: 768px) {
-    display: grid;
-    position: fixed;
-    top: calc(var(--golden-ratio) - 5px);
-    left: var(--spacer);
-    right: var(--spacer);
-    padding: 0;
-    grid-template-columns: 16.806vw 20vw 16.806vw;
-    grid-template-areas: 'nav logo cart';
-    width: calc(100vw - var(--spacer-double));
-    height: unset;
-  }
 `;
 
 export const Nav = styled.nav`
-  grid-area: nav;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -125,23 +131,17 @@ export const NavList = styled.ul`
 `;
 
 export const Logo = styled.div`
-  grid-area: logo;
   font-family: var(--font);
-  font-size: 3rem;
-  font-weight: var(--font-lg);
+  font-weight: var(--font-md);
   text-transform: capitalize;
   text-align: center;
-  @media (min-width: 768px) {
-    font-size: 4.125rem;
-    margin-left: 8px;
-  }
+  text-transform: uppercase;
 `;
 
 export const CartContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  grid-area: cart;
 
   & > {
     button {

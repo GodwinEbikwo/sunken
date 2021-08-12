@@ -11,12 +11,12 @@ import Layout from '@/components/layout';
 import PostTitle from '@/post/post-title';
 import PostHeader from '@/post/post-header';
 import Navigation from '@/components/header';
-import { fade, fadeSmallDelay } from '@/helpers/transitions';
+import { fadeSmallDelay, fade } from '@/helpers/transitions';
 import MoreStories from '@/post/more-stories';
 import markdownToHtml from '@/lib/markdownToHtml';
-import SectionSeparator from '@/post/section-seperator';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import { getAllPostsWithSlug, getPostAndMorePosts } from '@/lib/api';
+import Line from '@/components/line';
 
 export default function Post({ post, morePosts, preview }) {
   const containerRef = useRef(null);
@@ -35,7 +35,11 @@ export default function Post({ post, morePosts, preview }) {
         <section data-scroll-container ref={containerRef} id="scroll-container">
           <aside data-scroll-section>
             <LazyMotion features={domAnimation}>
-              <m.main initial="initial" animate="enter" exit="exit" variants={fadeSmallDelay}>
+              <m.main
+                initial="initial"
+                animate="enter"
+                exit="exit"
+                variants={fade}>
                 <PostContainerBox>
                   {router.isFallback ? (
                     <div className="center">
@@ -58,7 +62,7 @@ export default function Post({ post, morePosts, preview }) {
                         />
                         <PostBody content={post.content} />
                       </m.article>
-                      <SectionSeparator />
+                      <Line className="has-my" />
                       {morePosts.length > 0 && (
                         <MoreStories posts={morePosts} />
                       )}

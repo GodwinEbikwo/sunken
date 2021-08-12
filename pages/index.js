@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { NextSeo } from 'next-seo';
 import Layout from '@/components/layout';
 import { ContainerBox } from '@/components/container';
@@ -16,7 +16,8 @@ import { getAllPostsForHome } from '@/lib/api';
 
 export default function HomePage({ allPosts }) {
   const containerRef = useRef(null);
-  const workPosts = allPosts.slice(0, 5,)
+  const workPosts = allPosts.slice(0, 5);
+
   return (
     <Layout>
       <NextSeo title="Home" />
