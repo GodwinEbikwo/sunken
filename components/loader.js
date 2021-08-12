@@ -10,7 +10,7 @@ const Loader = ({ setLoading }) => {
         <m.aside
           variants={revealLoader}
           onAnimationComplete={() => setLoading(false)}
-          initial="hidden"
+          initial="initial"
           animate="show"
           exit="exit"
           className="loading-container">
@@ -39,7 +39,7 @@ const Loader = ({ setLoading }) => {
 export default Loader;
 
 const revealLoader = {
-  hidden: {
+  initial: {
     opacity: 0,
   },
   show: {
@@ -57,7 +57,7 @@ const revealLoader = {
 };
 
 const fadeOut = {
-  hidden: {
+  initial: {
     opacity: 0.1,
   },
   show: {
@@ -69,11 +69,12 @@ const fadeOut = {
   },
   exit: {
     opacity: 0,
+    ease: [0.77, 0, 0.175, 1],
   },
 };
 
 export const logoReveal = {
-  hidden: { opacity: 1, scale: 1.25 },
+  initial: { opacity: 1, scale: 1.25 },
   show: {
     scale: 1,
     opacity: 1,
@@ -83,7 +84,7 @@ export const logoReveal = {
     },
   },
   exit: {
-    opacity: 0.1,
+    opacity: 0,
     transition: { duration: 1.25, ease: [0.77, 0, 0.175, 1] },
   },
 };

@@ -98,7 +98,7 @@ const WorkGrid = styled.ul`
       justify-content: center;
 
       height: 29.472vw;
-      grid-column: 4/11;
+      grid-column: 3/11;
 
       &:not(:last-child) {
         margin-bottom: calc(var(--spacer) + 2.5vw);

@@ -48,7 +48,7 @@ export const ProjectContainer = styled.li`
       transform: scale(1.6);
 
       &:hover {
-        transform: scale(2.4);
+        transform: scale(2.3);
       }
     }
   }
@@ -91,8 +91,7 @@ export const ProjectContainer = styled.li`
   }
 `;
 
-
- const ProjectLink = styled.a`
+const ProjectLink = styled.a`
   position: relative;
   max-width: 100%;
 
@@ -102,23 +101,22 @@ export const ProjectContainer = styled.li`
   }
 `;
 
- const ProjectInfoContainer = styled.div`
+const ProjectInfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: var(--golden-ratio);
   padding-bottom: var(--golden-ratio);
 `;
 
- const ProjectReadMore = styled.h3`
-   letter-spacing: var(--ls-sm);
-   text-transform: uppercase;
- `;
+const ProjectReadMore = styled.h3`
+  letter-spacing: var(--ls-sm);
+  text-transform: uppercase;
+`;
 
- const ProjectTitle = styled.h3`
+const ProjectTitle = styled.h3`
   text-transform: uppercase;
   width: 190px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
-
