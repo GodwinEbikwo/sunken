@@ -1,8 +1,8 @@
 # Sunken Next Framer Motion Boilerplate
 
-Demo: [https://sg-next-tailwind-motion.vercel.app/](https://sg-next-tailwind-motion.vercel.app/)
+This project was boostrapped with help of : [https://sg-next-tailwind-motion.vercel.app/](https://sg-next-tailwind-motion.vercel.app/)
 
-Locomotive Scroll Demo: [https://sg-next-tailwind-motion-locomotive.vercel.app/](https://sg-next-tailwind-motion-locomotive.vercel.app/)
+Demo: [https://sunken.vercel.app/](https://sunken.vercel.app/)
 
 A simple [Next.js](https://nextjs.org/) boilerplate with [Framer Motion 4](https://www.framer.com/motion/) (With [LazyMotion](https://www.framer.com/api/motion/lazy-motion/), [Framer Motion](https://www.framer.com/motion/), and a few other nice bits preconfigured.
 
@@ -31,7 +31,7 @@ _\*To remove Preact and switch back to React simply remove the code in `next.con
     Navigate into your new site’s directory and install the local dependencies first, then run the dev command.
 
     ```sh
-    cd next-tailwind-motion/
+    cd sunken/
 
     npm i
     npm run dev
@@ -50,6 +50,7 @@ _\*To remove Preact and switch back to React simply remove the code in `next.con
     |-- footer.js *// Example footer component*
     |-- header.js *// Example header component*
     |-- layout.js *// Layout component that can be used to wrap your pages in a global layout*
+    |-- AND MORE
 |-- helpers
     |-- seo.config.js *// default SEO configuration helper, imported in `pages/_app.js`*
     |-- transitions.js *// re-usable framer motion transition helper with a basic 'fade' transition to get started*
@@ -72,5 +73,3 @@ _\*To remove Preact and switch back to React simply remove the code in `next.con
 |-- README.md
 |-- tailwind.config.js
 ```
-
-# sunken
