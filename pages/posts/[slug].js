@@ -11,7 +11,7 @@ import Layout from '@/components/layout';
 import PostTitle from '@/post/post-title';
 import PostHeader from '@/post/post-header';
 import Navigation from '@/components/header';
-import { fadeSmallDelay, fade } from '@/helpers/transitions';
+import { fade } from '@/helpers/transitions';
 import MoreStories from '@/post/more-stories';
 import markdownToHtml from '@/lib/markdownToHtml';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';

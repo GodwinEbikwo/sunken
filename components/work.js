@@ -4,7 +4,7 @@ import { LazyMotion, domAnimation, m, useAnimation } from 'framer-motion';
 import styled from 'styled-components';
 import { ContainerBox } from '@/components/container';
 import { Button } from '@/styles/headings';
-import { fadeSmallDelay } from '@/helpers/transitions';
+import { fade } from '@/helpers/transitions';
 import { useInView } from 'react-intersection-observer';
 import WorkPreview from './work-preview';
 
@@ -23,7 +23,7 @@ export default function Work({ posts }) {
   return (
     <LazyMotion features={domAnimation}>
       <m.div initial="initial" animate="enter" exit="exit" className="relative">
-        <m.div ref={ref} variants={fadeSmallDelay}>
+        <m.div ref={ref} variants={fade}>
           <ContainerBox className="has-px has-mw">
             <WorkHeader>
               <WorkTitle>Selected work</WorkTitle>

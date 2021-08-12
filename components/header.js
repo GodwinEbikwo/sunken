@@ -42,7 +42,7 @@ export default function Navigation() {
                     <FancyLink
                       destination="/projects"
                       a11yText="Navigate to the contact page"
-                      label="SUNKEN INTERIOR"
+                      label="Projects"
                       className="link link--metis"
                     />
                   </m.span>

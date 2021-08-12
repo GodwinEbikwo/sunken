@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Line from './line';
 import FancySpan from './fancySpan';
 import { m, useAnimation, LazyMotion, domAnimation } from 'framer-motion';
-import { revealInOut, fadeSmallDelay } from '@/helpers/transitions';
+import { revealInOut, fade } from '@/helpers/transitions';
 import { useInView } from 'react-intersection-observer';
 
 
@@ -27,7 +27,7 @@ export default function Services() {
         initial="initial"
         exit="exit"
         className="relative">
-        <m.div ref={ref} variants={fadeSmallDelay} className="relative">
+        <m.div ref={ref} variants={fade} className="relative">
           <ServicesTitle className="py-2">
             <h2>
               <FancySpan>

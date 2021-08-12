@@ -7,7 +7,7 @@ import FancySpan from '@/components/fancySpan';
 import { SplitText } from '@/helpers/split-text';
 
 export const enterIn = {
-  initial: { y: '100%', opacity: 0 },
+  initial: { y: '110%', opacity: 0 },
   enter: {
     y: '0%',
     opacity: 1,
@@ -18,7 +18,7 @@ export const enterIn = {
     },
   },
   exit: {
-    y: '100%',
+    y: '110%',
     transition: { ease: [0.77, 0, 0.175, 1] },
   },
 };
@@ -95,17 +95,15 @@ export default function PostHeader({ title, coverImage, date, author }) {
           </div>
         </PostAvatarBox>
 
-        <PostAvatarBox className="flex flex-column">
+        {/* <PostAvatarBox className="flex flex-column">
           <h3 className="next-text">
-            <a className="link link--metis">
-              <FancySpan>
-                <m.span className="block" variants={enterIn}>
-                  Next
-                </m.span>
-              </FancySpan>
-            </a>
+            <FancySpan>
+              <m.span className="block" variants={enterIn}>
+                <a className="link link--metis">Next</a>
+              </m.span>
+            </FancySpan>
           </h3>
-        </PostAvatarBox>
+        </PostAvatarBox> */}
       </PostDiv>
       <PostImageBox>
         <CoverImage
