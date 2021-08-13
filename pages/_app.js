@@ -1,4 +1,3 @@
-import '@/styles/main.css';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, AnimateSharedLayout, m } from 'framer-motion';
 import { useRouter } from 'next/router';
