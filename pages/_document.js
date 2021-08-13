@@ -31,13 +31,13 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <link
+          {/* <link
             rel="preload"
             href="/fonts/CabinetGrotesk-Variable.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
-          />
+          /> */}
         </Head>
         <body>
           <Main />
