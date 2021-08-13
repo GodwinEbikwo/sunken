@@ -40,9 +40,9 @@ export default function Navigation() {
                 <FancySpan>
                   <m.span variants={navLogoReveal} className="block">
                     <FancyLink
-                      destination="/projects"
+                      destination="/contact"
                       a11yText="Navigate to the contact page"
-                      label="Projects"
+                      label="Contact"
                       className="link link--metis"
                     />
                   </m.span>

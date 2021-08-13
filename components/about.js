@@ -93,20 +93,6 @@ export default function About() {
             </m.div>
           </AboutIntro>
 
-          <AboutMiddle>
-            <AboutMiddleP>
-              <div className="admo">
-                <Image
-                  src="https://res.cloudinary.com/godwinebikwo/image/upload/v1628623055/616b8f41346771.57a2374f72b0c_okygm3.jpg"
-                  width={1920}
-                  height={730}
-                  alt="j-waye-covington-unsplash"
-                  className="a-img"
-                />
-              </div>
-            </AboutMiddleP>
-          </AboutMiddle>
-
           <AboutMiddle data-scroll>
             <AboutGrid>
               <div />

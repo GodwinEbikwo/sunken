@@ -10,10 +10,10 @@ import FancySpan from './fancySpan';
 const variantsAni = {
   enter: {
     opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.375 },
+    transition: { staggerChildren: 0.08, delayChildren: 0.375 },
   },
   exit: {
-    transition: { staggerChildren: 0.1, staggerDirection: -1 },
+    transition: { staggerChildren: 0.08, staggerDirection: -1 },
   },
 };
 

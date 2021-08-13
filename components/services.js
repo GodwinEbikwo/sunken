@@ -6,7 +6,6 @@ import { m, useAnimation, LazyMotion, domAnimation } from 'framer-motion';
 import { revealInOut, fade } from '@/helpers/transitions';
 import { useInView } from 'react-intersection-observer';
 
-
 export default function Services() {
   const controls = useAnimation();
   const { ref, inView } = useInView();
@@ -32,10 +31,7 @@ export default function Services() {
             <h2>
               <FancySpan>
                 <m.span className="block" variants={revealInOut}>
-                  We offer a variety
-                </m.span>
-                <m.span className="block" variants={revealInOut}>
-                  of high-end services
+                  Services we offer
                 </m.span>
               </FancySpan>
             </h2>
@@ -151,12 +147,18 @@ const ServicesTitle = styled.div`
 
   h2 {
     padding: var(--spacer) 0;
-    font-size: 3rem;
     line-height: 1;
-    letter-spacing: var(--ls-md);
+    letter-spacing: var(--ls-sm);
     font-weight: var(--font-sm);
-    @media (min-width: 768px) {
-      font-size: 4rem;
+    text-transform: uppercase;
+
+    &::after {
+      height: 1px;
+      width: 2.5rem;
+      content: '';
+      display: block;
+      background: var(--white);
+      margin-top: 1.01vw;
     }
   }
 `;
@@ -198,12 +200,9 @@ const ServicesGrid = styled.div`
 
         h2 {
           margin-left: 0.5rem;
-          font-size: 2.5rem;
-          letter-spacing: var(--ls-md);
+          letter-spacing: var(--ls-sm);
           font-weight: var(--font-md);
-          @media (min-width: 768px) {
-            font-size: 3rem;
-          }
+          text-transform: uppercase;
         }
       }
 
@@ -212,9 +211,6 @@ const ServicesGrid = styled.div`
         @media (min-width: 768px) {
           width: 91.666667%;
         }
-        p {
-          margin-bottom: 1.2rem;
-        }
       }
     }
   }
@@ -222,8 +218,8 @@ const ServicesGrid = styled.div`
 
 const NumberBox = styled.div`
   margin-right: 0.5rem;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   background: var(--white);
   border-top-left-radius: 50%;
   border-bottom-right-radius: 50%;

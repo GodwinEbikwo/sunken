@@ -94,16 +94,6 @@ export default function PostHeader({ title, coverImage, date, author }) {
             </FancySpan>
           </div>
         </PostAvatarBox>
-
-        {/* <PostAvatarBox className="flex flex-column">
-          <h3 className="next-text">
-            <FancySpan>
-              <m.span className="block" variants={enterIn}>
-                <a className="link link--metis">Next</a>
-              </m.span>
-            </FancySpan>
-          </h3>
-        </PostAvatarBox> */}
       </PostDiv>
       <PostImageBox>
         <CoverImage

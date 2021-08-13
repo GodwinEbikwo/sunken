@@ -54,7 +54,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 [data-theme="light"] {
-  --bg:#edeff1;
+  --bg:#fff;
   --text-white: #161616;
   --white: #000;
   --border-color: rgba(105, 105, 105, 0.8);
@@ -112,11 +112,11 @@ html,
     min-height: 100vh;
     width: 100%;
     font-feature-settings: 'kern';
-    text-rendering: optimizeSpeed;
+    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     font-family: var(--font);
     line-height: 1.3;
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     color: var(--text-white);
 
     &.no-scroll {
@@ -347,6 +347,32 @@ html,
     transform: scale3d(1, 1, 1);
   }
 
+
+  .link--ersa {
+    padding: 0 10px;
+  }
+
+  .link--ersa::before {
+    top: 50%;
+    transform-origin: 100% 50%;
+    transform: scale3d(0, 1, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 1, 0.8, 1);
+  }
+
+  .link--ersa:hover::before {
+    transform-origin: 0% 50%;
+    transform: scale3d(1, 1, 1);
+  }
+
+  .link--ersa span {
+    display: inline-block;
+    /* transition: transform 0.3s var(--easing); */
+  }
+
+  .link--ersa:hover span {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
   .b-speed-block {
     position: relative;
   }
@@ -385,19 +411,19 @@ html,
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    /* transform: translate(100%, 0%) rotate(-5deg) scale(1.4);
-    transform-origin: 0% 100%; */
     transform: scale(1.4);
     transform-origin: 50% 50%;
-    transition: opacity 1.5s var(--easing), transform 1.5s var(--easing);
+    transition: opacity 1.2s var(--easing), transform 1.5s var(--easing);
     will-change: transform, opacity;
+    /* transform: translate(100%, 0%) rotate(-5deg) scale(1.4);
+    transform-origin: 0% 100%; */
   }
 
    &.is-inview {
     .a-img {
       opacity: 1;
       transform: scale(1);
-      transition-delay: 0.5s;
+      transition-delay: 0.65s;
     }
   }
 
@@ -420,31 +446,101 @@ html,
     }
   }
 
-  .embla {
-    position: relative;
-  }
+.button {
+	pointer-events: auto;
+	cursor: pointer;
+	background: aquamarine;
+	border: none;
+	padding: 1.5rem 3rem;
+	margin: 0;
+	font-family: inherit;
+	font-size: inherit;
+	position: relative;
+	display: inline-block;
+}
 
-  .embla__viewport {
-    overflow: hidden;
-    width: 100%;
-  }
+.button::before,
+.button::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 
-  .embla__viewport.is-draggable {
-    cursor: pointer;
-  }
+.button--fenrir {
+	background: none;
+	padding: 0;
+	-webkit-clip-path: circle(50% at 50% 50%);
+	clip-path: circle(50% at 50% 50%);
+	width: 120px;
+	height: 120px;
+	font-weight: 700;
+	text-transform: uppercase;
+  font-size: 1.5rem;
+  text-align: center;
+}
 
-  .embla__viewport.is-dragging {
-    cursor: grabbing;
-  }
+.progress {
+	position: absolute;
+	width: 75px;
+	height: 75px;
+	top: calc(50% - 37px);
+	left: calc(50% - 37px);
+	transition: transform 0.4s var(--easing);
+}
 
-  .embla__container {
-    display: flex;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -html-user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    margin-left: -5vw;
-  }
+.button--fenrir:hover .progress {
+	transform: scale3d(1.2, 1.2, 1);
+}
+
+.progress__circle,
+.progress__path {
+	fill: none;
+	stroke: #f0f0f0;
+	stroke-width: 1.5px;
+}
+
+.button--fenrir:focus-visible .progress__circle {
+	fill: rgba(0,0,0,0.4);
+}
+
+.progress__path {
+	stroke: var(--border-color);
+	stroke-dasharray: 1.5;
+	stroke-dashoffset: 1.5;
+	transition: stroke-dashoffset 0.4s var(--easing);
+}
+
+.button--fenrir:hover .progress__path {
+	stroke-dashoffset: 0;
+}
+
+.embla {
+  position: relative;
+}
+
+.embla__viewport {
+  overflow: hidden;
+   width: 100%;
+ }
+
+.embla__viewport.is-draggable {
+  cursor: pointer;
+}
+
+.embla__viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.embla__container {
+   display: flex;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -html-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+   margin-left: -5vw;
+}
 
 .embla__slide {
   position: relative;

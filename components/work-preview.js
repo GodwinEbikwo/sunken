@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import CoverImage from '@/post/cover-image';
+import { WorkImage } from '@/post/cover-image';
 import Link from 'next/link';
 
 export default function WorkPreview({ title, coverImage, slug }) {
@@ -8,8 +8,7 @@ export default function WorkPreview({ title, coverImage, slug }) {
       <Link href={`/posts/${slug}`}>
         <ProjectLink aria-label={`read more about ${title}`}>
           <div className="img-container">
-            <CoverImage
-              slug={slug}
+            <WorkImage
               title={title}
               responsiveImage={coverImage.responsiveImage}
             />
@@ -20,13 +19,6 @@ export default function WorkPreview({ title, coverImage, slug }) {
           </div>
           <ProjectInfoContainer>
             <ProjectTitle>{title}</ProjectTitle>
-            <ProjectReadMore>
-              <a
-                aria-label={`read more about ${title}`}
-                className="link link--metis">
-                Read more
-              </a>
-            </ProjectReadMore>
           </ProjectInfoContainer>
         </ProjectLink>
       </Link>
@@ -106,11 +98,6 @@ const ProjectInfoContainer = styled.div`
   justify-content: space-between;
   padding-top: var(--golden-ratio);
   padding-bottom: var(--golden-ratio);
-`;
-
-const ProjectReadMore = styled.h3`
-  letter-spacing: var(--ls-sm);
-  text-transform: uppercase;
 `;
 
 const ProjectTitle = styled.h3`

@@ -51,8 +51,8 @@ const revealLoader = {
     },
   },
   exit: {
-    y: '-110%',
-    transition: { duration: 1.3, ease: [0.77, 0, 0.175, 1] },
+    y: '-100%',
+    transition: { duration: 1.1, ease: [0.76, 0, 0.24, 1] },
   },
 };
 
@@ -88,4 +88,3 @@ export const logoReveal = {
     transition: { duration: 1.25, ease: [0.77, 0, 0.175, 1] },
   },
 };
-

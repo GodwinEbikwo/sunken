@@ -1,81 +1,111 @@
-import Image from 'next/image';
 import styled from 'styled-components';
-import FancySpan from './fancySpan';
-import { m } from 'framer-motion';
-import { revealInOutReserve, fade } from '@/helpers/transitions';
-import { Button } from '@/styles/headings';
-import FancyLink from './fancyLink';
-
-const CtaRevealIn = {
-  initial: { y: '110%', opacity: 0 },
-  enter: {
-    y: '0%',
-    opacity: 1,
-    transition: {
-      duration: 1.1,
-      ease: [0.77, 0, 0.175, 1],
-      staggerChildren: 0.03,
-    },
-  },
-  exit: {
-    y: '150%',
-    transition: { duration: 1.5, ease: [0.77, 0, 0.175, 1] },
-  },
-};
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Cta() {
   return (
-    <CtaBox>
-      <m.aside className="absolute center" variants={fade}>
-        <div className="flex flex-column align-center justify-center">
-          <CtaTitle className="text-center" data-scroll>
-            <FancySpan>
-              <m.span variants={CtaRevealIn} className="inline-block">
-                Looking for a partner
-              </m.span>
-              <m.span
-                variants={revealInOutReserve}
-                className="inline-block m-left">
-                for your <span style={{ fontStyle: 'italic' }}>home</span>{' '}
-                revonation?
-              </m.span>
-            </FancySpan>
-          </CtaTitle>
+    <CtaContainer>
+      <CtaInner>
+        <p className="cta__p">
+          Never have to worry about the safety OR QUALITY of the products that
+          you choose to put in yout home.
+        </p>
 
-          <Button title="get in touch button" aria-label="get in touch">
-            Get in touch
-          </Button>
+        <div className="small-img-cont">
+          <Image
+            src="https://res.cloudinary.com/godwinebikwo/image/upload/v1627932917/header-jobs-1920x1080-q72_onv2uu.jpg"
+            width={640}
+            height={426}
+            alt="clay"
+            className="a-img"
+          />
         </div>
-      </m.aside>
-    </CtaBox>
+
+        <CtaTitle>
+          At sunken interior, we focus on things <br />
+          that are really <span>important</span> to you
+          <br />
+          your body and your scent
+        </CtaTitle>
+
+        <CtaButton className="flex justify-center align-center">
+          <Link href="/projects" passHref>
+            <button className="button button--fenrir">
+              <svg
+                aria-hidden="true"
+                className="progress"
+                width="70"
+                height="70"
+                viewBox="0 0 70 70">
+                <path
+                  className="progress__circle"
+                  d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"
+                />
+                <path
+                  className="progress__path"
+                  d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"
+                  pathLength="1"
+                />
+              </svg>
+              <span>view</span>
+            </button>
+          </Link>
+        </CtaButton>
+      </CtaInner>
+    </CtaContainer>
   );
 }
 
-const CtaBox = styled.section`
-  position: relative;
-  height: 100vh;
-  background-image: url('https://res.cloudinary.com/godwinebikwo/image/upload/v1627932917/header-jobs-1920x1080-q72_onv2uu.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+const CtaContainer = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
 
-  .m-left {
-    margin-left: 0.1em;
+const CtaInner = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 100px 0;
+  width: 100%;
+  margin: 0 auto;
+
+  .small-img-cont {
+    margin: 2.22222rem auto;
+    transform-origin: top center;
+    overflow: hidden;
+    position: relative;
+
+    @media screen and (max-width: 999px) {
+      width: 66.66667%;
+    }
+
+    @media screen and (min-width: 1000px) {
+      width: 25.166667vw;
+    }
   }
 
-  .inset-0 {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 0.2;
-    z-index: 0;
+  @media only screen and (max-width: 500px) {
+    max-width: 90vw;
+  }
+
+  .cta__p {
+    max-width: 43.72222rem;
+    display: inline-block;
+    text-transform: uppercase;
+    text-align: center;
   }
 `;
 
-const CtaTitle = styled.h1`
-  line-height: 0.9;
-  font-family: var(--font);
-  font-weight: var(--font-md);
-  letter-spacing: var(--ls-md);
-  margin-bottom: var(--golden-ratio);
+const CtaTitle = styled.h2`
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: var(--spacer-double);
+  font-weight: var(--ls-md);
+`;
+
+const CtaButton = styled.div`
+  padding-bottom: var(--spacer);
 `;

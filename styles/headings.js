@@ -19,8 +19,6 @@ export const P = styled.p`
   margin-bottom: var(--spacer);
 `;
 
-
-
 export const Button = styled.button`
   pointer-events: auto;
   cursor: pointer;

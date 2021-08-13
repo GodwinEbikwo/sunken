@@ -13,7 +13,9 @@ export default function Footer() {
     <FooterBox>
       <div className="border-top py-2 px-2">
         <div className="flex align-center space-between flex-wrap">
-          <div className="footer-middle">©2021—SUNKEN BUILDERS Legal</div>
+          <div className="footer-middle">
+            ©{new Date().getFullYear()} - Sunken Interior Legal
+          </div>
           <button
             aria-label="theme switcher"
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
@@ -21,12 +23,12 @@ export default function Footer() {
           </button>
           <div className="flex">
             <span className="block">
-              Developed by{' '}
               <a
+                className="link link--metis"
                 href="https://godwinebikwo.dev"
                 target="_blank"
                 rel="noopener noreferrer">
-                Godwin Ebikwo
+                Developed by Godwin Ebikwo
               </a>
             </span>
           </div>
@@ -54,10 +56,12 @@ const Switcher = styled.div`
 `;
 
 export const FooterBox = styled.div`
-  position: sticky;
+  position: relative;
   width: 100%;
-  top: var(--spacer-double);
-  bottom: var(--spacer);
   text-transform: uppercase;
+  min-height: 3rem;
   font-weight: 500;
+  /* padding: 0 var(--spacer); */
+  margin: 0 auto;
+  max-width: var(--max-width);
 `;

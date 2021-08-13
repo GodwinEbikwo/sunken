@@ -1,10 +1,10 @@
-import Image from 'next/image';
 import styled from 'styled-components';
 import { m } from 'framer-motion';
 import { SplitText } from '@/helpers/split-text';
 import FancySpan from './fancySpan';
+import { HeroImage } from '@/post/cover-image';
 
-export default function Hero() {
+export default function Hero({ title, responsiveImage }) {
   return (
     <HeroBox>
       <m.div variants={fade}>
@@ -62,28 +62,8 @@ export default function Hero() {
             </m.div>
           </m.div>
         </m.aside>
-
         <m.aside className="hero-img">
-          <div className="b-speed-block" data-scroll>
-            <div
-              className="b-image_wrapper overflow-hidden"
-              data-scroll
-              data-scroll-repeat>
-              <div
-                data-scroll
-                data-scroll-speed="-2.5"
-                className="b-image"
-                data-scroll>
-                <Image
-                  src="https://res.cloudinary.com/godwinebikwo/image/upload/q_auto:best/v1628342053/fakurian-design-Z8Bux5T0XMg-unsplash_cnucvl.jpg"
-                  width={1920}
-                  height={960}
-                  alt="photo by fakurian design on unsplash"
-                  className="b-speed-block_image img not-selectable"
-                />
-              </div>
-            </div>
-          </div>
+          <HeroImage title={title} responsiveImage={responsiveImage} />
         </m.aside>
       </m.div>
     </HeroBox>
@@ -92,7 +72,6 @@ export default function Hero() {
 
 const HeroBox = styled.section`
   position: relative;
-  min-height: 50vh;
   padding: calc(var(--spacer-double) + var(--spacer-double)) var(--spacer);
 
   @media (min-width: 768px) {
@@ -129,7 +108,7 @@ const HeroTitle = styled.h1`
   position: relative;
   line-height: 0.9;
   font-size: 9vw;
-  font-weight: var(--font-sm);
+  font-weight: var(--font-md);
   text-transform: uppercase;
   @media (min-width: 1024px) {
     max-width: 32vw;

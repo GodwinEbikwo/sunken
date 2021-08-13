@@ -41,7 +41,25 @@ export default function Work({ posts }) {
 
             <WorkBtn className="flex justify-center align-center">
               <Link href="/projects" passHref>
-                <Button>View more</Button>
+                <button className="button button--fenrir">
+                  <svg
+                    aria-hidden="true"
+                    className="progress"
+                    width="70"
+                    height="70"
+                    viewBox="0 0 70 70">
+                    <path
+                      className="progress__circle"
+                      d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"
+                    />
+                    <path
+                      className="progress__path"
+                      d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"
+                      pathLength="1"
+                    />
+                  </svg>
+                  <span>view</span>
+                </button>
               </Link>
             </WorkBtn>
           </ContainerBox>
@@ -66,7 +84,7 @@ const WorkTitle = styled.h2`
 
   &::after {
     height: 1px;
-    width: 2.533vw;
+    width: 2.5rem;
     content: '';
     display: block;
     background: var(--white);
@@ -79,7 +97,7 @@ const WorkGrid = styled.ul`
   grid-template-rows: 1fr;
   gap: 1em;
   margin-bottom: 8rem;
-  padding: var(--spacer-half);
+  padding: 8rem 0;
 
   @media (min-width: 768px) {
     /* display: flex;
@@ -92,12 +110,13 @@ const WorkGrid = styled.ul`
     margin-bottom: 0.694vw;
     grid-column-gap: 2vw;
     grid-template-columns: repeat(12, 1fr);
+    padding: var(--spacer-half);
 
     & > li {
       vertical-align: middle;
       justify-content: center;
 
-      height: 29.472vw;
+      height: 32.472vw;
       grid-column: 3/11;
 
       &:not(:last-child) {
@@ -147,23 +166,6 @@ const WorkGrid = styled.ul`
         order: 1;
         height: 22.528vw;
         grid-column: 3/7;
-      } */
-
-      /* 
-      &:nth-child(1) {
-        width: 100%;
-      }
-
-      &:nth-child(2n) {
-        width: 55%;
-        float: right;
-        margin-left: 45%;
-      }
-
-      &:nth-child(2n - 1) {
-        width: 60%;
-        float: left;
-        margin-right: 30%;
       } */
     }
   }
