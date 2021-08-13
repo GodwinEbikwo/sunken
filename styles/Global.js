@@ -25,7 +25,7 @@ export const GlobalStyles = createGlobalStyle`
   --accent-2: hsl(252, 83%, 87%);
   --accent-3: #001d3d;
 
-  --font: Arial, 'CabinetGrotesk', 'Helvetica Neue',  sans-serif;
+  --font: 'CabinetGrotesk', 'Helvetica Neue',  sans-serif;
 
   --font-xsm: 300;
   --font-sm: 400;
