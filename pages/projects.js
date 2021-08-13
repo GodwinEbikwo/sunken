@@ -10,6 +10,7 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import MoreStories from '@/post/more-stories';
 import HeroPost from '@/post/hero-post';
 import { getAllPostsForHome } from '@/lib/api';
+import { options } from '@/lib/scroll';
 
 export default function FaqPage({ allPosts }) {
   const containerRef = useRef(null);
@@ -21,7 +22,7 @@ export default function FaqPage({ allPosts }) {
       <NextSeo title="Projects" />
       <Navigation />
       <LocomotiveScrollProvider
-        options={{ smooth: true, lerp: 0.05 }}
+        options={options}
         containerRef={containerRef}
         watch={[]}>
         <section data-scroll-container ref={containerRef} id="scroll-container">

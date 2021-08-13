@@ -8,6 +8,7 @@ import { fade } from '@/helpers/transitions';
 import { LazyMotion, domAnimation, m } from 'framer-motion';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import Contact from '@/components/contact';
+import { options } from '@/lib/scroll';
 
 export default function HomePage() {
   const containerRef = useRef(null);
@@ -16,7 +17,7 @@ export default function HomePage() {
       <NextSeo title="Home" />
       <Navigation />
       <LocomotiveScrollProvider
-        options={{ smooth: true, lerp: 0.05 }}
+        options={options}
         containerRef={containerRef}
         watch={[]}>
         <section data-scroll-container ref={containerRef} id="scroll-container">

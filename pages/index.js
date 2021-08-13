@@ -13,6 +13,7 @@ import { getAllPostsForHome, getImageForHome } from '@/lib/api';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import Services from '@/components/services';
 import Cta from '@/components/cta';
+import { options } from '@/lib/scroll';
 
 export default function HomePage({ allPosts, homeImage }) {
   const containerRef = useRef(null);
@@ -24,7 +25,7 @@ export default function HomePage({ allPosts, homeImage }) {
       <NextSeo title="Home" />
       <Navigation />
       <LocomotiveScrollProvider
-        options={{ smooth: true, lerp: 0.05 }}
+        options={options}
         containerRef={containerRef}
         watch={[]}>
         <section data-scroll-container ref={containerRef} id="scroll-container">

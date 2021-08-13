@@ -8,6 +8,7 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import About from '@/components/about';
 import Navigation from '@/components/header';
 import Footer from '@/components/footer';
+import { options } from '@/lib/scroll';
 
 export default function AboutPage() {
   const containerRef = useRef(null);
@@ -16,7 +17,7 @@ export default function AboutPage() {
       <NextSeo title="About" />
       <Navigation />
       <LocomotiveScrollProvider
-        options={{ smooth: true, lerp: 0.05 }}
+        options={options}
         containerRef={containerRef}
         watch={[]}>
         <section data-scroll-container ref={containerRef} id="scroll-container">

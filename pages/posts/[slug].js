@@ -17,6 +17,7 @@ import markdownToHtml from '@/lib/markdownToHtml';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import { getAllPostsWithSlug, getPostAndMorePosts } from '@/lib/api';
 import Line from '@/components/line';
+import { options } from '@/lib/scroll';
 
 export default function Post({ post, morePosts, preview }) {
   const containerRef = useRef(null);
@@ -29,7 +30,7 @@ export default function Post({ post, morePosts, preview }) {
       <NextSeo title={post.title} />
       <Navigation />
       <LocomotiveScrollProvider
-        options={{ smooth: true, lerp: 0.05 }}
+        options={options}
         containerRef={containerRef}
         watch={[]}>
         <section data-scroll-container ref={containerRef} id="scroll-container">
