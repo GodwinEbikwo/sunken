@@ -284,7 +284,7 @@ const MenuRight = styled.aside`
         letter-spacing: var(--ls-md);
         @media (min-width: 768px) {
           font-size: 5vw;
-          font-weight: var(--font-lg);
+          font-weight: var(--font-sm);
           text-transform: uppercase;
           text-align: center;
         }

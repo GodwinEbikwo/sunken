@@ -86,7 +86,7 @@ export const Header = styled.div`
   padding: var(--golden-ratio);
   z-index: 100;
   background: none;
-  mix-blend-mode: difference;
+  /* mix-blend-mode: difference; */
   margin: 0 auto;
   max-width: var(--max-width);
 

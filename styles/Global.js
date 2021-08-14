@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     src: url('/fonts/CabinetGrotesk-Variable.woff2') format('woff2');
   }
 
+
   :root{
   --golden-ratio: 1.4rem;
   --max-width: 140rem;
@@ -326,6 +327,7 @@ html,
     position: relative;
   }
 
+  
   .absolute {
     position: absolute;
   }
